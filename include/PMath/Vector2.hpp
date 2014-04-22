@@ -9,6 +9,8 @@ namespace pmath
 	{
 	public:
 		Vector2();
+		Vector2(T x, T y);
+		Vector2(const Vector2<T>& vector2);
 		~Vector2();
 
 		union{ T x, w; };
