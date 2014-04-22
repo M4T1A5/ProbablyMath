@@ -62,10 +62,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="..\..\..\source\Vector.inl" />
+    <ClInclude Include="..\..\..\include\PMath\Vector2.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\include\PMath\Vector.hpp" />
+    <None Include="..\..\..\include\PMath\inl\Vector2.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
