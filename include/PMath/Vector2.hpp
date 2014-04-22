@@ -11,12 +11,8 @@ namespace pmath
 		Vector2();
 		~Vector2();
 
-		union
-		{
-			struct {T x, y;};
-			struct {T w, h;};
-		};
-		//union{T y, h};
+		union{ T x, w; };
+		union{ T y, h; };
 	};
 
 	typedef Vector2<float>	Vec2;
