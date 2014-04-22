@@ -13,6 +13,21 @@ namespace pmath
 		Vector2(const Vector2<T>& vector2);
 		~Vector2();
 
+#pragma region Operators
+		Vector2<T>& operator=(const Vector2<T>& right);
+
+		Vector2<T>& operator+=(const Vector2<T>& right);
+		Vector2<T>& operator-=(const Vector2<T>& right);
+		Vector2<T>& operator*=(const T right);
+		Vector2<T>& operator/=(const T right);
+
+		Vector2<T> operator+(const Vector2<T>& right);
+		Vector2<T> operator-();
+		Vector2<T> operator-(const Vector2<T>& right);
+		Vector2<T> operator*(const T right);
+		Vector2<T> operator/(const T right);
+#pragma endregion
+
 		union{ T x, w; };
 		union{ T y, h; };
 	};
