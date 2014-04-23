@@ -62,10 +62,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\include\pmath\Vector.hpp" />
     <ClInclude Include="..\..\..\include\PMath\Vector2.hpp" />
+    <ClInclude Include="..\..\..\include\pmath\Vector3.hpp" />
+    <ClInclude Include="..\..\..\include\pmath\Vector4.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\include\PMath\inl\Vector2.inl" />
+    <None Include="..\..\..\include\pmath\inl\Vector3.inl" />
+    <None Include="..\..\..\include\pmath\inl\Vector4.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

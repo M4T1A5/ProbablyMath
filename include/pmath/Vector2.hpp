@@ -1,6 +1,6 @@
 #pragma once
-#ifndef VECTOR_PMATH_H
-#define VECTOR_PMATH_H
+#ifndef VECTOR2_PMATH_H
+#define VECTOR2_PMATH_H
 
 #include <iostream>
 
@@ -56,5 +56,5 @@ namespace pmath
 	typedef Vector2<unsigned int>	Vec2u;
 }
 
-#include <PMath/inl/Vector2.inl>
+#include <pmath/inl/Vector2.inl>
 #endif

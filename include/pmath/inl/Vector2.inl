@@ -49,12 +49,15 @@ namespace pmath
 	{
 		return pow(x, 2) + pow(y, 2);
 	}
+
 	template<typename T>
 	inline const T Vector2<T>::Length() const
 	{
 		return sqrt(LengthSquared());
 	}
 
+
+    // Operators
 	#pragma region Operators
 	// Assingment operators
 	template<typename T>
@@ -71,6 +74,7 @@ namespace pmath
 	{
 		return x == right.x && y == right.y;
 	}
+
 	template<typename T>
 	inline bool Vector2<T>::operator!=(const Vector2<T>& right) const
 	{
@@ -85,6 +89,7 @@ namespace pmath
 
 		return *this;
 	}
+
 	template<typename T>
 	inline Vector2<T>& Vector2<T>::operator-=(const Vector2<T>& right)
 	{
@@ -93,6 +98,7 @@ namespace pmath
 
 		return *this;
 	}
+
 	template<typename T>
 	inline Vector2<T>& Vector2<T>::operator*=(const T& right)
 	{
@@ -101,6 +107,7 @@ namespace pmath
 
 		return *this;
 	}
+
 	template<typename T>
 	inline Vector2<T>& Vector2<T>::operator/=(const T& right)
 	{
@@ -117,21 +124,25 @@ namespace pmath
 	{
 		return Vector2<T>(x + right.x, y + right.y);
 	}
+
 	template<typename T>
 	inline Vector2<T> Vector2<T>::operator-() const
 	{
 		return Vector2<T>(-x, -y);
 	}
+
 	template<typename T>
 	inline Vector2<T> Vector2<T>::operator-(const Vector2<T>& right) const
 	{
 		return Vector2<T>(x - right.x, y - right.y);
 	}	
+
 	template<typename T>
 	inline Vector2<T> Vector2<T>::operator*(const T& right) const
 	{
 		return Vector2<T>(x * right, y * right);
 	}
+
 	template<typename T>
 	inline Vector2<T> Vector2<T>::operator/(const T& right) const
 	{
@@ -147,7 +158,7 @@ namespace pmath
 	template<typename T>
 	inline std::ostream& operator<<(std::ostream& out, const Vector2<T>& right)
 	{
-		out << "X: " << right.x << " Y: " << right.y;
+		out << "(" << right.x << ", " << right.y << ")";
 
 		return out;
 	}

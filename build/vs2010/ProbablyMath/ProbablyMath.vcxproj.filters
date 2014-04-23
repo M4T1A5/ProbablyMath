@@ -22,9 +22,24 @@
     <ClInclude Include="..\..\..\include\PMath\Vector2.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\include\pmath\Vector.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pmath\Vector3.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pmath\Vector4.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\include\PMath\inl\Vector2.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="..\..\..\include\pmath\inl\Vector3.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="..\..\..\include\pmath\inl\Vector4.inl">
       <Filter>Inline Files</Filter>
     </None>
   </ItemGroup>
