@@ -1,4 +1,4 @@
-#include <PMath/Vector2.hpp>
+#include <pmath/Vector2.hpp>
 #include <cmath>
 
 namespace pmath

@@ -1,6 +1,6 @@
 #include <catch.hpp>
 
-#include <PMath/Vector2.hpp>
+#include <pmath/Vector2.hpp>
 
 using namespace pmath;
 
@@ -42,7 +42,7 @@ TEST_CASE("Vector2 tests", "[vector]")
 		REQUIRE(vec2 == Vec2());
 	}
 
-	SECTION("Dot and Length")
+	SECTION("Dot and length")
 	{
 		Vec2 vec1(2, 2);
 		Vec2 vec2(5, 5);
