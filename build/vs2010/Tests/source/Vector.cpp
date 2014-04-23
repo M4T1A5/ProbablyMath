@@ -55,6 +55,7 @@ TEST_CASE("Vector2 tests", "[vector]")
 	}
 }
 
+
 TEST_CASE("Vector3 tests", "[vector]")
 {
 	SECTION("Boolean tests")
@@ -115,20 +116,60 @@ TEST_CASE("Vector3 tests", "[vector]")
 	}
 }
 
+
 TEST_CASE("Vector4 tests", "[vector]")
 {
-	SECTION("Boolean tests")
-	{
+    SECTION("Boolean tests")
+    {
+        Vec4 vec1(1, 2, 3, 4);
+        Vec4 vec2(4, 3, 2, 1);
 
-	}
+        CHECK(vec1 == Vec4(1, 2, 3, 4));
+        CHECK(vec1 != vec2);
+        CHECK_FALSE(vec1 == vec2);
+        CHECK_FALSE(vec2 != vec2);
+    }
 
-	SECTION("Basic operators")
-	{
+    SECTION("Basic operators")
+    {
+        Vec4 vec1(5, 10, 15, 20);
+        Vec4 vec2(2, 4, 8, 16);
 
-	}
+        CHECK(-vec1 == Vec4(-5, -10, -15, -20));
+        CHECK((vec1 - vec2) == Vec4(3, 6, 7, 4));
+        CHECK_FALSE((vec1 - vec2) == Vec4(4, 7, 6, 3));
+        CHECK((vec1 + vec2) == Vec4(7, 14, 23, 36));
+        CHECK_FALSE((vec1 + vec2) == Vec4(36, 23, 14, 7));
+        CHECK((vec1 * 2) == Vec4(10, 20, 30, 40));
+        CHECK((vec2 / 2) == Vec4(1, 2, 4, 8));
 
-	SECTION("Dot and length")
-	{
 
-	}
+        vec1 *= 2;
+        CHECK(vec1 == Vec4(10, 20, 30, 40));
+        vec2 /= 2;
+        CHECK(vec2 == Vec4(1, 2, 4, 8));
+
+
+        vec1 = Vec4(5, 10, 15, 20);
+        vec2 = Vec4(2, 4, 8, 16);
+        REQUIRE(vec1 == Vec4(5, 10, 15, 20));
+        REQUIRE(vec2 == Vec4(2, 4, 8, 16));
+
+        vec1 += Vec4(5, 5, 5, 5);
+        vec2 -= Vec4(2, 4, 8, 16);
+        CHECK(vec1 == Vec4(10, 15, 20, 25));
+        CHECK(vec2 == Vec4());
+    }
+
+    SECTION("Dot and length")
+    {
+        Vec4 vec1(1, 2, 3, 4);
+        Vec4 vec2(7, 8, 9, 10);
+
+        CHECK(vec1.Dot(vec2) == 90);
+        CHECK(Vec4::Dot(vec2, vec1) == 90);
+
+        CHECK(vec2.Length() == sqrt(294.0f));
+        CHECK(vec1.LengthSquared() == 30);
+    }
 }

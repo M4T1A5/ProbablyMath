@@ -25,7 +25,7 @@ namespace pmath
 		const T LengthSquared() const;
 		const T Length() const;
 
-#pragma region Operators
+        #pragma region Operators
 		Vector3<T>& operator=(const Vector3<T>& right);
 
 		bool operator ==(const Vector3<T>& right) const;
@@ -41,7 +41,7 @@ namespace pmath
 		Vector3<T> operator -(const Vector3<T>& right) const;
 		Vector3<T> operator *(const T& right) const;
 		Vector3<T> operator /(const T& right) const;
-#pragma endregion
+        #pragma endregion
 
 		union{ T x, r; };
 		union{ T y, g; };
