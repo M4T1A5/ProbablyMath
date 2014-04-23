@@ -7,11 +7,15 @@
     </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+      <Extensions>h;hpp;hxx;hm;inc;xsd</Extensions>
     </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Inline Files">
+      <UniqueIdentifier>{59551aa0-bcc2-4314-a98d-a382bb561022}</UniqueIdentifier>
+      <Extensions>inl</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -21,7 +25,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\include\PMath\inl\Vector2.inl">
-      <Filter>Header Files</Filter>
+      <Filter>Inline Files</Filter>
     </None>
   </ItemGroup>
 </Project>
