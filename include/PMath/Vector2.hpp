@@ -12,6 +12,7 @@ namespace pmath
 	public:
 		Vector2();
 		Vector2(T x, T y);
+		Vector2(T value);
 		Vector2(const Vector2<T>& vector2);
 		~Vector2();
 
@@ -21,7 +22,7 @@ namespace pmath
 		const T LengthSquared() const;
 		const T Length() const;
 
-#pragma region Operators
+		#pragma region Operators
 		Vector2<T>& operator=(const Vector2<T>& right);
 
 		bool operator ==(const Vector2<T>& right) const;
@@ -37,7 +38,7 @@ namespace pmath
 		Vector2<T> operator -(const Vector2<T>& right) const;
 		Vector2<T> operator *(const T& right) const;
 		Vector2<T> operator /(const T& right) const;
-#pragma endregion
+		#pragma endregion
 
 		union{ T x, w; };
 		union{ T y, h; };

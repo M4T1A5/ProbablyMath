@@ -15,6 +15,11 @@ namespace pmath
 		  y(y)
 	{ }
 
+	template<typename T>
+	inline Vector2<T>::Vector2(T value)
+		: x(value),
+		  y(value)
+	{ }
 
 	template<typename T>
 	inline Vector2<T>::Vector2(const Vector2<T>& vector2)
@@ -26,6 +31,8 @@ namespace pmath
 	inline Vector2<T>::~Vector2()
 	{ }
 
+
+	// Public
 	template<typename T>
 	inline const T Vector2<T>::Dot(const Vector2<T>& other) const
 	{
@@ -48,7 +55,7 @@ namespace pmath
 		return sqrt(LengthSquared());
 	}
 
-#pragma region Operators
+	#pragma region Operators
 	// Assingment operators
 	template<typename T>
 	inline Vector2<T>& Vector2<T>::operator=(const Vector2<T>& right)
@@ -144,5 +151,5 @@ namespace pmath
 
 		return out;
 	}
-#pragma endregion
+	#pragma endregion
 }
