@@ -1,4 +1,5 @@
 #include <PMath/Vector2.hpp>
+#include <cmath>
 
 namespace pmath
 {
@@ -24,6 +25,28 @@ namespace pmath
 	template<typename T>
 	inline Vector2<T>::~Vector2()
 	{ }
+
+	template<typename T>
+	inline const T Vector2<T>::Dot(const Vector2<T>& other) const
+	{
+		return x * other.x + y * other.y;
+	}
+	template<typename T>
+	inline const T Vector2<T>::Dot(const Vector2<T>& vec1, const Vector2<T>& vec2)
+	{
+		return vec1.Dot(vec2);
+	}
+
+	template<typename T>
+	inline const T Vector2<T>::LengthSquared() const
+	{
+		return pow(x, 2) + pow(y, 2);
+	}
+	template<typename T>
+	inline const T Vector2<T>::Length() const
+	{
+		return sqrt(LengthSquared());
+	}
 
 #pragma region Operators
 	// Assingment operators

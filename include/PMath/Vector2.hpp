@@ -15,6 +15,12 @@ namespace pmath
 		Vector2(const Vector2<T>& vector2);
 		~Vector2();
 
+		const T Dot(const Vector2<T>& other) const;
+		static const T Dot(const Vector2<T>& vec1, const Vector2<T>& vec2);
+
+		const T LengthSquared() const;
+		const T Length() const;
+
 #pragma region Operators
 		Vector2<T>& operator=(const Vector2<T>& right);
 
