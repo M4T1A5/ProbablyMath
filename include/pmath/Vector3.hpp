@@ -19,8 +19,8 @@ namespace pmath
 		const T Dot(const Vector3<T>& other) const;
 		static const T Dot(const Vector3<T>& vec1, const Vector3<T>& vec2);
 
-        const T Cross(const Vector3<T>& other) const;
-        static const T Cross(const Vector3<T>& vec1, const Vector3<T>& vec2);
+        const Vector3<T> Cross(const Vector3<T>& other) const;
+        static const Vector3<T> Cross(const Vector3<T>& vec1, const Vector3<T>& vec2);
 
 		const T LengthSquared() const;
 		const T Length() const;
