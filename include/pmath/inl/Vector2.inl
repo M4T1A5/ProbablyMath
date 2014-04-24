@@ -1,4 +1,5 @@
 #include <pmath/Vector2.hpp>
+#include <cassert>
 #include <cmath>
 
 namespace pmath
@@ -210,6 +211,21 @@ namespace pmath
         out << "(" << right.x << ", " << right.y << ")";
 
         return out;
+    }
+
+    // Member access operators
+    template<typename T>
+    inline T& Vector2<T>::operator [](const unsigned int index)
+    {
+        assert(index < COMPONENTS);
+        return (&x)[index];
+    }
+
+    template<typename T>
+    inline const T& Vector2<T>::operator [](const unsigned int index) const
+    {
+        assert(index < COMPONENTS);
+        return (&x)[index];
     }
     #pragma endregion
 }

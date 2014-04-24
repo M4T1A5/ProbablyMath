@@ -47,6 +47,10 @@ TEST_CASE("Vector2 tests", "[vector]")
         CHECK(Vec2(1, 2) >= Vec2(1, 2));
         CHECK(Vec2(1, 2) <= Vec2(2, 2));
         CHECK(Vec2(1, 2) < Vec2(-2, -2));
+
+        vec1 = Vec2(1, 2);
+        CHECK(vec1[0] == 1);
+        CHECK(vec1[1] == 2);
 	}
 
 	SECTION("Dot, cross and length")
@@ -123,6 +127,10 @@ TEST_CASE("Vector3 tests", "[vector]")
         CHECK(Vec3(1, 2, 3) >= Vec3(1, 2, 3));
         CHECK(Vec3(1, 2, 3) <= Vec3(2, 2, 3));
         CHECK(Vec3(1, 2, 3) < Vec3(-2, -2, -4));
+
+        vec1 = Vec3(1, 2, 3);
+        CHECK(vec1[1] == 2);
+        CHECK(vec1[2] == 3);
 	}
 
 	SECTION("Dot, cross and length")
@@ -198,6 +206,10 @@ TEST_CASE("Vector4 tests", "[vector]")
         CHECK(Vec4(1, 2, 3, 4) >= Vec4(1, 2, 3, 4));
         CHECK(Vec4(1, 2, 3, 4) <= Vec4(2, 2, 3, 4));
         CHECK(Vec4(1, 2, 3, 4) < Vec4(-2, -2, -4, -4));
+
+        vec1 = Vec4(1, 2, 3, 4);
+        CHECK(vec1[1] == 2);
+        CHECK(vec1[3] == 4);
     }
 
     SECTION("Dot and length")

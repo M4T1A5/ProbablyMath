@@ -54,10 +54,16 @@ namespace pmath
         Vector2<T> operator -(const Vector2<T>& right) const;
         Vector2<T> operator *(const T& right) const;
         Vector2<T> operator /(const T& right) const;
+
+        // Member access
+        T& operator [](const unsigned int index);
+        const T& operator [](const unsigned int index) const;
         #pragma endregion
 
         union{ T x, w; };
         union{ T y, h; };
+
+        static const unsigned int COMPONENTS = 2;
     };
 
     template<typename T>

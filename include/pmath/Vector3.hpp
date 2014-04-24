@@ -52,11 +52,17 @@ namespace pmath
         Vector3<T> operator -(const Vector3<T>& right) const;
         Vector3<T> operator *(const T& right) const;
         Vector3<T> operator /(const T& right) const;
+
+        // Member access
+        T& operator [](const unsigned int index);
+        const T& operator [](const unsigned int index) const;
         #pragma endregion
 
         union{ T x, r; };
         union{ T y, g; };
         union{ T z, b; };
+
+        static const unsigned int COMPONENTS = 3;
     };
 
     template<typename T>

@@ -49,12 +49,18 @@ namespace pmath
         Vector4<T> operator -(const Vector4<T>& right) const;
         Vector4<T> operator *(const T& right) const;
         Vector4<T> operator /(const T& right) const;
+
+        // Member access
+        T& operator [](const unsigned int index);
+        const T& operator [](const unsigned int index) const;
         #pragma endregion
 
         union{ T x, r; };
         union{ T y, g; };
         union{ T z, b; };
         union{ T w, a; };
+
+        static const unsigned int COMPONENTS = 4;
     };
 
     template<typename T>
