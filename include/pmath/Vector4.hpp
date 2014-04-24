@@ -28,15 +28,22 @@ namespace pmath
         const Vector4<T> UnitVector() const;
 
         #pragma region Operators
+        // Comparison
         bool operator ==(const Vector4<T>& right) const;
         bool operator !=(const Vector4<T>& right) const;
+        bool operator >(const Vector4<T>& right) const;
+        bool operator <(const Vector4<T>& right) const;
+        bool operator >=(const Vector4<T>& right) const;
+        bool operator <=(const Vector4<T>& right) const;
 
+        // Assingment
         Vector4<T>& operator=(const Vector4<T>& right);
         Vector4<T>& operator +=(const Vector4<T>& right);
         Vector4<T>& operator -=(const Vector4<T>& right);
         Vector4<T>& operator *=(const T& right);
         Vector4<T>& operator /=(const T& right);
 
+        // Arithmetic
         Vector4<T> operator +(const Vector4<T>& right) const;
         Vector4<T> operator -() const;
         Vector4<T> operator -(const Vector4<T>& right) const;

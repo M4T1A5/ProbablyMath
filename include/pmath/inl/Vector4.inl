@@ -80,9 +80,47 @@ namespace pmath
 
     // Operators
     #pragma region Operators
+    // Compariston operators
+    template<typename T>
+    inline bool Vector4<T>::operator ==(const Vector4<T>& right) const
+    {
+        return x == right.x && y == right.y && z == right.z && w == right.w;
+    }
+
+    template<typename T>
+    inline bool Vector4<T>::operator !=(const Vector4<T>& right) const
+    {
+        return x != right.x || y != right.y || z != right.z || w != right.w;
+    }
+
+    template<typename T>
+    inline bool Vector4<T>::operator >(const Vector4<T>& right) const
+    {
+        return LengthSquared() > right.LengthSquared();
+    }
+
+    template<typename T>
+    inline bool Vector4<T>::operator <(const Vector4<T>& right) const
+    {
+        return LengthSquared() < right.LengthSquared();
+    }
+
+    template<typename T>
+    inline bool Vector4<T>::operator >=(const Vector4<T>& right) const
+    {
+        return LengthSquared() >= right.LengthSquared();
+    }
+
+    template<typename T>
+    inline bool Vector4<T>::operator <=(const Vector4<T>& right) const
+    {
+        return LengthSquared() <= right.LengthSquared();
+    }
+
+
     // Assingment operators
     template<typename T>
-    inline Vector4<T>& Vector4<T>::operator=(const Vector4<T>& right)
+    inline Vector4<T>& Vector4<T>::operator =(const Vector4<T>& right)
     {
         x = right.x;
         y = right.y;
@@ -93,19 +131,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline bool Vector4<T>::operator==(const Vector4<T>& right) const
-    {
-        return x == right.x && y == right.y && z == right.z && w == right.w;
-    }
-
-    template<typename T>
-    inline bool Vector4<T>::operator!=(const Vector4<T>& right) const
-    {
-        return x != right.x || y != right.y || z != right.z || w != right.w;
-    }
-
-    template<typename T>
-    inline Vector4<T>& Vector4<T>::operator+=(const Vector4<T>& right)
+    inline Vector4<T>& Vector4<T>::operator +=(const Vector4<T>& right)
     {
         x += right.x;
         y += right.y;

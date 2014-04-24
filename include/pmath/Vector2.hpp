@@ -33,15 +33,22 @@ namespace pmath
         const Vector2<T> UnitVector() const;
 
         #pragma region Operators
+        // Comparison
         bool operator ==(const Vector2<T>& right) const;
         bool operator !=(const Vector2<T>& right) const;
+        bool operator >(const Vector2<T>& right) const;
+        bool operator <(const Vector2<T>& right) const;
+        bool operator >=(const Vector2<T>& right) const;
+        bool operator <=(const Vector2<T>& right) const;
 
+        // Assingment
         Vector2<T>& operator =(const Vector2<T>& right);
         Vector2<T>& operator +=(const Vector2<T>& right);
         Vector2<T>& operator -=(const Vector2<T>& right);
         Vector2<T>& operator *=(const T& right);
         Vector2<T>& operator /=(const T& right);
 
+        // Arithmetic
         Vector2<T> operator +(const Vector2<T>& right) const;
         Vector2<T> operator -() const;
         Vector2<T> operator -(const Vector2<T>& right) const;

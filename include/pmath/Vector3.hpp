@@ -31,15 +31,22 @@ namespace pmath
         const Vector3<T> UnitVector() const;
 
         #pragma region Operators
+        // Comparison
         bool operator ==(const Vector3<T>& right) const;
         bool operator !=(const Vector3<T>& right) const;
+        bool operator >(const Vector3<T>& right) const;
+        bool operator <(const Vector3<T>& right) const;
+        bool operator >=(const Vector3<T>& right) const;
+        bool operator <=(const Vector3<T>& right) const;
 
+        // Assingment
         Vector3<T>& operator =(const Vector3<T>& right);
         Vector3<T>& operator +=(const Vector3<T>& right);
         Vector3<T>& operator -=(const Vector3<T>& right);
         Vector3<T>& operator *=(const T& right);
         Vector3<T>& operator /=(const T& right);
 
+        // Arithmetic
         Vector3<T> operator +(const Vector3<T>& right) const;
         Vector3<T> operator -() const;
         Vector3<T> operator -(const Vector3<T>& right) const;

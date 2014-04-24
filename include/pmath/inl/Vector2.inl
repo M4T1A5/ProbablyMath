@@ -83,9 +83,46 @@ namespace pmath
 
     // Operators
     #pragma region Operators
+    // Comparison operators
+    template<typename T>
+    inline bool Vector2<T>::operator ==(const Vector2<T>& right) const
+    {
+        return x == right.x && y == right.y;
+    }
+
+    template<typename T>
+    inline bool Vector2<T>::operator !=(const Vector2<T>& right) const
+    {
+        return x != right.x || y != right.y;
+    }
+
+    template<typename T>
+    inline bool Vector2<T>::operator >(const Vector2<T>& right) const
+    {
+        return LengthSquared() > right.LengthSquared();
+    }
+
+    template<typename T>
+    inline bool Vector2<T>::operator <(const Vector2<T>& right) const
+    {
+        return LengthSquared() < right.LengthSquared();
+    }
+
+    template<typename T>
+    inline bool Vector2<T>::operator >=(const Vector2<T>& right) const
+    {
+        return LengthSquared() >= right.LengthSquared();
+    }
+
+    template<typename T>
+    inline bool Vector2<T>::operator <=(const Vector2<T>& right) const
+    {
+        return LengthSquared() <= right.LengthSquared();
+    }
+
     // Assingment operators
     template<typename T>
-    inline Vector2<T>& Vector2<T>::operator=(const Vector2<T>& right)
+    inline Vector2<T>& Vector2<T>::operator =(const Vector2<T>& right)
     {
         x = right.x;
         y = right.y;
@@ -94,19 +131,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline bool Vector2<T>::operator==(const Vector2<T>& right) const
-    {
-        return x == right.x && y == right.y;
-    }
-
-    template<typename T>
-    inline bool Vector2<T>::operator!=(const Vector2<T>& right) const
-    {
-        return x != right.x || y != right.y;
-    }
-
-    template<typename T>
-    inline Vector2<T>& Vector2<T>::operator+=(const Vector2<T>& right)
+    inline Vector2<T>& Vector2<T>::operator +=(const Vector2<T>& right)
     {
         x += right.x;
         y += right.y;
