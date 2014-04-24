@@ -140,7 +140,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Vector2<T>& Vector2<T>::operator-=(const Vector2<T>& right)
+    inline Vector2<T>& Vector2<T>::operator -=(const Vector2<T>& right)
     {
         x -= right.x;
         y -= right.y;
@@ -149,7 +149,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Vector2<T>& Vector2<T>::operator*=(const T& right)
+    inline Vector2<T>& Vector2<T>::operator *=(const T& right)
     {
         x *= right;
         y *= right;
@@ -158,7 +158,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Vector2<T>& Vector2<T>::operator/=(const T& right)
+    inline Vector2<T>& Vector2<T>::operator /=(const T& right)
     {
         x /= right;
         y /= right;
@@ -169,43 +169,43 @@ namespace pmath
 
     // Arithmetic operators
     template<typename T>
-    inline Vector2<T> Vector2<T>::operator+(const Vector2<T>& right) const
+    inline Vector2<T> Vector2<T>::operator +(const Vector2<T>& right) const
     {
         return Vector2<T>(x + right.x, y + right.y);
     }
 
     template<typename T>
-    inline Vector2<T> Vector2<T>::operator-() const
+    inline Vector2<T> Vector2<T>::operator -() const
     {
         return Vector2<T>(-x, -y);
     }
 
     template<typename T>
-    inline Vector2<T> Vector2<T>::operator-(const Vector2<T>& right) const
+    inline Vector2<T> Vector2<T>::operator -(const Vector2<T>& right) const
     {
         return Vector2<T>(x - right.x, y - right.y);
     }   
 
     template<typename T>
-    inline Vector2<T> Vector2<T>::operator*(const T& right) const
+    inline Vector2<T> Vector2<T>::operator *(const T& right) const
     {
         return Vector2<T>(x * right, y * right);
     }
 
     template<typename T>
-    inline Vector2<T> Vector2<T>::operator/(const T& right) const
+    inline Vector2<T> Vector2<T>::operator /(const T& right) const
     {
         return Vector2<T>(x / right, y / right);
     }
 
     template<typename T>
-    inline Vector2<T> operator*(const T& left, const Vector2<T>& right)
+    inline Vector2<T> operator *(const T& left, const Vector2<T>& right)
     {
         return right * left;
     }
     
     template<typename T>
-    inline std::ostream& operator<<(std::ostream& out, const Vector2<T>& right)
+    inline std::ostream& operator <<(std::ostream& out, const Vector2<T>& right)
     {
         out << "(" << right.x << ", " << right.y << ")";
 
