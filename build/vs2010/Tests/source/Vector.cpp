@@ -44,7 +44,7 @@ TEST_CASE("Vector2 tests", "[vector]")
 		CHECK(vec2 == Vec2());
 	}
 
-	SECTION("Dot and length")
+	SECTION("Dot, cross and length")
 	{
 		Vec2 vec1(2, 2);
 		Vec2 vec2(5, 5);
@@ -54,6 +54,10 @@ TEST_CASE("Vector2 tests", "[vector]")
 
 		CHECK(vec1.Length() == sqrt(8.0f));
 		CHECK(vec2.LengthSquared() == 50);
+
+        Vec2 a(1,2), b(9,8);
+        CHECK(a.Cross(b) == -10);
+        CHECK(Vec2::Cross(b, a) == 10);
 	}
 }
 

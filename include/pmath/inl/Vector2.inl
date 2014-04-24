@@ -45,6 +45,18 @@ namespace pmath
     }
 
     template<typename T>
+    inline const T Vector2<T>::Cross(const Vector2<T>& other) const
+    {
+        return (x * other.y) - (y * other.x);
+    }
+
+    template<typename T>
+    inline const T Vector2<T>::Cross(const Vector2<T>& vec1, const Vector2<T>& vec2)
+    {
+        return vec1.Cross(vec2);
+    }
+
+    template<typename T>
     inline const T Vector2<T>::LengthSquared() const
     {
         return pow(x, 2) + pow(y, 2);

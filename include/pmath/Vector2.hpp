@@ -19,6 +19,11 @@ namespace pmath
         const T Dot(const Vector2<T>& other) const;
         static const T Dot(const Vector2<T>& vec1, const Vector2<T>& vec2);
 
+        // Convenience function for returning the Z value of
+        // the cross product of two (x,y,0) vectors
+        const T Cross(const Vector2<T>& other) const;
+        static const T Cross(const Vector2<T>& vec1, const Vector2<T>& vec2);
+
         const T LengthSquared() const;
         const T Length() const;
 
