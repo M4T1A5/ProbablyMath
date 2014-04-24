@@ -59,6 +59,13 @@ TEST_CASE("Vector2 tests", "[vector]")
         CHECK(a.Cross(b) == -10);
         CHECK(Vec2::Cross(b, a) == 10);
 	}
+
+    SECTION("Normals")
+    {
+        Vec2 vec(5, 9);
+        CHECK(vec.UnitVector() == Vec2(5 / sqrt(106.f), 9 / sqrt(106.f)));
+        CHECK(vec.Normalize() == Vec2(5 / sqrt(106.f), 9 / sqrt(106.f)));
+    }
 }
 
 
@@ -122,6 +129,13 @@ TEST_CASE("Vector3 tests", "[vector]")
         CHECK(vec1.Cross(vec2) == Vec3(-6, 12, -6));
         CHECK(Vec3::Cross(vec2, vec1) == Vec3(6, -12, 6));
 	}
+
+    SECTION("Normals")
+    {
+        Vec3 vec(5, 9, 7);
+        CHECK(vec.UnitVector() == Vec3(sqrt(5.f / 31.f), 9 / sqrt(155.f), 7 / sqrt(155.f)));
+        CHECK(vec.Normalize() == Vec3(sqrt(5.f / 31.f), 9 / sqrt(155.f), 7 / sqrt(155.f)));
+    }
 }
 
 
@@ -181,5 +195,15 @@ TEST_CASE("Vector4 tests", "[vector]")
 
         CHECK(vec2.Length() == sqrt(294.0f));
         CHECK(vec1.LengthSquared() == 30);
+    }
+
+    SECTION("Normals")
+    {
+        Vec4 vec(5, 9, 3, 1);
+        Vec4 result(5 / (2 * sqrt(29.f)), 9 / (2 * sqrt(29.f)),
+            3 / (2 * sqrt(29.f)), 1 / (2 * sqrt(29.f)));
+
+        CHECK(vec.UnitVector() == result);
+        CHECK(vec.Normalize() == result);
     }
 }

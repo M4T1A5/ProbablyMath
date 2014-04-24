@@ -73,6 +73,18 @@ namespace pmath
         return sqrt(LengthSquared());
     }
 
+    template<typename T>
+    inline const Vector3<T> Vector3<T>::Normalize()
+    {
+        return *this = UnitVector();
+    }
+
+    template<typename T>
+    inline const Vector3<T> Vector3<T>::UnitVector() const
+    {
+        return *this / Length();
+    }
+
 
     // Operators
     #pragma region Operators

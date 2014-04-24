@@ -22,12 +22,16 @@ namespace pmath
         const T LengthSquared() const;
         const T Length() const;
 
-        #pragma region Operators
-        Vector4<T>& operator=(const Vector4<T>& right);
+        // Normalizes the vector and returns the normalized vector
+        const Vector4<T> Normalize();
+        // Only returns the normalized vector. Doesn't modify the original
+        const Vector4<T> UnitVector() const;
 
+        #pragma region Operators
         bool operator ==(const Vector4<T>& right) const;
         bool operator !=(const Vector4<T>& right) const;
 
+        Vector4<T>& operator=(const Vector4<T>& right);
         Vector4<T>& operator +=(const Vector4<T>& right);
         Vector4<T>& operator -=(const Vector4<T>& right);
         Vector4<T>& operator *=(const T& right);
