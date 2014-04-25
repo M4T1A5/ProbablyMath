@@ -16,19 +16,19 @@ namespace pmath
         Vector3(const Vector3<T>& vector3);
         ~Vector3();
 
-        T Dot(const Vector3<T>& other) const;
-        static T Dot(const Vector3<T>& vec1, const Vector3<T>& vec2);
+        T dot(const Vector3<T>& other) const;
+        static T dot(const Vector3<T>& vec1, const Vector3<T>& vec2);
 
-        Vector3<T> Cross(const Vector3<T>& other) const;
-        static Vector3<T> Cross(const Vector3<T>& vec1, const Vector3<T>& vec2);
+        Vector3<T> cross(const Vector3<T>& other) const;
+        static Vector3<T> cross(const Vector3<T>& vec1, const Vector3<T>& vec2);
 
-        double LengthSquared() const;
-        double Length() const;
+        double lengthSquared() const;
+        double length() const;
 
         // Normalizes the vector and returns the normalized vector
-        Vector3<T> Normalize();
+        Vector3<T> normalize();
         // Only returns the normalized vector. Doesn't modify the original
-        Vector3<T> UnitVector() const;
+        Vector3<T> unitVector() const;
 
         #pragma region Operators
         // Comparison

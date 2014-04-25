@@ -39,31 +39,31 @@ namespace pmath
 
     // Public
     template<typename T>
-    inline T Vector3<T>::Dot(const Vector3<T>& other) const
+    inline T Vector3<T>::dot(const Vector3<T>& other) const
     {
         return x * other.x + y * other.y + z * other.z;
     }
 
     template<typename T>
-    inline T Vector3<T>::Dot(const Vector3<T>& vec1, const Vector3<T>& vec2)
+    inline T Vector3<T>::dot(const Vector3<T>& vec1, const Vector3<T>& vec2)
     {
-        return vec1.Dot(vec2);
+        return vec1.dot(vec2);
     }
 
     template<typename T>
-    inline Vector3<T> Vector3<T>::Cross(const Vector3<T>& other) const
+    inline Vector3<T> Vector3<T>::cross(const Vector3<T>& other) const
     {
         return Vector3<T>(y * other.z - z * other.y, z * other.x - x * other.z, x * other.y - y * other.x);
     }
 
     template<typename T>
-    inline Vector3<T> Vector3<T>::Cross(const Vector3<T>& vec1, const Vector3<T>& vec2)
+    inline Vector3<T> Vector3<T>::cross(const Vector3<T>& vec1, const Vector3<T>& vec2)
     {
-        return vec1.Cross(vec2);
+        return vec1.cross(vec2);
     }
 
     template<typename T>
-    inline double Vector3<T>::LengthSquared() const
+    inline double Vector3<T>::lengthSquared() const
     {
 		const double xd = static_cast<double>(x);
 		const double yd = static_cast<double>(y);
@@ -72,21 +72,21 @@ namespace pmath
     }
 
     template<typename T>
-    inline double Vector3<T>::Length() const
+    inline double Vector3<T>::length() const
     {
-        return sqrt(LengthSquared());
+        return sqrt(lengthSquared());
     }
 
     template<typename T>
-    inline Vector3<T> Vector3<T>::Normalize()
+    inline Vector3<T> Vector3<T>::normalize()
     {
-        return *this = UnitVector();
+        return *this = unitVector();
     }
 
     template<typename T>
-    inline Vector3<T> Vector3<T>::UnitVector() const
+    inline Vector3<T> Vector3<T>::unitVector() const
     {
-        return *this / Length();
+        return *this / length();
     }
 
 
@@ -108,25 +108,25 @@ namespace pmath
     template<typename T>
     inline bool Vector3<T>::operator >(const Vector3<T>& right) const
     {
-        return LengthSquared() > right.LengthSquared();
+        return lengthSquared() > right.lengthSquared();
     }
 
     template<typename T>
     inline bool Vector3<T>::operator <(const Vector3<T>& right) const
     {
-        return LengthSquared() < right.LengthSquared();
+        return lengthSquared() < right.lengthSquared();
     }
 
     template<typename T>
     inline bool Vector3<T>::operator >=(const Vector3<T>& right) const
     {
-        return LengthSquared() >= right.LengthSquared();
+        return lengthSquared() >= right.lengthSquared();
     }
 
     template<typename T>
     inline bool Vector3<T>::operator <=(const Vector3<T>& right) const
     {
-        return LengthSquared() <= right.LengthSquared();
+        return lengthSquared() <= right.lengthSquared();
     }
 
 

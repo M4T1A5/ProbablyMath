@@ -43,19 +43,19 @@ namespace pmath
 
     // Public
     template<typename T>
-    inline T Vector4<T>::Dot(const Vector4<T>& other) const
+    inline T Vector4<T>::dot(const Vector4<T>& other) const
     {
         return x * other.x + y * other.y + z * other.z + w * other.w;
     }
 
     template<typename T>
-    inline T Vector4<T>::Dot(const Vector4<T>& vec1, const Vector4<T>& vec2)
+    inline T Vector4<T>::dot(const Vector4<T>& vec1, const Vector4<T>& vec2)
     {
-        return vec1.Dot(vec2);
+        return vec1.dot(vec2);
     }
 
     template<typename T>
-    inline double Vector4<T>::LengthSquared() const
+    inline double Vector4<T>::lengthSquared() const
     {
 		const double xd = static_cast<double>(x);
 		const double yd = static_cast<double>(y);
@@ -65,21 +65,21 @@ namespace pmath
     }
 
     template<typename T>
-    inline double Vector4<T>::Length() const
+    inline double Vector4<T>::length() const
     {
-        return sqrt(LengthSquared());
+        return sqrt(lengthSquared());
     }
 
     template<typename T>
-    inline Vector4<T> Vector4<T>::Normalize()
+    inline Vector4<T> Vector4<T>::normalize()
     {
-        return *this = UnitVector();
+        return *this = unitVector();
     }
 
     template<typename T>
-    inline Vector4<T> Vector4<T>::UnitVector() const
+    inline Vector4<T> Vector4<T>::unitVector() const
     {
-        return *this / Length();
+        return *this / length();
     }
 
 
@@ -101,25 +101,25 @@ namespace pmath
     template<typename T>
     inline bool Vector4<T>::operator >(const Vector4<T>& right) const
     {
-        return LengthSquared() > right.LengthSquared();
+        return lengthSquared() > right.lengthSquared();
     }
 
     template<typename T>
     inline bool Vector4<T>::operator <(const Vector4<T>& right) const
     {
-        return LengthSquared() < right.LengthSquared();
+        return lengthSquared() < right.lengthSquared();
     }
 
     template<typename T>
     inline bool Vector4<T>::operator >=(const Vector4<T>& right) const
     {
-        return LengthSquared() >= right.LengthSquared();
+        return lengthSquared() >= right.lengthSquared();
     }
 
     template<typename T>
     inline bool Vector4<T>::operator <=(const Vector4<T>& right) const
     {
-        return LengthSquared() <= right.LengthSquared();
+        return lengthSquared() <= right.lengthSquared();
     }
 
 

@@ -16,16 +16,16 @@ namespace pmath
         Vector4(const Vector4<T>& vector4);
         ~Vector4();
 
-        T Dot(const Vector4<T>& other) const;
-        static T Dot(const Vector4<T>& vec1, const Vector4<T>& vec2);
+        T dot(const Vector4<T>& other) const;
+        static T dot(const Vector4<T>& vec1, const Vector4<T>& vec2);
 
-        double LengthSquared() const;
-        double Length() const;
+        double lengthSquared() const;
+        double length() const;
 
         // Normalizes the vector and returns the normalized vector
-        Vector4<T> Normalize();
+        Vector4<T> normalize();
         // Only returns the normalized vector. Doesn't modify the original
-        Vector4<T> UnitVector() const;
+        Vector4<T> unitVector() const;
 
         #pragma region Operators
         // Comparison
@@ -37,7 +37,7 @@ namespace pmath
         bool operator <=(const Vector4<T>& right) const;
 
         // Assingment
-        Vector4<T>& operator=(const Vector4<T>& right);
+        Vector4<T>& operator =(const Vector4<T>& right);
         Vector4<T>& operator +=(const Vector4<T>& right);
         Vector4<T>& operator -=(const Vector4<T>& right);
         Vector4<T>& operator *=(const T& right);

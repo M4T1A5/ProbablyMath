@@ -58,22 +58,22 @@ TEST_CASE("Vector2 tests", "[vector]")
 		Vec2 vec1(2, 2);
 		Vec2 vec2(5, 5);
 
-		CHECK(vec1.Dot(vec2) == 20);
-		CHECK(Vec2::Dot(vec1, vec2) == 20);
+		CHECK(vec1.dot(vec2) == 20);
+		CHECK(Vec2::dot(vec1, vec2) == 20);
 
-		CHECK(vec1.Length() == sqrt(8.0));
-		CHECK(vec2.LengthSquared() == 50);
+		CHECK(vec1.length() == sqrt(8.0));
+		CHECK(vec2.lengthSquared() == 50);
 
         Vec2 a(1,2), b(9,8);
-        CHECK(a.Cross(b) == -10);
-        CHECK(Vec2::Cross(b, a) == 10);
+        CHECK(a.cross(b) == -10);
+        CHECK(Vec2::cross(b, a) == 10);
 	}
 
     SECTION("Normals")
     {
         Vec2 vec(5, 9);
-        CHECK(vec.UnitVector() == Vec2(5 / sqrt(106.f), 9 / sqrt(106.f)));
-        CHECK(vec.Normalize() == Vec2(5 / sqrt(106.f), 9 / sqrt(106.f)));
+        CHECK(vec.unitVector() == Vec2(5 / sqrt(106.f), 9 / sqrt(106.f)));
+        CHECK(vec.normalize() == Vec2(5 / sqrt(106.f), 9 / sqrt(106.f)));
     }
 }
 
@@ -138,21 +138,21 @@ TEST_CASE("Vector3 tests", "[vector]")
         Vec3 vec1(1, 2, 3);
         Vec3 vec2(7, 8, 9);
 
-        CHECK(vec1.Dot(vec2) == 50);
-        CHECK(Vec3::Dot(vec2, vec1) == 50);
+        CHECK(vec1.dot(vec2) == 50);
+        CHECK(Vec3::dot(vec2, vec1) == 50);
 
-        CHECK(vec1.Length() == sqrt(14.0));
-        CHECK(vec2.LengthSquared() == 194);
+        CHECK(vec1.length() == sqrt(14.0));
+        CHECK(vec2.lengthSquared() == 194);
 
-        CHECK(vec1.Cross(vec2) == Vec3(-6, 12, -6));
-        CHECK(Vec3::Cross(vec2, vec1) == Vec3(6, -12, 6));
+        CHECK(vec1.cross(vec2) == Vec3(-6, 12, -6));
+        CHECK(Vec3::cross(vec2, vec1) == Vec3(6, -12, 6));
 	}
 
     SECTION("Normals")
     {
         Vec3 vec(5, 9, 7);
-        CHECK(vec.UnitVector() == Vec3(sqrt(5.f / 31.f), 9 / sqrt(155.f), 7 / sqrt(155.f)));
-        CHECK(vec.Normalize() == Vec3(sqrt(5.f / 31.f), 9 / sqrt(155.f), 7 / sqrt(155.f)));
+        CHECK(vec.unitVector() == Vec3(sqrt(5.f / 31.f), 9 / sqrt(155.f), 7 / sqrt(155.f)));
+        CHECK(vec.normalize() == Vec3(sqrt(5.f / 31.f), 9 / sqrt(155.f), 7 / sqrt(155.f)));
     }
 }
 
@@ -217,11 +217,11 @@ TEST_CASE("Vector4 tests", "[vector]")
         Vec4 vec1(1, 2, 3, 4);
         Vec4 vec2(7, 8, 9, 10);
 
-        CHECK(vec1.Dot(vec2) == 90);
-        CHECK(Vec4::Dot(vec2, vec1) == 90);
+        CHECK(vec1.dot(vec2) == 90);
+        CHECK(Vec4::dot(vec2, vec1) == 90);
 
-        CHECK(vec2.Length() == sqrt(294.0));
-        CHECK(vec1.LengthSquared() == 30);
+        CHECK(vec2.length() == sqrt(294.0));
+        CHECK(vec1.lengthSquared() == 30);
     }
 
     SECTION("Normals")
@@ -230,7 +230,7 @@ TEST_CASE("Vector4 tests", "[vector]")
         Vec4 result(5 / (2 * sqrt(29.f)), 9 / (2 * sqrt(29.f)),
             3 / (2 * sqrt(29.f)), 1 / (2 * sqrt(29.f)));
 
-        CHECK(vec.UnitVector() == result);
-        CHECK(vec.Normalize() == result);
+        CHECK(vec.unitVector() == result);
+        CHECK(vec.normalize() == result);
     }
 }

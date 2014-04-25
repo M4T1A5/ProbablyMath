@@ -35,30 +35,30 @@ namespace pmath
 
     // Public
     template<typename T>
-    inline T Vector2<T>::Dot(const Vector2<T>& other) const
+    inline T Vector2<T>::dot(const Vector2<T>& other) const
     {
         return x * other.x + y * other.y;
     }
     template<typename T>
-    inline T Vector2<T>::Dot(const Vector2<T>& vec1, const Vector2<T>& vec2)
+    inline T Vector2<T>::dot(const Vector2<T>& vec1, const Vector2<T>& vec2)
     {
-        return vec1.Dot(vec2);
+        return vec1.dot(vec2);
     }
 
     template<typename T>
-    inline T Vector2<T>::Cross(const Vector2<T>& other) const
+    inline T Vector2<T>::cross(const Vector2<T>& other) const
     {
         return (x * other.y) - (y * other.x);
     }
 
     template<typename T>
-    inline T Vector2<T>::Cross(const Vector2<T>& vec1, const Vector2<T>& vec2)
+    inline T Vector2<T>::cross(const Vector2<T>& vec1, const Vector2<T>& vec2)
     {
-        return vec1.Cross(vec2);
+        return vec1.cross(vec2);
     }
 
     template<typename T>
-    inline double Vector2<T>::LengthSquared() const
+    inline double Vector2<T>::lengthSquared() const
     {
 		const double xd = static_cast<double>(x);
 		const double yd = static_cast<double>(y);
@@ -66,21 +66,21 @@ namespace pmath
     }
 
     template<typename T>
-    inline double Vector2<T>::Length() const
+    inline double Vector2<T>::length() const
     {
-        return sqrt(LengthSquared());
+        return sqrt(lengthSquared());
     }
 
     template<typename T>
-    inline Vector2<T> Vector2<T>::Normalize()
+    inline Vector2<T> Vector2<T>::normalize()
     {
-        return *this = UnitVector();
+        return *this = unitVector();
     }
 
     template<typename T>
-    inline Vector2<T> Vector2<T>::UnitVector() const
+    inline Vector2<T> Vector2<T>::unitVector() const
     {
-        return *this / Length();
+        return *this / length();
     }
 
 
@@ -102,25 +102,25 @@ namespace pmath
     template<typename T>
     inline bool Vector2<T>::operator >(const Vector2<T>& right) const
     {
-        return LengthSquared() > right.LengthSquared();
+        return lengthSquared() > right.lengthSquared();
     }
 
     template<typename T>
     inline bool Vector2<T>::operator <(const Vector2<T>& right) const
     {
-        return LengthSquared() < right.LengthSquared();
+        return lengthSquared() < right.lengthSquared();
     }
 
     template<typename T>
     inline bool Vector2<T>::operator >=(const Vector2<T>& right) const
     {
-        return LengthSquared() >= right.LengthSquared();
+        return lengthSquared() >= right.lengthSquared();
     }
 
     template<typename T>
     inline bool Vector2<T>::operator <=(const Vector2<T>& right) const
     {
-        return LengthSquared() <= right.LengthSquared();
+        return lengthSquared() <= right.lengthSquared();
     }
 
     // Assingment operators
