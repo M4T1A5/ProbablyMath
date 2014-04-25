@@ -16,21 +16,21 @@ namespace pmath
         Vector2(const Vector2<T>& vector2);
         ~Vector2();
 
-        const T Dot(const Vector2<T>& other) const;
-        static const T Dot(const Vector2<T>& vec1, const Vector2<T>& vec2);
+        T Dot(const Vector2<T>& other) const;
+        static T Dot(const Vector2<T>& vec1, const Vector2<T>& vec2);
 
         // Convenience function for returning the Z value of
         // the cross product of two (x,y,0) vectors
-        const T Cross(const Vector2<T>& other) const;
-        static const T Cross(const Vector2<T>& vec1, const Vector2<T>& vec2);
+        T Cross(const Vector2<T>& other) const;
+        static T Cross(const Vector2<T>& vec1, const Vector2<T>& vec2);
 
-        const T LengthSquared() const;
-        const T Length() const;
+        T LengthSquared() const;
+        T Length() const;
 
         // Normalizes the vector and returns the normalized vector
-        const Vector2<T> Normalize();
+        Vector2<T> Normalize();
         // Only returns the normalized vector. Doesn't modify the original
-        const Vector2<T> UnitVector() const;
+        Vector2<T> UnitVector() const;
 
         #pragma region Operators
         // Comparison

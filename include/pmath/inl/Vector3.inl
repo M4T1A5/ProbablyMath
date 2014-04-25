@@ -39,49 +39,49 @@ namespace pmath
 
     // Public
     template<typename T>
-    inline const T Vector3<T>::Dot(const Vector3<T>& other) const
+    inline T Vector3<T>::Dot(const Vector3<T>& other) const
     {
         return x * other.x + y * other.y + z * other.z;
     }
 
     template<typename T>
-    inline const T Vector3<T>::Dot(const Vector3<T>& vec1, const Vector3<T>& vec2)
+    inline T Vector3<T>::Dot(const Vector3<T>& vec1, const Vector3<T>& vec2)
     {
         return vec1.Dot(vec2);
     }
 
     template<typename T>
-    inline const Vector3<T> Vector3<T>::Cross(const Vector3<T>& other) const
+    inline Vector3<T> Vector3<T>::Cross(const Vector3<T>& other) const
     {
         return Vector3<T>(y * other.z - z * other.y, z * other.x - x * other.z, x * other.y - y * other.x);
     }
 
     template<typename T>
-    inline const Vector3<T> Vector3<T>::Cross(const Vector3<T>& vec1, const Vector3<T>& vec2)
+    inline Vector3<T> Vector3<T>::Cross(const Vector3<T>& vec1, const Vector3<T>& vec2)
     {
         return vec1.Cross(vec2);
     }
 
     template<typename T>
-    inline const T Vector3<T>::LengthSquared() const
+    inline T Vector3<T>::LengthSquared() const
     {
         return pow(x, 2) + pow(y, 2) + pow(z, 2);
     }
 
     template<typename T>
-    inline const T Vector3<T>::Length() const
+    inline T Vector3<T>::Length() const
     {
         return sqrt(LengthSquared());
     }
 
     template<typename T>
-    inline const Vector3<T> Vector3<T>::Normalize()
+    inline Vector3<T> Vector3<T>::Normalize()
     {
         return *this = UnitVector();
     }
 
     template<typename T>
-    inline const Vector3<T> Vector3<T>::UnitVector() const
+    inline Vector3<T> Vector3<T>::UnitVector() const
     {
         return *this / Length();
     }

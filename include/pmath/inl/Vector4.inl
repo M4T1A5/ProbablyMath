@@ -43,37 +43,37 @@ namespace pmath
 
     // Public
     template<typename T>
-    inline const T Vector4<T>::Dot(const Vector4<T>& other) const
+    inline T Vector4<T>::Dot(const Vector4<T>& other) const
     {
         return x * other.x + y * other.y + z * other.z + w * other.w;
     }
 
     template<typename T>
-    inline const T Vector4<T>::Dot(const Vector4<T>& vec1, const Vector4<T>& vec2)
+    inline T Vector4<T>::Dot(const Vector4<T>& vec1, const Vector4<T>& vec2)
     {
         return vec1.Dot(vec2);
     }
 
     template<typename T>
-    inline const T Vector4<T>::LengthSquared() const
+    inline T Vector4<T>::LengthSquared() const
     {
         return pow(x, 2) + pow(y, 2) + pow(z, 2) + pow(w, 2);
     }
 
     template<typename T>
-    inline const T Vector4<T>::Length() const
+    inline T Vector4<T>::Length() const
     {
         return sqrt(LengthSquared());
     }
 
     template<typename T>
-    inline const Vector4<T> Vector4<T>::Normalize()
+    inline Vector4<T> Vector4<T>::Normalize()
     {
         return *this = UnitVector();
     }
 
     template<typename T>
-    inline const Vector4<T> Vector4<T>::UnitVector() const
+    inline Vector4<T> Vector4<T>::UnitVector() const
     {
         return *this / Length();
     }
