@@ -58,13 +58,15 @@ namespace pmath
     }
 
     template<typename T>
-    inline T Vector2<T>::LengthSquared() const
+    inline double Vector2<T>::LengthSquared() const
     {
-        return pow(x, 2) + pow(y, 2);
+		const double xd = static_cast<double>(x);
+		const double yd = static_cast<double>(y);
+        return xd*xd + yd*yd;
     }
 
     template<typename T>
-    inline T Vector2<T>::Length() const
+    inline double Vector2<T>::Length() const
     {
         return sqrt(LengthSquared());
     }

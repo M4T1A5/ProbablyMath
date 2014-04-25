@@ -24,8 +24,8 @@ namespace pmath
         T Cross(const Vector2<T>& other) const;
         static T Cross(const Vector2<T>& vec1, const Vector2<T>& vec2);
 
-        T LengthSquared() const;
-        T Length() const;
+        double LengthSquared() const;
+        double Length() const;
 
         // Normalizes the vector and returns the normalized vector
         Vector2<T> Normalize();

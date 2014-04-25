@@ -22,8 +22,8 @@ namespace pmath
         Vector3<T> Cross(const Vector3<T>& other) const;
         static Vector3<T> Cross(const Vector3<T>& vec1, const Vector3<T>& vec2);
 
-        T LengthSquared() const;
-        T Length() const;
+        double LengthSquared() const;
+        double Length() const;
 
         // Normalizes the vector and returns the normalized vector
         Vector3<T> Normalize();

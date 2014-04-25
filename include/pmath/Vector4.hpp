@@ -19,8 +19,8 @@ namespace pmath
         T Dot(const Vector4<T>& other) const;
         static T Dot(const Vector4<T>& vec1, const Vector4<T>& vec2);
 
-        T LengthSquared() const;
-        T Length() const;
+        double LengthSquared() const;
+        double Length() const;
 
         // Normalizes the vector and returns the normalized vector
         Vector4<T> Normalize();

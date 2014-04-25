@@ -61,7 +61,7 @@ TEST_CASE("Vector2 tests", "[vector]")
 		CHECK(vec1.Dot(vec2) == 20);
 		CHECK(Vec2::Dot(vec1, vec2) == 20);
 
-		CHECK(vec1.Length() == sqrt(8.0f));
+		CHECK(vec1.Length() == sqrt(8.0));
 		CHECK(vec2.LengthSquared() == 50);
 
         Vec2 a(1,2), b(9,8);
@@ -141,7 +141,7 @@ TEST_CASE("Vector3 tests", "[vector]")
         CHECK(vec1.Dot(vec2) == 50);
         CHECK(Vec3::Dot(vec2, vec1) == 50);
 
-        CHECK(vec1.Length() == sqrt(14.0f));
+        CHECK(vec1.Length() == sqrt(14.0));
         CHECK(vec2.LengthSquared() == 194);
 
         CHECK(vec1.Cross(vec2) == Vec3(-6, 12, -6));
@@ -220,7 +220,7 @@ TEST_CASE("Vector4 tests", "[vector]")
         CHECK(vec1.Dot(vec2) == 90);
         CHECK(Vec4::Dot(vec2, vec1) == 90);
 
-        CHECK(vec2.Length() == sqrt(294.0f));
+        CHECK(vec2.Length() == sqrt(294.0));
         CHECK(vec1.LengthSquared() == 30);
     }
 
