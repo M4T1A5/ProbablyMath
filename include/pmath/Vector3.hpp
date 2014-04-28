@@ -25,6 +25,8 @@ namespace pmath
         double lengthSquared() const;
         double length() const;
 
+        static double distance(const Vector4<T>& vec1, const Vector4<T>& vec2);
+
         // Normalizes the vector and returns the normalized vector
         Vector3<T> normalize();
         // Only returns the normalized vector. Doesn't modify the original
