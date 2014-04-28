@@ -74,7 +74,7 @@ namespace pmath
     template<typename T>
     inline double Vector3<T>::length() const
     {
-        return sqrt(lengthSquared());
+        return std::sqrt(lengthSquared());
     }
 
     template<typename T>
@@ -86,7 +86,7 @@ namespace pmath
     template<typename T>
     inline Vector3<T> Vector3<T>::unitVector() const
     {
-        return *this / length();
+        return *this / static_cast<T>(length());
     }
 
 

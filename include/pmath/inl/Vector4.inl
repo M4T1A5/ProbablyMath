@@ -67,7 +67,7 @@ namespace pmath
     template<typename T>
     inline double Vector4<T>::length() const
     {
-        return sqrt(lengthSquared());
+        return std::sqrt(lengthSquared());
     }
 
     template<typename T>
@@ -79,7 +79,13 @@ namespace pmath
     template<typename T>
     inline Vector4<T> Vector4<T>::unitVector() const
     {
-        return *this / length();
+        return *this / static_cast<T>(length());
+    }
+
+    template<typename T>
+    inline double Vector4<T>::distance(const Vector4<T>& vec1, const Vector4<T>& vec2)
+    {
+        return (vec2 - vec1).length();
     }
 
 
