@@ -125,46 +125,51 @@ namespace pmath
 
     // Assingment operators
     template<typename T>
-    inline Vector2<T>& Vector2<T>::operator =(const Vector2<T>& right)
+    template<typename T2>
+    inline Vector2<T>& Vector2<T>::operator =(const Vector2<T2>& right)
     {
-        x = right.x;
-        y = right.y;
+        x = static_cast<T>(right.x);
+        y = static_cast<T>(right.y);
 
         return *this;
     }
 
     template<typename T>
-    inline Vector2<T>& Vector2<T>::operator +=(const Vector2<T>& right)
+    template<typename T2>
+    inline Vector2<T>& Vector2<T>::operator +=(const Vector2<T2>& right)
     {
-        x += right.x;
-        y += right.y;
+        x += static_cast<T>(right.x);
+        y += static_cast<T>(right.y);
 
         return *this;
     }
 
     template<typename T>
-    inline Vector2<T>& Vector2<T>::operator -=(const Vector2<T>& right)
+    template<typename T2>
+    inline Vector2<T>& Vector2<T>::operator -=(const Vector2<T2>& right)
     {
-        x -= right.x;
-        y -= right.y;
+        x -= static_cast<T>(right.x);
+        y -= static_cast<T>(right.y);
 
         return *this;
     }
 
     template<typename T>
-    inline Vector2<T>& Vector2<T>::operator *=(const T& right)
+    template<typename T2>
+    inline Vector2<T>& Vector2<T>::operator *=(const T2& right)
     {
-        x *= right;
-        y *= right;
+        x *= static_cast<T>(right);
+        y *= static_cast<T>(right);
 
         return *this;
     }
 
     template<typename T>
-    inline Vector2<T>& Vector2<T>::operator /=(const T& right)
+    template<typename T2>
+    inline Vector2<T>& Vector2<T>::operator /=(const T2& right)
     {
-        x /= right;
-        y /= right;
+        x /= static_cast<T>(right);
+        y /= static_cast<T>(right);
 
         return *this;
     }
