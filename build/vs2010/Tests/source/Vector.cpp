@@ -19,8 +19,6 @@ TEST_CASE("Vector2 tests", "[vector]")
 		Vec2 vec1(5, 10);
 		Vec2 vec2(2, 4);
 
-        std::cout << vec2 << std::endl;
-
 		CHECK((vec1 - vec2) == Vec2(3, 6));
 		CHECK((vec1 + vec2) == Vec2(7, 14));
 		CHECK((vec1 * 2) == Vec2(10, 20));
@@ -97,8 +95,6 @@ TEST_CASE("Vector3 tests", "[vector]")
 	{
         Vec3 vec1(5, 10, 15);
         Vec3 vec2(2, 4, 8);
-
-        std::cout << vec2 << std::endl;
 
         CHECK(-vec1 == Vec3(-5, -10, -15));
         CHECK((vec1 - vec2) == Vec3(3, 6, 7));
@@ -178,8 +174,6 @@ TEST_CASE("Vector4 tests", "[vector]")
     {
         Vec4 vec1(5, 10, 15, 20);
         Vec4 vec2(2, 4, 8, 16);
-
-        std::cout << vec2 << std::endl << std::endl;
 
         CHECK(-vec1 == Vec4(-5, -10, -15, -20));
         CHECK((vec1 - vec2) == Vec4(3, 6, 7, 4));
