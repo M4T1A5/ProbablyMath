@@ -33,6 +33,14 @@ namespace pmath
     { }
 
     template<typename T>
+    template<typename T2>
+    inline Vector3<T>::Vector3(const Vector3<T2>& vector3)
+        : x(static_cast<T>(vector3.x)),
+          y(static_cast<T>(vector3.y)),
+          z(static_cast<T>(vector3.z))
+    { }
+
+    template<typename T>
     inline Vector3<T>::~Vector3()
     { }
 
@@ -138,51 +146,56 @@ namespace pmath
 
     // Assingment operators
     template<typename T>
-    inline Vector3<T>& Vector3<T>::operator =(const Vector3<T>& right)
+    template<typename T2>
+    inline Vector3<T>& Vector3<T>::operator =(const Vector3<T2>& right)
     {
-        x = right.x;
-        y = right.y;
-        z = right.z;
+        x = static_cast<T>(right.x);
+        y = static_cast<T>(right.y);
+        z = static_cast<T>(right.z);
 
         return *this;
     }
 
     template<typename T>
-    inline Vector3<T>& Vector3<T>::operator +=(const Vector3<T>& right)
+    template<typename T2>
+    inline Vector3<T>& Vector3<T>::operator +=(const Vector3<T2>& right)
     {
-        x += right.x;
-        y += right.y;
-        z += right.z;
+        x += static_cast<T>(right.x);
+        y += static_cast<T>(right.y);
+        z += static_cast<T>(right.z);
 
         return *this;
     }
 
     template<typename T>
-    inline Vector3<T>& Vector3<T>::operator -=(const Vector3<T>& right)
+    template<typename T2>
+    inline Vector3<T>& Vector3<T>::operator -=(const Vector3<T2>& right)
     {
-        x -= right.x;
-        y -= right.y;
-        z -= right.z;
+        x -= static_cast<T>(right.x);
+        y -= static_cast<T>(right.y);
+        z -= static_cast<T>(right.z);
 
         return *this;
     }
 
     template<typename T>
-    inline Vector3<T>& Vector3<T>::operator *=(const T& right)
+    template<typename T2>
+    inline Vector3<T>& Vector3<T>::operator *=(const T2& right)
     {
-        x *= right;
-        y *= right;
-        z *= right;
+        x *= static_cast<T>(right);
+        y *= static_cast<T>(right);
+        z *= static_cast<T>(right);
 
         return *this;
     }
 
     template<typename T>
-    inline Vector3<T>& Vector3<T>::operator /=(const T& right)
+    template<typename T2>
+    inline Vector3<T>& Vector3<T>::operator /=(const T2& right)
     {
-        x /= right;
-        y /= right;
-        z /= right;
+        x /= static_cast<T>(right);
+        y /= static_cast<T>(right);
+        z /= static_cast<T>(right);
 
         return *this;
     }
