@@ -67,6 +67,8 @@ TEST_CASE("Vector2 tests", "[vector]")
         Vec2 a(1,2), b(9,8);
         CHECK(a.cross(b) == -10);
         CHECK(Vec2::cross(b, a) == 10);
+
+		CHECK(Vec2::distance(Vec2(1, 2), Vec2(2,1)) == sqrt(2.0));
 	}
 
     SECTION("Normals")
@@ -146,6 +148,8 @@ TEST_CASE("Vector3 tests", "[vector]")
 
         CHECK(vec1.cross(vec2) == Vec3(-6, 12, -6));
         CHECK(Vec3::cross(vec2, vec1) == Vec3(6, -12, 6));
+
+		CHECK(Vec3::distance(Vec3(1, 2, 3), Vec3(3, 2, 1)) == 2*sqrt(2.0));
 	}
 
     SECTION("Normals")
@@ -222,6 +226,8 @@ TEST_CASE("Vector4 tests", "[vector]")
 
         CHECK(vec2.length() == sqrt(294.0));
         CHECK(vec1.lengthSquared() == 30);
+
+		CHECK(Vec4::distance(Vec4(1, 2, 3, 4), Vec4(4,3,2,1)) == 2*sqrt(5.0));
     }
 
     SECTION("Normals")

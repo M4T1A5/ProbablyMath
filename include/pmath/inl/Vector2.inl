@@ -71,6 +71,12 @@ namespace pmath
         return std::sqrt(lengthSquared());
     }
 
+	template<typename T>
+	inline double Vector2<T>::distance(const Vector2<T>& vec1, const Vector2<T>& vec2)
+	{
+		return (vec2 - vec1).length();
+	}
+
     template<typename T>
     inline Vector2<T> Vector2<T>::normalize()
     {
