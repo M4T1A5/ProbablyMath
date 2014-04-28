@@ -1,13 +1,2 @@
-#include <PMath/Vector2.hpp>
-
-using namespace pmath;
-
-int main()
-{
-	Vec2 vec;
-
-	vec.x = 5;
-	vec.y = 10;
-
-	return 0;
-}
+#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main()
+#include <catch.hpp>
