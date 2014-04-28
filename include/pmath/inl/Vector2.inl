@@ -29,6 +29,13 @@ namespace pmath
     { }
 
     template<typename T>
+    template<typename T2>
+    inline Vector2<T>::Vector2(const Vector2<T2>& vector2)
+        : x(static_cast<T>(vector2.x)),
+          y(static_cast<T>(vector2.y))
+    { }
+
+    template<typename T>
     inline Vector2<T>::~Vector2()
     { }
 

@@ -13,7 +13,9 @@ namespace pmath
         Vector2();
         Vector2(T x, T y);
         Vector2(T value);
-        Vector2(const Vector2<T>& vector2);
+        Vector2(const Vector2<T>& vector);
+        template<typename T2>
+        Vector2(const Vector2<T2>& vector);
         ~Vector2();
 
         T dot(const Vector2<T>& other) const;
