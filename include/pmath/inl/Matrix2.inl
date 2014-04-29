@@ -63,7 +63,7 @@ namespace pmath
     template<typename T>
     inline Matrix2<T> Matrix2<T>::cofactor() const
     {
-        return Matrix2<T>((*this)[1][1], -(*this)[0][1], -(*this)[1][0], (*this)[0][0]);
+        return Matrix2<T>((*this)[1][1], -(*this)[1][0], -(*this)[0][1], (*this)[0][0]);
     }
 
     template<typename T>
@@ -76,7 +76,7 @@ namespace pmath
     inline Matrix2<T> Matrix2<T>::inverse() const
     {
         assert(determinant() != 0);
-        return 1/determinant() * cofactor();
+        return (1 / determinant()) * cofactor().transpose();
     }
 
     template<typename T>

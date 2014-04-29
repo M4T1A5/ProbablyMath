@@ -83,15 +83,15 @@ namespace pmath
         return Matrix3<T>
             (
                 (*this)[1][1] * (*this)[2][2] - (*this)[1][2] * (*this)[2][1],
-                (*this)[0][2] * (*this)[2][1] - (*this)[0][1] * (*this)[2][2],
-                (*this)[0][1] * (*this)[1][2] - (*this)[0][2] * (*this)[1][1],
-
                 (*this)[1][2] * (*this)[2][0] - (*this)[1][0] * (*this)[2][2],
-                (*this)[0][0] * (*this)[2][2] - (*this)[0][2] * (*this)[2][0],
-                (*this)[0][2] * (*this)[1][0] - (*this)[0][0] * (*this)[1][2],
-
                 (*this)[1][0] * (*this)[2][1] - (*this)[1][1] * (*this)[2][0],
+
+                (*this)[0][2] * (*this)[2][1] - (*this)[0][1] * (*this)[2][2],
+                (*this)[0][0] * (*this)[2][2] - (*this)[0][2] * (*this)[2][0],
                 (*this)[0][1] * (*this)[2][0] - (*this)[0][0] * (*this)[2][1],
+
+                (*this)[0][1] * (*this)[1][2] - (*this)[0][2] * (*this)[1][1],
+                (*this)[0][2] * (*this)[1][0] - (*this)[0][0] * (*this)[1][2],
                 (*this)[0][0] * (*this)[1][1] - (*this)[0][1] * (*this)[1][0]
             );
     }
@@ -106,7 +106,7 @@ namespace pmath
     inline Matrix3<T> Matrix3<T>::inverse() const
     {
         assert(determinant() != 0);
-        return 1/determinant() * cofactor();
+        return (1 / determinant()) * cofactor().transpose();
     }
 
     template<typename T>
