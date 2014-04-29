@@ -177,13 +177,31 @@ namespace pmath
     template<typename T>
     inline Matrix2<T> Matrix2<T>::operator *(const Matrix2<T>& right) const
     {
+        const T L[ROWS][COLUMNS] =
+        {
+            (*this)[0][0],
+            (*this)[0][1],
+
+            (*this)[1][0],
+            (*this)[1][1]
+        };
+
+        const T R[ROWS][COLUMNS] =
+        {
+            right[0][0],
+            right[0][1],
+
+            right[1][0],
+            right[1][1]
+        };
+
         return Matrix2<T>
             (
-                (*this)[0][0] * right[0][0] + (*this)[0][1] * right[1][0],
-                (*this)[0][0] * right[0][1] + (*this)[0][1] * right[1][1],
+                L[0][0] * R[0][0] + L[0][1] * R[1][0],
+                L[0][0] * R[0][1] + L[0][1] * R[1][1],
 
-                (*this)[1][0] * right[0][0] + (*this)[1][1] * right[1][0],
-                (*this)[1][0] * right[0][1] + (*this)[1][1] * right[1][1]
+                L[1][0] * R[0][0] + L[1][1] * R[1][0],
+                L[1][0] * R[0][1] + L[1][1] * R[1][1]
             );
     }
 
