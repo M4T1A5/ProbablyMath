@@ -48,7 +48,7 @@ TEST_CASE("Matrix2 tests", "[matrix]")
         CHECK((mat3 -= mat1) == (Mat2() - mat1));
         CHECK((mat1 * 2) == Mat2(2, 4, 6, 8));
         CHECK((mat1 / 2) == Mat2(.5f, 1, 1.5f, 2));
-		CHECK(Mat2i(Mat2(1, 2)) == Mat2i(1, 2));
+		CHECK(Mat2i(Mat2(1, 2, 3, 4)) == Mat2i(1, 2, 3, 4));
     }
 
     SECTION("Inverse, transpose")
@@ -90,15 +90,15 @@ TEST_CASE("Matrix3 tests", "[matrix]")
         CHECK((mat1 - mat1) == Mat3(0, 0, 0, 0, 0, 0, 0, 0, 0));
         CHECK((mat1 - mat2) == Mat3(-8, -6, -4, -2, 0, 2, 4, 6, 8));
 
-        CHECK((mat1 * mat2) == (3.f*Mat3(10, 8, 6, 28, 23, 18, 46, 28, 30)));
+        CHECK((mat1 * mat2) == (3.f*Mat3(10, 8, 6, 28, 23, 18, 46, 38, 30)));
         Mat3 mat3 = mat1;
-        CHECK((mat3 *= mat2) == (3.f*Mat3(10, 8, 6, 28, 23, 18, 46, 28, 30)));
+        CHECK((mat3 *= mat2) == (3.f*Mat3(10, 8, 6, 28, 23, 18, 46, 38, 30)));
 
 
 		Vec3 vec1(1,2,3), vec2(7,8,9);
         CHECK((mat1 * vec1) == Vec3(14, 32, 50));
         CHECK((mat2 * vec2) == Vec3(190, 118, 46));
-        CHECK((mat2 * Vec2(4,5)) == Vec2(14, 47));
+        CHECK((mat2 * Vec2(4,5)) == Vec2(83, 53));
 
         CHECK((mat3 = Mat3()) == Mat3());
         CHECK((mat3 += mat1) == (Mat3() + mat1));
@@ -106,7 +106,7 @@ TEST_CASE("Matrix3 tests", "[matrix]")
         CHECK((mat3 -= mat1) == (Mat3() - mat1));
         CHECK((mat1 * 2) == Mat3(2, 4, 6, 8, 10, 12, 14, 16, 18));
         CHECK((mat1 / 2) == Mat3(.5f, 1, 1.5f, 2, 2.5f, 3, 3.5f, 4, 4.5f));
-		//CHECK(Mat3i(Mat3(1, 2)) == Mat3i(1, 2));
+		CHECK(Mat3i(Mat3(1, 2, 3)) == Mat3i(1, 2, 3));
     }
 
     SECTION("Inverse, transpose")
