@@ -115,6 +115,14 @@ namespace pmath
         return matrix.inverse();
     }
 
+    template<typename T>
+    const T* Matrix3<T>::ptr() const
+    {
+        return (*this)[0][0];
+    }
+
+
+    // Operators
     #pragma region Operators
     // Comparison
     template<typename T>

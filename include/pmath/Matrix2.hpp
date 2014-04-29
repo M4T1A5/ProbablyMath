@@ -33,6 +33,8 @@ namespace pmath
         Matrix2<T> inverse() const;
         static Matrix2<T> inverse(const Matrix2<T>& matrix);
 
+        const T* ptr() const;
+
         #pragma region Operators
         // Comparison
         bool operator ==(const Matrix2<T>& right) const;
