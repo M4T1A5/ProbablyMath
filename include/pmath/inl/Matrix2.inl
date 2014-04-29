@@ -34,8 +34,8 @@ namespace pmath
     template<typename T>
     template<typename T2>
     inline Matrix2<T>::Matrix2(const Matrix2<T2>& matrix)
-        : r1(matrix.r1),
-          r2(matrix.r2)
+        : r1(matrix[0]),
+          r2(matrix[1])
     { }
 
     template<typename T>
@@ -75,6 +75,7 @@ namespace pmath
     template<typename T>
     inline Matrix2<T> Matrix2<T>::inverse() const
     {
+        assert(determinant() != 0);
         return 1/determinant() * cofactor();
     }
 
@@ -172,6 +173,7 @@ namespace pmath
             (
                 (*this)[0][0] * right[0][0] + (*this)[0][1] * right[1][0],
                 (*this)[0][0] * right[0][1] + (*this)[0][1] * right[1][1],
+
                 (*this)[1][0] * right[0][0] + (*this)[1][1] * right[1][0],
                 (*this)[1][0] * right[0][1] + (*this)[1][1] * right[1][1]
             );
@@ -218,7 +220,7 @@ namespace pmath
 
     // Friends
     template<typename T>
-    Matrix2<T> operator *(const T& left, const Matrix2<T>& right)
+    inline Matrix2<T> operator *(const T& left, const Matrix2<T>& right)
     {
         return right * left;
     }

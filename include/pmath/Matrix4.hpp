@@ -2,6 +2,10 @@
 #ifndef MATRIX4_PMATH_H
 #define MATRIX4_PMATH_H
 
+#include <pmath/Vector2.hpp>
+#include <pmath/Vector3.hpp>
+#include <pmath/Vector4.hpp>
+
 #include <iostream>
 
 namespace pmath
