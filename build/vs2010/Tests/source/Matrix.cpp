@@ -111,8 +111,11 @@ TEST_CASE("Matrix3 tests", "[matrix]")
             == Mat3i(Vec3(1), Vec3(2), Vec3(3)));
     }
 
-    SECTION("Inverse, transpose")
+    SECTION("Inverse, transpose, etc...")
     {
+        Mat2 mat2(Vec2(1), Vec2(2));
+        CHECK(Mat3(mat2) == Mat3(1,1,0, 2,2,0, 0,0,1));
+
         Mat3 mat(2, 2, 3, 4, 5, 6, 7, 8, 9);
         CHECK(mat.inverse() == (1.f/3.f*Mat3(3, -6, 3, -6, 3, 0, 3, 2, -2)));
 
@@ -201,8 +204,14 @@ TEST_CASE("Matrix4 tests", "[matrix]")
             == Mat4i(Vec4(1), Vec4(2), Vec4(3), Vec4(4)));
     }
 
-    SECTION("Inverse, transpose")
+    SECTION("Inverse, transpose, etc..")
     {
+        Mat3 mat3(Vec3(1), Vec3(2), Vec3(3));
+        CHECK(Mat4(mat3) == Mat4(1,1,1,0,
+                                 2,2,2,0,
+                                 3,3,3,0,
+                                 0,0,0,1));
+
         Mat4 mat(5, 2, 7, 6,
                   3, 7, 9, 2,
                   4, 9, 2, 4,

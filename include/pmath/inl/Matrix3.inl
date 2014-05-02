@@ -30,6 +30,20 @@ namespace pmath
     { }
 
     template<typename T>
+    inline Matrix3<T>::Matrix3(const Matrix2<T>& matrix)
+    {
+        *this = identity;
+
+        for (unsigned int i = 0; i < Matrix2<T>::ROWS; ++i)
+        {
+            for (unsigned int j = 0; j < Matrix2<T>::COLUMNS; ++j)
+            {
+                (*this)[i][j] = matrix[i][j];
+            }
+        }
+    }
+
+    template<typename T>
     inline Matrix3<T>::Matrix3(const Matrix3<T>& matrix)
         : r1(matrix.r1),
           r2(matrix.r2),
@@ -37,8 +51,8 @@ namespace pmath
     { }
 
     template<typename T>
-    template<typename T3>
-    inline Matrix3<T>::Matrix3(const Matrix3<T3>& matrix)
+    template<typename T2>
+    inline Matrix3<T>::Matrix3(const Matrix3<T2>& matrix)
         : r1(matrix[0]),
           r2(matrix[1]),
           r3(matrix[2])

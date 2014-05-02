@@ -5,6 +5,8 @@
 #include <pmath/Vector2.hpp>
 #include <pmath/Vector3.hpp>
 
+#include <pmath/Matrix2.hpp>
+
 #include <iostream>
 
 namespace pmath
@@ -18,6 +20,7 @@ namespace pmath
                 const T& a21, const T& a22, const T& a23,
                 const T& a31, const T& a32, const T& a33);
         Matrix3(const Vector3<T>& row1, const Vector3<T>& row2, const Vector3<T>& row3);
+        Matrix3(const Matrix2<T>& matrix);
         Matrix3(const Matrix3<T>& matrix);
         template<typename T2>
         Matrix3(const Matrix3<T2>& matrix);
