@@ -139,6 +139,25 @@ namespace pmath
     }
 
     template<typename T>
+    inline Matrix2<T> Matrix3<T>::getMatrix2(const unsigned int rowToRemove, const unsigned int columnToRemove) const
+    {
+        Matrix2<T> out;
+        for (unsigned int row = 0; row < ROWS; ++row)
+        {
+            if (row != rowToRemove)
+            {
+                for (unsigned int col = 0; col < COLUMNS; ++col)
+                {
+                    if (col != columnToRemove)
+                        out[row - (row > rowToRemove)][col - (col > columnToRemove)] = (*this)[row][col];
+                }
+            }
+        }
+
+        return out;
+    }
+
+    template<typename T>
     const T* Matrix3<T>::ptr() const
     {
         return (*this)[0][0];

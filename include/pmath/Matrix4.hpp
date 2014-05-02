@@ -42,6 +42,8 @@ namespace pmath
         Matrix4<T> inverse() const;
         static Matrix4<T> inverse(const Matrix4<T>& matrix);
         
+        Matrix3<T> getMatrix3(const unsigned int rowToRemove = 2, const unsigned int columnToRemove = 2) const;
+
         const T* ptr() const;
 
         #pragma region Operators

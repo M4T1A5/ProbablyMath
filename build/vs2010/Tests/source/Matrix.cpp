@@ -120,6 +120,8 @@ TEST_CASE("Matrix3 tests", "[matrix]")
         CHECK(mat.inverse() == (1.f/3.f*Mat3(3, -6, 3, -6, 3, 0, 3, 2, -2)));
 
         CHECK(mat.transpose() == Mat3(2, 4, 7, 2, 5, 8, 3, 6, 9));
+
+        CHECK(mat.getMatrix2(2, 2) == Mat2(2,2, 4,5));
     }
 }
 
@@ -226,6 +228,10 @@ TEST_CASE("Matrix4 tests", "[matrix]")
                                       2, 7, 9, 5,
                                       7, 9, 2, 8,
                                       6, 2, 4, 2));
+
+        CHECK(mat.getMatrix3(2,2) == Mat3(5,2,6,
+                                          3,7,2,
+                                          9,5,2));
     }
 
     SECTION("Speed tests")
