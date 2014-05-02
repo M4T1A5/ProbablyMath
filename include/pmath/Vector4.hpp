@@ -12,7 +12,7 @@ namespace pmath
     public:
         Vector4();
         Vector4(T x, T y, T z, T w);
-        Vector4(T value);
+        explicit Vector4(T value);
         Vector4(const Vector4<T>& vector);
         template<typename T2>
         Vector4(const Vector4<T2>& vector);

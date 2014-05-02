@@ -42,7 +42,7 @@ TEST_CASE("Matrix2 tests", "[matrix]")
         CHECK((mat1 * vec2) == Vec2(5, 11));
         CHECK((vec2 *= mat1) == Vec2(5, 11));
 
-        Mat2 mat3(1,2);
+        Mat2 mat3(Vec2(1), Vec2(2));
         CHECK((mat3 = Mat2()) == Mat2());
         CHECK((mat3 += mat1) == (Mat2() + mat1));
         mat3 = Mat2();
@@ -100,14 +100,15 @@ TEST_CASE("Matrix3 tests", "[matrix]")
         CHECK((mat1 * vec3) == Vec3(14, 32, 50));
         CHECK((vec3 *= mat1) == Vec3(14, 32, 50));
 
-        Mat3 mat3(1, 2, 3);
+        Mat3 mat3(Vec3(1), Vec3(2), Vec3(3));
         CHECK((mat3 = Mat3()) == Mat3());
         CHECK((mat3 += mat1) == (Mat3() + mat1));
         mat3 = Mat3();
         CHECK((mat3 -= mat1) == (Mat3() - mat1));
         CHECK((mat1 * 2) == Mat3(2, 4, 6, 8, 10, 12, 14, 16, 18));
         CHECK((mat1 / 2) == Mat3(.5f, 1, 1.5f, 2, 2.5f, 3, 3.5f, 4, 4.5f));
-        CHECK(Mat3i(Mat3(1, 2, 3)) == Mat3i(1, 2, 3));
+        CHECK(Mat3i(Mat3(Vec3(1), Vec3(2), Vec3(3))) 
+            == Mat3i(Vec3(1), Vec3(2), Vec3(3)));
     }
 
     SECTION("Inverse, transpose")
@@ -162,7 +163,7 @@ TEST_CASE("Matrix4 tests", "[matrix]")
 
         std::cout << mat1 << std::endl;
 
-        CHECK((mat1 - mat1) == Mat4(0, 0, 0, 0));
+        CHECK((mat1 - mat1) == Mat4(Vec4(0), Vec4(0), Vec4(0), Vec4(0)));
         CHECK((mat1 - mat2) == Mat4(-4, 0, -4, -2,
                                     2, -1, -2, 6,
                                     5, 1, 9, 8,
@@ -183,7 +184,7 @@ TEST_CASE("Matrix4 tests", "[matrix]")
         CHECK((mat2 * vec4) == Vec4(88, 76, 88, 102));
         CHECK((vec4 *= mat2) == Vec4(88, 76, 88, 102));
 
-        Mat4 mat3(1,2,3,4);
+        Mat4 mat3(Vec4(1), Vec4(2), Vec4(3), Vec4(4));
         CHECK((mat3 = Mat4()) == Mat4());
         CHECK((mat3 += mat1) == (Mat4() + mat1));
         mat3 = Mat4();
@@ -196,7 +197,8 @@ TEST_CASE("Matrix4 tests", "[matrix]")
                                  2.5f, 3, 3.5f, 4,
                                  4.5f, 5, 5.5f, 6,
                                  6.5f, 7, 7.5f, 8));
-        CHECK(Mat4i(Mat4(1, 2, 3, 4)) == Mat4i(1, 2, 3, 4));
+        CHECK(Mat4i(Mat4(Vec4(1), Vec4(2), Vec4(3), Vec4(4)))
+            == Mat4i(Vec4(1), Vec4(2), Vec4(3), Vec4(4)));
     }
 
     SECTION("Inverse, transpose")
