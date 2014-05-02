@@ -44,16 +44,11 @@ namespace pmath
         bool operator <=(const Vector3<T>& right) const;
 
         // Assingment
-        template<typename T2>
-        Vector3<T>& operator =(const Vector3<T2>& right);
-        template<typename T2>
-        Vector3<T>& operator +=(const Vector3<T2>& right);
-        template<typename T2>
-        Vector3<T>& operator -=(const Vector3<T2>& right);
-        template<typename T2>
-        Vector3<T>& operator *=(const T2& right);
-        template<typename T2>
-        Vector3<T>& operator /=(const T2& right);
+        Vector3<T>& operator =(const Vector3<T>& right);
+        Vector3<T>& operator +=(const Vector3<T>& right);
+        Vector3<T>& operator -=(const Vector3<T>& right);
+        Vector3<T>& operator *=(const T& right);
+        Vector3<T>& operator /=(const T& right);
 
         // Arithmetic
         Vector3<T> operator +(const Vector3<T>& right) const;

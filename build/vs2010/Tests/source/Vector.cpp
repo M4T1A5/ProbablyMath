@@ -40,6 +40,7 @@ TEST_CASE("Vector2 tests", "[vector]")
         vec2 -= Vec2(2, 4);
         CHECK(vec1 == Vec2(10, 15));
         CHECK(vec2 == Vec2());
+        CHECK((vec2 += Vec2i(1,2)) == Vec2u(1,2));
 
         CHECK(Vec2(1, 2) > Vec2(1, 1));
         CHECK(Vec2(1, 2) >= Vec2(1, 2));
@@ -120,6 +121,8 @@ TEST_CASE("Vector3 tests", "[vector]")
         vec2 -= Vec3(2, 4, 8);
         CHECK(vec1 == Vec3(10, 15, 20));
         CHECK(vec2 == Vec3());
+        CHECK((vec2 += Vec3i(1,2,3)) == Vec3u(1,2,3));
+
 
         CHECK(Vec3(1, 2, 3) > Vec3(1, 2, 2));
         CHECK(Vec3(1, 2, 3) >= Vec3(1, 2, 3));
@@ -199,6 +202,7 @@ TEST_CASE("Vector4 tests", "[vector]")
         vec2 -= Vec4(2, 4, 8, 16);
         CHECK(vec1 == Vec4(10, 15, 20, 25));
         CHECK(vec2 == Vec4());
+        CHECK((vec2 += Vec4i(1,2,3,4)) == Vec4u(1,2,3,4));
 
         CHECK(Vec4(1, 2, 3, 4) > Vec4(1, 2, 2, 3));
         CHECK(Vec4(1, 2, 3, 4) >= Vec4(1, 2, 3, 4));
