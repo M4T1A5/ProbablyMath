@@ -42,6 +42,15 @@ namespace pmath
     inline Matrix2<T>::~Matrix2()
     { }
 
+
+    // Public
+
+    template<typename T>
+    bool Matrix2<T>::isIdentity() const
+    {
+        return (*this) == identity;
+    }
+
     template<typename T>
     inline T Matrix2<T>::determinant() const
     {

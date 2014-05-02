@@ -62,6 +62,15 @@ namespace pmath
     inline Matrix3<T>::~Matrix3()
     { }
 
+
+    // Public
+
+    template<typename T>
+    bool Matrix3<T>::isIdentity() const
+    {
+        return (*this) == identity;
+    }
+
     template<typename T>
     inline T Matrix3<T>::determinant() const
     {

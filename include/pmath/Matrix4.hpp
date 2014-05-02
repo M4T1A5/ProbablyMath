@@ -29,6 +29,7 @@ namespace pmath
         ~Matrix4();
 
         static const Matrix4<T> identity;
+        bool isIdentity() const;
 
         T determinant() const;
 

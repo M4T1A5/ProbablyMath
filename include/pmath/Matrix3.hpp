@@ -27,6 +27,7 @@ namespace pmath
         ~Matrix3();
 
         static const Matrix3<T> identity;
+        bool isIdentity() const;
 
         T determinant() const;
 

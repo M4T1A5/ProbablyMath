@@ -21,6 +21,7 @@ namespace pmath
         ~Matrix2();
 
         static const Matrix2<T> identity;
+        bool isIdentity() const;
 
         T determinant() const;
 

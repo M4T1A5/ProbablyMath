@@ -68,6 +68,15 @@ namespace pmath
     inline Matrix4<T>::~Matrix4()
     { }
 
+
+    // Public
+
+    template<typename T>
+    bool Matrix4<T>::isIdentity() const
+    {
+        return (*this) == identity;
+    }
+
     template<typename T>
     inline T Matrix4<T>::determinant() const
     {
