@@ -208,7 +208,13 @@ TEST_CASE("Matrix4 tests", "[matrix]")
 
     SECTION("Inverse, transpose, etc..")
     {
+        Mat2 mat2(Vec2(1), Vec2(2));
         Mat3 mat3(Vec3(1), Vec3(2), Vec3(3));
+        CHECK(Mat4(mat2) == Mat4(1,1,0,0,
+                                 2,2,0,0,
+                                 0,0,1,0,
+                                 0,0,0,1));
+
         CHECK(Mat4(mat3) == Mat4(1,1,1,0,
                                  2,2,2,0,
                                  3,3,3,0,
