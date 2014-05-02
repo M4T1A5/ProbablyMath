@@ -46,7 +46,7 @@ namespace pmath
     // Public
 
     template<typename T>
-    bool Matrix2<T>::isIdentity() const
+    inline bool Matrix2<T>::isIdentity() const
     {
         return (*this) == identity;
     }
@@ -95,7 +95,7 @@ namespace pmath
     }
 
     template<typename T>
-    const T* Matrix2<T>::ptr() const
+    inline const T* Matrix2<T>::ptr() const
     {
         return (*this)[0][0];
     }
