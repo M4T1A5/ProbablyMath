@@ -137,14 +137,6 @@ namespace pmath
     }
 
     template<typename T>
-    inline Matrix2<T>& Matrix2<T>::operator *=(const Matrix2<T>& right)
-    {
-        *this = *this * right;
-
-        return *this;
-    }
-
-    template<typename T>
     inline Matrix2<T>& Matrix2<T>::operator *=(const T& right)
     {
         r1 *= right;

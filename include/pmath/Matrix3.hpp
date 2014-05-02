@@ -48,7 +48,6 @@ namespace pmath
         Matrix3<T>& operator =(const Matrix3<T>& right);
         Matrix3<T>& operator +=(const Matrix3<T>& right);
         Matrix3<T>& operator -=(const Matrix3<T>& right);
-        Matrix3<T>& operator *=(const Matrix3<T>& right);
         Matrix3<T>& operator *=(const T& right);
         Matrix3<T>& operator /=(const T& right);
 

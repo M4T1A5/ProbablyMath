@@ -50,7 +50,6 @@ namespace pmath
         Matrix4<T>& operator =(const Matrix4<T>& right);
         Matrix4<T>& operator +=(const Matrix4<T>& right);
         Matrix4<T>& operator -=(const Matrix4<T>& right);
-        Matrix4<T>& operator *=(const Matrix4<T>& right);
         Matrix4<T>& operator *=(const T& right);
         Matrix4<T>& operator /=(const T& right);
 

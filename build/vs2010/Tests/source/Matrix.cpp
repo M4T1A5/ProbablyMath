@@ -36,15 +36,14 @@ TEST_CASE("Matrix2 tests", "[matrix]")
         CHECK((mat1 - mat2) == Mat2(-3, -1, 1, 3));
 
         CHECK((mat1 * mat2) == Mat2(8, 5, 20, 13));
-        Mat2 mat3 = mat1;
-        CHECK((mat3 *= mat2) == Mat2(8, 5, 20, 13));
 
 
         Vec2 vec2(1,2);
         CHECK((mat1 * vec2) == Vec2(5, 11));
         CHECK((vec2 *= mat1) == Vec2(5, 11));
 
-        mat3 = Mat2();
+        Mat2 mat3(1,2);
+        CHECK((mat3 = Mat2()) == Mat2());
         CHECK((mat3 += mat1) == (Mat2() + mat1));
         mat3 = Mat2();
         CHECK((mat3 -= mat1) == (Mat2() - mat1));
@@ -93,9 +92,6 @@ TEST_CASE("Matrix3 tests", "[matrix]")
         CHECK((mat1 - mat2) == Mat3(-8, -6, -4, -2, 0, 2, 4, 6, 8));
 
         CHECK((mat1 * mat2) == (3.f*Mat3(10, 8, 6, 28, 23, 18, 46, 38, 30)));
-        Mat3 mat3 = mat1;
-        CHECK((mat3 *= mat2) == (3.f*Mat3(10, 8, 6, 28, 23, 18, 46, 38, 30)));
-
 
         Vec2 vec2(5, 8);
         Vec3 vec3(1,2,3);
@@ -104,6 +100,7 @@ TEST_CASE("Matrix3 tests", "[matrix]")
         CHECK((mat1 * vec3) == Vec3(14, 32, 50));
         CHECK((vec3 *= mat1) == Vec3(14, 32, 50));
 
+        Mat3 mat3(1, 2, 3);
         CHECK((mat3 = Mat3()) == Mat3());
         CHECK((mat3 += mat1) == (Mat3() + mat1));
         mat3 = Mat3();
@@ -175,11 +172,6 @@ TEST_CASE("Matrix4 tests", "[matrix]")
                                     143, 155, 167, 86,
                                     227, 247, 271, 142,
                                     311, 339, 375, 198));
-        Mat4 mat3 = mat1;
-        CHECK((mat3 *= mat2) == Mat4(59, 63, 63, 30,
-                                     143, 155, 167, 86,
-                                     227, 247, 271, 142,
-                                     311, 339, 375, 198));
 
         Vec2 vec2(5, 8);
         Vec3 vec3(7, 8, 9);
@@ -191,7 +183,7 @@ TEST_CASE("Matrix4 tests", "[matrix]")
         CHECK((mat2 * vec4) == Vec4(88, 76, 88, 102));
         CHECK((vec4 *= mat2) == Vec4(88, 76, 88, 102));
 
-
+        Mat4 mat3(1,2,3,4);
         CHECK((mat3 = Mat4()) == Mat4());
         CHECK((mat3 += mat1) == (Mat4() + mat1));
         mat3 = Mat4();

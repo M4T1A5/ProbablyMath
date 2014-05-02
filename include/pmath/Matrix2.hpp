@@ -45,7 +45,6 @@ namespace pmath
         Matrix2<T>& operator =(const Matrix2<T>& right);
         Matrix2<T>& operator +=(const Matrix2<T>& right);
         Matrix2<T>& operator -=(const Matrix2<T>& right);
-        Matrix2<T>& operator *=(const Matrix2<T>& right);
         Matrix2<T>& operator *=(const T& right);
         Matrix2<T>& operator /=(const T& right);
 
