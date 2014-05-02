@@ -13,7 +13,7 @@ namespace pmath
     class Matrix3
     {
     public:
-		Matrix3();
+        Matrix3();
         Matrix3(const T& a11, const T& a12, const T& a13,
                 const T& a21, const T& a22, const T& a23,
                 const T& a31, const T& a32, const T& a33);
@@ -75,8 +75,14 @@ namespace pmath
         Vector3<T> r1, r2, r3;
     };
 
-	template<typename T>
+    template<typename T>
     Matrix3<T> operator *(const T& left, const Matrix3<T>& right);
+
+    template<typename T>
+    Vector2<T>& operator *=(Vector2<T>& left, const Matrix3<T>& right);
+
+    template<typename T>
+    Vector3<T>& operator *=(Vector3<T>& left, const Matrix3<T>& right);
 
     template<typename T>
     std::ostream& operator<<(std::ostream& out, const Matrix3<T>& right);

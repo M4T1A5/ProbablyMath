@@ -78,6 +78,22 @@ namespace pmath
         Vector4<T> r1, r2, r3, r4;
     };
 
+    template<typename T>
+    Matrix4<T> operator *(const T& left, const Matrix4<T>& right);
+
+    template<typename T>
+    Vector2<T>& operator *=(Vector2<T>& left, const Matrix4<T>& right);
+
+    template<typename T>
+    Vector3<T>& operator *=(Vector3<T>& left, const Matrix4<T>& right);
+
+    template<typename T>
+    Vector4<T>& operator *=(Vector4<T>& left, const Matrix4<T>& right);
+
+    template<typename T>
+    std::ostream& operator<<(std::ostream& out, const Matrix4<T>& right);
+
+
     typedef Matrix4<float>          Mat4;
     typedef Matrix4<double>         Mat4d;
     typedef Matrix4<int>            Mat4i;

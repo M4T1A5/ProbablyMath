@@ -74,6 +74,9 @@ namespace pmath
     Matrix2<T> operator *(const T& left, const Matrix2<T>& right);
 
     template<typename T>
+    Vector2<T>& operator *=(Vector2<T>& left, const Matrix2<T>& right);
+
+    template<typename T>
     std::ostream& operator<<(std::ostream& out, const Matrix2<T>& right);
 
     typedef Matrix2<float>          Mat2;

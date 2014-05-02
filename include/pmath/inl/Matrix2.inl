@@ -252,6 +252,14 @@ namespace pmath
     }
 
     template<typename T>
+    inline Vector2<T>& operator *=(Vector2<T>& left, const Matrix2<T>& right)
+    {
+        left = right * left;
+
+        return left;
+    }
+
+    template<typename T>
     inline std::ostream& operator<<(std::ostream& out, const Matrix2<T>& right)
     {
         for (size_t i = 0; i < Matrix2<T>::ROWS; ++i)
