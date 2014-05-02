@@ -66,10 +66,10 @@ namespace pmath
     template<typename T>
     inline double Vector4<T>::lengthSquared() const
     {
-		const double xd = static_cast<double>(x);
-		const double yd = static_cast<double>(y);
-		const double zd = static_cast<double>(z);
-		const double wd = static_cast<double>(w);
+        const double xd = static_cast<double>(x);
+        const double yd = static_cast<double>(y);
+        const double zd = static_cast<double>(z);
+        const double wd = static_cast<double>(w);
         return xd*xd + yd*yd + zd*zd + wd*wd;
     }
 
@@ -140,61 +140,56 @@ namespace pmath
 
     // Assingment operators
     template<typename T>
-    template<typename T2>
-    inline Vector4<T>& Vector4<T>::operator =(const Vector4<T2>& right)
+    inline Vector4<T>& Vector4<T>::operator =(const Vector4<T>& right)
     {
-        x = static_cast<T>(right.x);
-        y = static_cast<T>(right.y);
-        z = static_cast<T>(right.z);
-        w = static_cast<T>(right.w);
+        x = right.x;
+        y = right.y;
+        z = right.z;
+        w = right.w;
 
         return *this;
     }
 
     template<typename T>
-    template<typename T2>
-    inline Vector4<T>& Vector4<T>::operator +=(const Vector4<T2>& right)
+    inline Vector4<T>& Vector4<T>::operator +=(const Vector4<T>& right)
     {
-        x += static_cast<T>(right.x);
-        y += static_cast<T>(right.y);
-        z += static_cast<T>(right.z);
-        w += static_cast<T>(right.w);
+        x += right.x;
+        y += right.y;
+        z += right.z;
+        w += right.w;
 
         return *this;
     }
 
     template<typename T>
-    template<typename T2>
-    inline Vector4<T>& Vector4<T>::operator -=(const Vector4<T2>& right)
+    inline Vector4<T>& Vector4<T>::operator -=(const Vector4<T>& right)
     {
-        x -= static_cast<T>(right.x);
-        y -= static_cast<T>(right.y);
-        z -= static_cast<T>(right.z);
-        w -= static_cast<T>(right.w);
+        x -= right.x;
+        y -= right.y;
+        z -= right.z;
+        w -= right.w;
 
         return *this;
     }
 
     template<typename T>
-    template<typename T2>
-    inline Vector4<T>& Vector4<T>::operator *=(const T2& right)
+    inline Vector4<T>& Vector4<T>::operator *=(const T& right)
     {
-        x *= static_cast<T>(right);
-        y *= static_cast<T>(right);
-        z *= static_cast<T>(right);
-        w *= static_cast<T>(right);
+        x *= right;
+        y *= right;
+        z *= right;
+        w *= right;
 
         return *this;
     }
 
     template<typename T>
-    template<typename T2>
-    inline Vector4<T>& Vector4<T>::operator /=(const T2& right)
+    inline Vector4<T>& Vector4<T>::operator /=(const T& right)
     {
-        x /= static_cast<T>(right);
-        y /= static_cast<T>(right);
-        z /= static_cast<T>(right);
-        w /= static_cast<T>(right);
+        x /= right;
+        y /= right;
+        z /= right;
+        w /= right;
 
         return *this;
     }

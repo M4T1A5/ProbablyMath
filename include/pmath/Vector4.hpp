@@ -12,7 +12,7 @@ namespace pmath
     public:
         Vector4();
         Vector4(T x, T y, T z, T w);
-        Vector4(T value);
+        explicit Vector4(T value);
         Vector4(const Vector4<T>& vector);
         template<typename T2>
         Vector4(const Vector4<T2>& vector);
@@ -41,16 +41,11 @@ namespace pmath
         bool operator <=(const Vector4<T>& right) const;
 
         // Assingment
-        template<typename T2>
-        Vector4<T>& operator =(const Vector4<T2>& right);
-        template<typename T2>
-        Vector4<T>& operator +=(const Vector4<T2>& right);
-        template<typename T2>
-        Vector4<T>& operator -=(const Vector4<T2>& right);
-        template<typename T2>
-        Vector4<T>& operator *=(const T2& right);
-        template<typename T2>
-        Vector4<T>& operator /=(const T2& right);
+        Vector4<T>& operator =(const Vector4<T>& right);
+        Vector4<T>& operator +=(const Vector4<T>& right);
+        Vector4<T>& operator -=(const Vector4<T>& right);
+        Vector4<T>& operator *=(const T& right);
+        Vector4<T>& operator /=(const T& right);
 
         // Arithmetic
         Vector4<T> operator +(const Vector4<T>& right) const;
