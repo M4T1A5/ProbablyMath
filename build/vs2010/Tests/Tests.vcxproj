@@ -78,6 +78,7 @@
   <ItemGroup>
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\Matrix.cpp" />
+    <ClCompile Include="source\Quaternion.cpp" />
     <ClCompile Include="source\Vector.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
