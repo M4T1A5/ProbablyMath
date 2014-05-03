@@ -21,6 +21,8 @@ namespace pmath
         Quaternion(const Quaternion<T2>& quaternion);
         ~Quaternion();
 
+        static const Quaternion<T> identity;
+        bool isIdentity() const;
         T w;
         Vector3<T> vector;
 

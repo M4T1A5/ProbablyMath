@@ -3,6 +3,9 @@
 namespace pmath
 {
     template<typename T>
+    const Quaternion<T> Quaternion<T>::identity = Quaternion<T>();
+
+    template<typename T>
     inline Quaternion<T>::Quaternion()
         : w(T(1))
     { }
@@ -38,6 +41,12 @@ namespace pmath
 
 
     // Public
+
+    template<typename T>
+    bool Quaternion<T>::isIdentity() const
+    {
+        return *this == identity;
+    }
 
     #pragma region Operators
     // Comparison
