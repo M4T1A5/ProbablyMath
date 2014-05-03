@@ -23,6 +23,12 @@ namespace pmath
 
         T w;
         Vector3<T> vector;
+
+        #pragma region Operators
+        // Comparison
+        bool operator ==(const Quaternion<T>& right);
+        bool operator !=(const Quaternion<T>& right);
+        #pragma endregion
     };
 
     typedef Quaternion<float>   quat;

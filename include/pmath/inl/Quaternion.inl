@@ -35,4 +35,22 @@ namespace pmath
     template<typename T>
     inline Quaternion<T>::~Quaternion()
     { }
+
+
+    // Public
+
+    #pragma region Operators
+    // Comparison
+    template<typename T>
+    inline bool Quaternion<T>::operator ==(const Quaternion<T>& right)
+    {
+        return w == right.w && vector == right.vector;
+    }
+
+    template<typename T>
+    inline bool Quaternion<T>::operator !=(const Quaternion<T>& right)
+    {
+        return !(*this == right)
+    }
+    #pragma endregion
 }
