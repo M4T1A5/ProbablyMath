@@ -82,6 +82,12 @@ namespace pmath
     }
 
     template<typename T>
+    inline double Vector4<T>::distance(const Vector4<T>& vec1, const Vector4<T>& vec2)
+    {
+        return (vec2 - vec1).length();
+    }
+
+    template<typename T>
     inline Vector4<T> Vector4<T>::normalize()
     {
         return *this = unitVector();
@@ -94,9 +100,11 @@ namespace pmath
     }
 
     template<typename T>
-    inline double Vector4<T>::distance(const Vector4<T>& vec1, const Vector4<T>& vec2)
+    inline bool Vector4<T>::isUnitVector() const
     {
-        return (vec2 - vec1).length();
+        // LengthSquared returns double.
+        // Also sqrt(1) == 1 so we don't need to do that
+        return equals<double>(this->lengthSquared(), 1);
     }
 
 

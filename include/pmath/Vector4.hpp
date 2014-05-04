@@ -30,6 +30,8 @@ namespace pmath
         Vector4<T> normalize();
         // Only returns the normalized vector. Doesn't modify the original
         Vector4<T> unitVector() const;
+        bool isUnitVector() const;
+
 
         #pragma region Operators
         // Comparison
