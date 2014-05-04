@@ -66,6 +66,7 @@
     <ClInclude Include="..\..\..\include\pmath\Matrix2.hpp" />
     <ClInclude Include="..\..\..\include\pmath\Matrix3.hpp" />
     <ClInclude Include="..\..\..\include\pmath\Matrix4.hpp" />
+    <ClInclude Include="..\..\..\include\pmath\PMath.hpp" />
     <ClInclude Include="..\..\..\include\pmath\Vector.hpp" />
     <ClInclude Include="..\..\..\include\PMath\Vector2.hpp" />
     <ClInclude Include="..\..\..\include\pmath\Vector3.hpp" />

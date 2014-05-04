@@ -55,6 +55,9 @@
     <ClInclude Include="..\..\..\include\pmath\Matrix.hpp">
       <Filter>Header Files\Matrix</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\include\pmath\PMath.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\include\PMath\inl\Vector2.inl">
