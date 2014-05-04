@@ -58,6 +58,12 @@
     <ClInclude Include="..\..\..\include\pmath\Matrix.hpp">
       <Filter>Header Files\Matrix</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\include\pmath\PMath.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pmath\Util.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\include\PMath\inl\Vector2.inl">
@@ -79,6 +85,9 @@
       <Filter>Inline Files\Matrix</Filter>
     </None>
     <None Include="..\..\..\include\pmath\inl\Quaternion.inl">
+    	<Filter>Inline Files</Filter>
+    </None>
+    <None Include="..\..\..\include\pmath\inl\Util.inl">
       <Filter>Inline Files</Filter>
     </None>
   </ItemGroup>

@@ -1,4 +1,6 @@
 #include <pmath/Vector4.hpp>
+#include <pmath/Util.hpp>
+
 #include <cassert>
 #include <cmath>
 
@@ -104,13 +106,14 @@ namespace pmath
     template<typename T>
     inline bool Vector4<T>::operator ==(const Vector4<T>& right) const
     {
-        return x == right.x && y == right.y && z == right.z && w == right.w;
+        return equals<T>(x, right.x) && equals(y, right.y) &&
+            equals(z, right.z) && equals(w, right.w);
     }
 
     template<typename T>
     inline bool Vector4<T>::operator !=(const Vector4<T>& right) const
     {
-        return x != right.x || y != right.y || z != right.z || w != right.w;
+        return !(*this == right);
     }
 
     template<typename T>

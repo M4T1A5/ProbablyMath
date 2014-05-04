@@ -1,4 +1,6 @@
 #include <pmath/Vector2.hpp>
+#include <pmath/Util.hpp>
+
 #include <cassert>
 #include <cmath>
 
@@ -103,13 +105,13 @@ namespace pmath
     template<typename T>
     inline bool Vector2<T>::operator ==(const Vector2<T>& right) const
     {
-        return x == right.x && y == right.y;
+        return equals<T>(x, right.x) && equals<T>(y, right.y);
     }
 
     template<typename T>
     inline bool Vector2<T>::operator !=(const Vector2<T>& right) const
     {
-        return x != right.x || y != right.y;
+        return !(*this == right);
     }
 
     template<typename T>
