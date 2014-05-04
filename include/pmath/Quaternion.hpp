@@ -30,6 +30,15 @@ namespace pmath
         // Comparison
         bool operator ==(const Quaternion<T>& right);
         bool operator !=(const Quaternion<T>& right);
+
+        // Arithmetic
+        Quaternion<T> operator +(const Quaternion<T>& right);
+        Quaternion<T> operator -(const Quaternion<T>& right);
+
+        // Assingment
+        Quaternion<T>& operator =(const Quaternion<T>& right);
+        Quaternion<T>& operator +=(const Quaternion<T>& right);
+
         #pragma endregion
     };
 
