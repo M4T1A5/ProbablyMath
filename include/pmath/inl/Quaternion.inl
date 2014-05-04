@@ -14,7 +14,7 @@ namespace pmath
     template<typename T>
     inline Quaternion<T>::Quaternion(T w, T x, T y, T z)
         : w(w),
-          vector(Vector3<T>(x,y,z))
+          vector(x, y, z)
     { }
 
     template<typename T>
@@ -44,11 +44,22 @@ namespace pmath
     // Public
 
     template<typename T>
-    bool Quaternion<T>::isIdentity() const
+    inline bool Quaternion<T>::isIdentity() const
     {
         return *this == identity;
     }
 
+    template<typename T>
+    inline double Quaternion<T>::lengthSquared() const
+    {
+        return w*w + vector.lengthSquared();
+    }
+
+    template<typename T>
+    inline double Quaternion<T>::length() const
+    {
+        return sqrt(lengthSquared());
+    }
     #pragma region Operators
     // Comparison
     template<typename T>

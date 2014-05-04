@@ -23,8 +23,9 @@ namespace pmath
 
         static const Quaternion<T> identity;
         bool isIdentity() const;
-        T w;
-        Vector3<T> vector;
+
+        double lengthSquared() const;
+        double length() const;
 
         #pragma region Operators
         // Comparison
@@ -40,6 +41,9 @@ namespace pmath
         Quaternion<T>& operator +=(const Quaternion<T>& right);
 
         #pragma endregion
+
+        T w;
+        Vector3<T> vector;
     };
 
     typedef Quaternion<float>   quat;
