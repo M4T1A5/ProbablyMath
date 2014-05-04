@@ -105,6 +105,14 @@ namespace pmath
         return *this / static_cast<T>(length());
     }
 
+    template<typename T>
+    inline bool Vector3<T>::isUnitVector() const
+    {
+        // LengthSquared returns double.
+        // Also sqrt(1) == 1 so we don't need to do that
+        return equals<double>(this->lengthSquared(), 1);
+    }
+
 
     // Operators
     #pragma region Operators
