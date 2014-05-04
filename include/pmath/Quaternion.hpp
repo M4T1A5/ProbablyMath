@@ -35,16 +35,30 @@ namespace pmath
         // Arithmetic
         Quaternion<T> operator +(const Quaternion<T>& right);
         Quaternion<T> operator -(const Quaternion<T>& right);
+        Quaternion<T> operator -();
+        Quaternion<T> operator *(const Quaternion<T>& right);
+        Quaternion<T> operator *(const T& right);
+        Quaternion<T> operator /(const T& right);
+
 
         // Assingment
         Quaternion<T>& operator =(const Quaternion<T>& right);
         Quaternion<T>& operator +=(const Quaternion<T>& right);
-
+        Quaternion<T>& operator -=(const Quaternion<T>& right);
+        Quaternion<T>& operator *=(const Quaternion<T>& right);
+        Quaternion<T>& operator *=(const T& right);
+        Quaternion<T>& operator /=(const T& right);
         #pragma endregion
 
         T w;
         Vector3<T> vector;
     };
+
+    //template<typename T>
+    //Vector3<T>& operator *=(Vector3<T>& left, const Quaternion<T>& right);
+    //template<typename T>
+    //Vector4<T>& operator *=(Vector4<T>& left, const Quaternion<T>& right);
+
 
     typedef Quaternion<float>   quat;
     typedef Quaternion<float>   quatf;

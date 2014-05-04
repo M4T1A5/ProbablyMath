@@ -60,6 +60,9 @@ namespace pmath
     {
         return sqrt(lengthSquared());
     }
+
+
+    // Operators
     #pragma region Operators
     // Comparison
     template<typename T>
@@ -73,5 +76,94 @@ namespace pmath
     {
         return !(*this == right)
     }
+
+    // Arithmetic
+    template<typename T>
+    inline Quaternion<T> Quaternion<T>::operator +(const Quaternion<T>& right)
+    {
+        return Quaternion<T>(w + right.w, vector + right.vector);
+    }
+
+    template<typename T>
+    inline Quaternion<T> Quaternion<T>::operator -(const Quaternion<T>& right)
+    {
+        return Quaternion<T>(w - right.w, vector - right.vector);
+    }
+
+    template<typename T>
+    inline Quaternion<T> Quaternion<T>::operator -()
+    {
+        return Quaternion<T>(-w , -vector);
+    }
+
+    template<typename T>
+    inline Quaternion<T> Quaternion<T>::operator *(const Quaternion<T>& right)
+    {
+        return Quaternion<T>(w * right.w - vector.dot(right.vector),
+            w*right.vector + right.w*vector + vector.cross(right.vector));
+    }
+
+    template<typename T>
+    inline Quaternion<T> Quaternion<T>::operator *(const T& right)
+    {
+        return Quaternion<T>(w * right, vector * right);
+    }
+
+    template<typename T>
+    inline Quaternion<T> Quaternion<T>::operator /(const T& right)
+    {
+        return Quaternion<T>(w / right, vector / right);
+    }
+
+    // Assingment
+    template<typename T>
+    inline Quaternion<T>& Quaternion<T>::operator =(const Quaternion<T>& right)
+    {
+        w = right.w;
+        vector = right.vector;
+
+        return *this;
+    }
+
+    template<typename T>
+    inline Quaternion<T>& Quaternion<T>::operator +=(const Quaternion<T>& right)
+    {
+        *this = *this + right;
+
+        return *this;
+    }
+
+    template<typename T>
+    inline Quaternion<T>& Quaternion<T>::operator -=(const Quaternion<T>& right)
+    {
+        *this = *this - right;
+
+        return *this;
+    }
+
+    template<typename T>
+    inline Quaternion<T>& Quaternion<T>::operator *=(const Quaternion<T>& right)
+    {
+        *this = *this * right;
+
+        return *this;
+    }
+
+    template<typename T>
+    inline Quaternion<T>& Quaternion<T>::operator *=(const T& right)
+    {
+        *this = *this * right;
+
+        return *this;
+    }
+
+    template<typename T>
+    inline Quaternion<T>& Quaternion<T>::operator /=(const T& right)
+    {
+        *this = *this / right;
+
+        return *this;
+    }
+
     #pragma endregion
 }
