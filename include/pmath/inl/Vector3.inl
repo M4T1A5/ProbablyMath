@@ -1,4 +1,6 @@
 #include <pmath/Vector3.hpp>
+#include <pmath/Util.hpp>
+
 #include <cassert>
 #include <cmath>
 
@@ -110,13 +112,13 @@ namespace pmath
     template<typename T>
     inline bool Vector3<T>::operator ==(const Vector3<T>& right) const
     {
-        return x == right.x && y == right.y && z == right.z;
+        return equals<T>(x, right.x) && equals<T>(y, right.y) && equals<T>(z, right.z);
     }
 
     template<typename T>
     inline bool Vector3<T>::operator !=(const Vector3<T>& right) const
     {
-        return x != right.x || y != right.y || z != right.z;
+        return !(*this == right);
     }
 
     template<typename T>

@@ -7,15 +7,15 @@ namespace pmath
     // Test the equality of 2 variables
     // Mostly needed for floating point values
     template<typename T>
-    bool equals(const T& a, const T& b);
+    bool equals(const T a, const T b, const T tolerance = T(0.001));
 
     // Specialization for float
-    template<typename T>
-    bool equals(const float& a, const float& b, const float& tolerance = 0.001f);
+    template<>
+    bool equals<float>(const float a, const float b, const float tolerance);
 
     // Specialization for double
-    template<typename T>
-    bool equals(const double& a, const T& b, const double& tolerance = 0.001);
+    template<>
+    bool equals<double>(const double a, const double b, const double tolerance);
 }
 
 #include <pmath/inl/Util.inl>
