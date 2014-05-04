@@ -61,6 +61,18 @@ namespace pmath
         return sqrt(lengthSquared());
     }
 
+    template<typename T>
+    inline Quaternion<T> Quaternion<T>::conjugate() const
+    {
+        return Quaternion<T>(w, -vector);
+    }
+
+    template<typename T>
+    inline Quaternion<T> Quaternion<T>::inverse() const
+    {
+        // Quaternion inverse is conjugate / |q|^2
+        return conjugate() / lengthSquared();
+    }
 
     // Operators
     #pragma region Operators

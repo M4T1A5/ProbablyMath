@@ -27,6 +27,9 @@ namespace pmath
         double lengthSquared() const;
         double length() const;
 
+        Quaternion<T> conjugate() const;
+
+        Quaternion<T> inverse() const;
         #pragma region Operators
         // Comparison
         bool operator ==(const Quaternion<T>& right);
