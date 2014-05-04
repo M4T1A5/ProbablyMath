@@ -1,4 +1,5 @@
 #include <pmath/Quaternion.hpp>
+#include <pmath/Util.hpp>
 
 namespace pmath
 {
@@ -53,7 +54,7 @@ namespace pmath
     template<typename T>
     inline bool Quaternion<T>::operator ==(const Quaternion<T>& right)
     {
-        return w == right.w && vector == right.vector;
+        return equals<T>(w, right.w) && vector == right.vector;
     }
 
     template<typename T>
