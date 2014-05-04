@@ -74,6 +74,27 @@ namespace pmath
         return conjugate() / lengthSquared();
     }
 
+    template<typename T>
+    inline Quaternion<T>& Quaternion<T>::normalize()
+    {
+        return *this = unitQuaternion();
+    }
+
+    template<typename T>
+    inline Quaternion<T> Quaternion<T>::unitQuaternion() const
+    {
+        return *this / length();
+    }
+
+    template<typename T>
+    inline bool Quaternion<T>::isUnitQuaternion() const
+    {
+        // LengthSquared returns double.
+        // Also sqrt(1) == 1 so we don't need to do that
+        return equals<double>(this->lengthSquared(), 1);
+    }
+
+
     // Operators
     #pragma region Operators
     // Comparison

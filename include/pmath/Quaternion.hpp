@@ -30,6 +30,11 @@ namespace pmath
         Quaternion<T> conjugate() const;
 
         Quaternion<T> inverse() const;
+
+        Quaternion<T>& normalize();
+        Quaternion<T> unitQuaternion() const;
+        bool isUnitQuaternion() const;
+
         #pragma region Operators
         // Comparison
         bool operator ==(const Quaternion<T>& right);
