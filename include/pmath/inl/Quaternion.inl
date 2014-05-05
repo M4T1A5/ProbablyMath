@@ -198,5 +198,50 @@ namespace pmath
         return *this;
     }
 
+    template<typename T>
+    Vector3<T> operator *(const Vector3<T>& left, const Quaternion<T>& right)
+    {
+        const Vector3<T> rightleftCross = right.vector.cross(left);
+
+        return left + 2*(right.w*rightleftCross + right.vector.cross(rightleftCross));
+    }
+
+    template<typename T>
+    Vector3<T> operator *(const Quaternion<T>& left, const Vector3<T>& right)
+    {
+        return right * left;
+    }
+
+    // Multiply a homogeneous vector e.g. (x,y,z,1)
+    template<typename T>
+    Vector4<T> operator *(const Vector4<T>& left, const Quaternion<T>& right)
+    {
+        // Extract x, y and z
+        const Vector3<T> vec3(left.x, left.y, left.z);
+
+        return Vector4<T>(vec3 * right, left.w);
+    }
+
+    template<typename T>
+    Vector4<T> operator *(const Quaternion<T>& left, const Vector4<T>& right)
+    {
+        return right * left;
+    }
+    
+    template<typename T>
+    Vector3<T>& operator *=(Vector3<T>& left, const Quaternion<T>& right)
+    {
+        left = left * right;
+
+        return left;
+    }
+
+    template<typename T>
+    Vector4<T>& operator *=(Vector4<T>& left, const Quaternion<T>& right)
+    {
+        left = left * right;
+
+        return left;
+    }
     #pragma endregion
 }
