@@ -78,6 +78,7 @@ namespace pmath
     std::ostream& operator<<(std::ostream& out, const Vector3<T>& right);
 
     typedef Vector3<float>          Vec3;
+    typedef Vector3<float>          Vec3f;
     typedef Vector3<double>         Vec3d;
     typedef Vector3<int>            Vec3i;
     typedef Vector3<unsigned int>   Vec3u;

@@ -76,6 +76,7 @@ namespace pmath
     std::ostream& operator<<(std::ostream& out, const Vector4<T>& right);
 
     typedef Vector4<float>          Vec4;
+    typedef Vector4<float>          Vec4f;
     typedef Vector4<double>         Vec4d;
     typedef Vector4<int>            Vec4i;
     typedef Vector4<unsigned int>   Vec4u;

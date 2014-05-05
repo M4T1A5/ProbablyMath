@@ -8,6 +8,6 @@ TEST_CASE("Quaternion tests", "[quaternion]")
 {
     SECTION("Operators")
     {
-        CHECK(quat() == quat::identity);
+        CHECK(Quat() == Quat::identity);
     }
 }

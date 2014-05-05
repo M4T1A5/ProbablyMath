@@ -79,6 +79,7 @@ namespace pmath
     std::ostream& operator<<(std::ostream& out, const Vector2<T>& right);
 
     typedef Vector2<float>          Vec2;
+    typedef Vector2<float>          Vec2f;
     typedef Vector2<double>         Vec2d;
     typedef Vector2<int>            Vec2i;
     typedef Vector2<unsigned int>   Vec2u;

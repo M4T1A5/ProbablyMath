@@ -68,9 +68,9 @@ namespace pmath
     //Vector4<T>& operator *=(Vector4<T>& left, const Quaternion<T>& right);
 
 
-    typedef Quaternion<float>   quat;
-    typedef Quaternion<float>   quatf;
-    typedef Quaternion<double>  quatd;
+    typedef Quaternion<float>   Quat;
+    typedef Quaternion<float>   Quatf;
+    typedef Quaternion<double>  Quatd;
 }
 
 #include <pmath/inl/Quaternion.inl>
