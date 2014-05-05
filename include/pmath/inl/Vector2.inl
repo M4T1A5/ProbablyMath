@@ -13,7 +13,7 @@ namespace pmath
     { }
 
     template<typename T>
-    inline Vector2<T>::Vector2(T x, T y)
+    inline Vector2<T>::Vector2(const T& x, const T& y)
         : x(x),
           y(y)
     { }

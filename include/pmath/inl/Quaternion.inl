@@ -12,13 +12,13 @@ namespace pmath
     { }
 
     template<typename T>
-    inline Quaternion<T>::Quaternion(T w, T x, T y, T z)
+    inline Quaternion<T>::Quaternion(const T& w, const T& x, const T& y, const T& z)
         : w(w),
           vector(x, y, z)
     { }
 
     template<typename T>
-    inline Quaternion<T>::Quaternion(T w, Vector3<T> vector)
+    inline Quaternion<T>::Quaternion(const T& w, const Vector3<T>& vector)
         : w(w),
           vector(vector)
     { }

@@ -14,8 +14,8 @@ namespace pmath
     {
     public:
         Quaternion();
-        Quaternion(T w, T x, T y, T z);
-        Quaternion(T w, Vector3<T> vector);
+        Quaternion(const T& w, const T& x, const T& y, const T& z);
+        Quaternion(const T& w, const Vector3<T>& vector);
         Quaternion(const Quaternion<T>& quaternion);
         template<typename T2>
         Quaternion(const Quaternion<T2>& quaternion);

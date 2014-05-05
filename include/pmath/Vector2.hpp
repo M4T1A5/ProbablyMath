@@ -11,7 +11,7 @@ namespace pmath
     {
     public:
         Vector2();
-        Vector2(T x, T y);
+        Vector2(const T& x, const T& y);
         explicit Vector2(T value);
         Vector2(const Vector2<T>& vector);
         template<typename T2>
