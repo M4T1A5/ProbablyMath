@@ -62,6 +62,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\include\pmath\Constants.hpp" />
     <ClInclude Include="..\..\..\include\pmath\Matrix.hpp" />
     <ClInclude Include="..\..\..\include\pmath\Matrix2.hpp" />
     <ClInclude Include="..\..\..\include\pmath\Matrix3.hpp" />
@@ -75,6 +76,7 @@
     <ClInclude Include="..\..\..\include\pmath\Vector4.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\include\pmath\inl\Constants.inl" />
     <None Include="..\..\..\include\pmath\inl\Matrix2.inl" />
     <None Include="..\..\..\include\pmath\inl\Matrix3.inl" />
     <None Include="..\..\..\include\pmath\inl\Matrix4.inl" />
