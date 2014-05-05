@@ -99,51 +99,51 @@ namespace pmath
     #pragma region Operators
     // Comparison
     template<typename T>
-    inline bool Quaternion<T>::operator ==(const Quaternion<T>& right)
+    inline bool Quaternion<T>::operator ==(const Quaternion<T>& right) const
     {
         return equals<T>(w, right.w) && vector == right.vector;
     }
 
     template<typename T>
-    inline bool Quaternion<T>::operator !=(const Quaternion<T>& right)
+    inline bool Quaternion<T>::operator !=(const Quaternion<T>& right) const
     {
-        return !(*this == right)
+        return !(*this == right);
     }
 
     // Arithmetic
     template<typename T>
-    inline Quaternion<T> Quaternion<T>::operator +(const Quaternion<T>& right)
+    inline Quaternion<T> Quaternion<T>::operator +(const Quaternion<T>& right) const
     {
         return Quaternion<T>(w + right.w, vector + right.vector);
     }
 
     template<typename T>
-    inline Quaternion<T> Quaternion<T>::operator -(const Quaternion<T>& right)
+    inline Quaternion<T> Quaternion<T>::operator -(const Quaternion<T>& right) const
     {
         return Quaternion<T>(w - right.w, vector - right.vector);
     }
 
     template<typename T>
-    inline Quaternion<T> Quaternion<T>::operator -()
+    inline Quaternion<T> Quaternion<T>::operator -() const
     {
         return Quaternion<T>(-w , -vector);
     }
 
     template<typename T>
-    inline Quaternion<T> Quaternion<T>::operator *(const Quaternion<T>& right)
+    inline Quaternion<T> Quaternion<T>::operator *(const Quaternion<T>& right) const
     {
         return Quaternion<T>(w * right.w - vector.dot(right.vector),
             w*right.vector + right.w*vector + vector.cross(right.vector));
     }
 
     template<typename T>
-    inline Quaternion<T> Quaternion<T>::operator *(const T& right)
+    inline Quaternion<T> Quaternion<T>::operator *(const T& right) const
     {
         return Quaternion<T>(w * right, vector * right);
     }
 
     template<typename T>
-    inline Quaternion<T> Quaternion<T>::operator /(const T& right)
+    inline Quaternion<T> Quaternion<T>::operator /(const T& right) const
     {
         return Quaternion<T>(w / right, vector / right);
     }
@@ -199,22 +199,22 @@ namespace pmath
     }
 
     template<typename T>
-    Vector3<T> operator *(const Vector3<T>& left, const Quaternion<T>& right)
+    inline Vector3<T> operator *(const Vector3<T>& left, const Quaternion<T>& right)
     {
         const Vector3<T> rightleftCross = right.vector.cross(left);
 
-        return left + 2*(right.w*rightleftCross + right.vector.cross(rightleftCross));
+        return left + (right.w*2)*rightleftCross + right.vector.cross(rightleftCross)*2;
     }
 
     template<typename T>
-    Vector3<T> operator *(const Quaternion<T>& left, const Vector3<T>& right)
+    inline Vector3<T> operator *(const Quaternion<T>& left, const Vector3<T>& right)
     {
         return right * left;
     }
 
     // Multiply a homogeneous vector e.g. (x,y,z,1)
     template<typename T>
-    Vector4<T> operator *(const Vector4<T>& left, const Quaternion<T>& right)
+    inline Vector4<T> operator *(const Vector4<T>& left, const Quaternion<T>& right)
     {
         // Extract x, y and z
         const Vector3<T> vec3(left.x, left.y, left.z);
@@ -223,13 +223,13 @@ namespace pmath
     }
 
     template<typename T>
-    Vector4<T> operator *(const Quaternion<T>& left, const Vector4<T>& right)
+    inline Vector4<T> operator *(const Quaternion<T>& left, const Vector4<T>& right)
     {
         return right * left;
     }
     
     template<typename T>
-    Vector3<T>& operator *=(Vector3<T>& left, const Quaternion<T>& right)
+    inline Vector3<T>& operator *=(Vector3<T>& left, const Quaternion<T>& right)
     {
         left = left * right;
 
@@ -237,11 +237,19 @@ namespace pmath
     }
 
     template<typename T>
-    Vector4<T>& operator *=(Vector4<T>& left, const Quaternion<T>& right)
+    inline Vector4<T>& operator *=(Vector4<T>& left, const Quaternion<T>& right)
     {
         left = left * right;
 
         return left;
+    }
+
+    template<typename T>
+    inline std::ostream& operator<<(std::ostream& out, const Quaternion<T>& right)
+    {
+        out << "Quat(" << right.w << ", " << right.vector << ")";
+
+        return out;
     }
     #pragma endregion
 }

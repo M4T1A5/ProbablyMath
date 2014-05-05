@@ -37,16 +37,16 @@ namespace pmath
 
         #pragma region Operators
         // Comparison
-        bool operator ==(const Quaternion<T>& right);
-        bool operator !=(const Quaternion<T>& right);
+        bool operator ==(const Quaternion<T>& right) const;
+        bool operator !=(const Quaternion<T>& right) const;
 
         // Arithmetic
-        Quaternion<T> operator +(const Quaternion<T>& right);
-        Quaternion<T> operator -(const Quaternion<T>& right);
-        Quaternion<T> operator -();
-        Quaternion<T> operator *(const Quaternion<T>& right);
-        Quaternion<T> operator *(const T& right);
-        Quaternion<T> operator /(const T& right);
+        Quaternion<T> operator +(const Quaternion<T>& right) const;
+        Quaternion<T> operator -(const Quaternion<T>& right) const;
+        Quaternion<T> operator -() const;
+        Quaternion<T> operator *(const Quaternion<T>& right) const;
+        Quaternion<T> operator *(const T& right) const;
+        Quaternion<T> operator /(const T& right) const;
 
 
         // Assingment
@@ -78,6 +78,8 @@ namespace pmath
     template<typename T>
     Vector4<T>& operator *=(Vector4<T>& left, const Quaternion<T>& right);
 
+    template<typename T>
+    std::ostream& operator<<(std::ostream& out, const Quaternion<T>& right);
 
     typedef Quaternion<float>   Quat;
     typedef Quaternion<float>   Quatf;
