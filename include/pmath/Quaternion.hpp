@@ -35,6 +35,11 @@ namespace pmath
         Quaternion<T> unitQuaternion() const;
         bool isUnitQuaternion() const;
 
+        static Quaternion<T> createRotation(const Vector3<T>& axis, const T& angle);
+        static Quaternion<T> createRotationX(const T& angle);
+        static Quaternion<T> createRotationY(const T& angle);
+        static Quaternion<T> createRotationZ(const T& angle);
+
         #pragma region Operators
         // Comparison
         bool operator ==(const Quaternion<T>& right) const;

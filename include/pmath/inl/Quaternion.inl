@@ -94,6 +94,30 @@ namespace pmath
         return equals<double>(this->lengthSquared(), 1);
     }
 
+    template<typename T>
+    inline Quaternion<T> Quaternion<T>::createRotation(const Vector3<T>& axis, const T& angle)
+    {
+        return Quaternion<T>(cos<T>(angle/2), (sin<T>(angle/2)) * axis);
+    }
+
+    template<typename T>
+    inline Quaternion<T> Quaternion<T>::createRotationX(const T& angle)
+    {
+        return createRotation(Vector3<T>(1, 0, 0), angle);
+    }
+
+    template<typename T>
+    inline Quaternion<T> Quaternion<T>::createRotationY(const T& angle)
+    {
+        return createRotation(Vector3<T>(0, 1, 0), angle);
+    }
+
+    template<typename T>
+    inline Quaternion<T> Quaternion<T>::createRotationZ(const T& angle)
+    {
+        return createRotation(Vector3<T>(0, 0, 1), angle);
+    }
+
 
     // Operators
     #pragma region Operators

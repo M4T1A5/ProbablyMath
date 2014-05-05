@@ -46,5 +46,13 @@ TEST_CASE("Quaternion tests", "[quaternion]")
             sqrt(3/10.f), 2*sqrt(2/15.f)));
     }
 
+    SECTION("Rotations")
+    {
+        CHECK((Vec3(1, 0, 0) * Quat::createRotationZ(90)) == Vec3(0, 1, 0));
+        CHECK((Vec3(1, 0, 0) * Quat::createRotationY(90)) == Vec3(0, 0, -1));
+        CHECK((Vec3(0, 0, 1) * Quat::createRotationX(90)) == Vec3(0, -1, 0));
+        CHECK((Vec3(1, 0, 0) *= Quat::createRotationZ(90)) == Vec3(0, 1, 0));
+
+        CHECK((Vec3(0, 1, 0) * Quat::createRotation(Vec3(0, 0, 1), 180)) ==  Vec3(0, -1, 0));
     }
 }
