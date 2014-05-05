@@ -16,6 +16,18 @@ namespace pmath
     // Specialization for double
     template<>
     bool equals<double>(const double a, const double b, const double tolerance);
+
+    template<typename T>
+    T degreesToRadians(const T& degrees);
+
+    template<typename T>
+    T radiansToDegrees(const T& radians);
+
+    template<typename T>
+    T cos(const T& angle);
+
+    template<typename T>
+    T sin(const T& angle);
 }
 
 #include <pmath/inl/Util.inl>

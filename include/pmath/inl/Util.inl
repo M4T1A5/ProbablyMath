@@ -1,4 +1,5 @@
 #include <pmath/Util.hpp>
+#include <pmath/Constants.hpp>
 
 #include <cmath>
 
@@ -20,5 +21,29 @@ namespace pmath
     inline bool equals<double>(const double a, const double b, const double tolerance)
     {
         return abs(a - b) <= tolerance;
+    }
+
+    template<typename T>
+    T degreesToRadians(const T& degrees)
+    {
+        return (degrees / 180) * pi<T>();
+    }
+
+    template<typename T>
+    T radiansToDegrees(const T& radians)
+    {
+        return (radians * 180) / pi<T>();
+    }
+
+    template<typename T>
+    T cos(const T& angle)
+    {
+        return std::cos(degreesToRadians<T>(angle));
+    }
+
+    template<typename T>
+    T sin(const T& angle)
+    {
+        return std::sin(degreesToRadians<T>(angle));
     }
 }
