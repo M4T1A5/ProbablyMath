@@ -71,7 +71,7 @@ namespace pmath
     inline Quaternion<T> Quaternion<T>::inverse() const
     {
         // Quaternion inverse is conjugate / |q|^2
-        return conjugate() / lengthSquared();
+        return conjugate() / static_cast<T>(lengthSquared());
     }
 
     template<typename T>
@@ -83,7 +83,7 @@ namespace pmath
     template<typename T>
     inline Quaternion<T> Quaternion<T>::unitQuaternion() const
     {
-        return *this / length();
+        return *this / static_cast<T>(length());
     }
 
     template<typename T>
