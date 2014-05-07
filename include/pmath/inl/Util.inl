@@ -5,8 +5,13 @@
 
 namespace pmath
 {
+#if _MSC_VER <= 1600
     template<typename T>
     inline bool equals(const T a, const T b, const T tolerance = T(0.001))
+#elif _MSC_VER > 1600
+    template<typename T>
+    inline bool equals(const T a, const T b, const T tolerance)
+#endif
     {
 
         //return a == b;
