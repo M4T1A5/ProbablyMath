@@ -22,6 +22,8 @@ namespace pmath
         Quaternion(const Quaternion<T>& quaternion);
         template<typename T2>
         Quaternion(const Quaternion<T2>& quaternion);
+        explicit Quaternion(const Matrix3<T>& matrix);
+        explicit Quaternion(const Matrix4<T>& matrix);
         ~Quaternion();
 
         static const Quaternion<T> identity;

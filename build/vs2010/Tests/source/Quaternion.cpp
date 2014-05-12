@@ -65,7 +65,15 @@ TEST_CASE("Quaternion tests", "[quaternion]")
                                      0, 0, 1));
 
         CHECK(q2.toMatrix4() == Mat4(Mat3(0, -1, 0,
-                                     1, 0, 0,
-                                     0, 0, 1)));
+                                          1, 0, 0,
+                                          0, 0, 1)));
+
+        Mat3 rotationZ90(cos<float>(90), -sin<float>(90), 0,
+                         sin<float>(90), cos<float>(90), 0,
+                         0, 0, 1);
+        Mat4 rz90 = Mat4(rotationZ90);
+        CHECK(Quat(rotationZ90) == Quat::createRotationZ(90));
+        CHECK(Quat(rz90) == Quat::createRotationZ(90));
+        CHECK(Quat(q2.toMatrix3()) == Quat::createRotationZ(90));
     }
 }

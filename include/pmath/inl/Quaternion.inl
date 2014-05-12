@@ -37,6 +37,57 @@ namespace pmath
     { }
 
     template<typename T>
+    inline Quaternion<T>::Quaternion(const Matrix3<T>& matrix)
+    {
+        if(matrix[0][0] + matrix[1][1] + matrix[2][2] > 0)
+        {
+            const T t = matrix[0][0] + matrix[1][1] + matrix[2][2] + 1;
+            const T s = 1 / sqrt(t) * 0.5;
+
+            w        = s * t;
+            vector.x = (matrix[2][1] - matrix[1][2]) * s;
+		    vector.y = (matrix[0][2] - matrix[2][0]) * s;
+		    vector.z = (matrix[1][0] - matrix[0][1]) * s;
+        }
+        else if( matrix[0][0] > matrix[1][1] && matrix[0][0] > matrix[2][2])
+        {
+            const T t = matrix[0][0] - matrix[1][1] - matrix[2][2] + 1;
+            const T s = 1 / sqrt(t) * 0.5;
+
+            w        = (matrix[2][1] - matrix[1][2]) * s;
+            vector.x = s * t;
+		    vector.y = (matrix[1][0] + matrix[0][1]) * s;
+		    vector.z = (matrix[0][2] + matrix[2][0]) * s;
+        }
+        else if(matrix[1][1] > matrix[2][2])
+        {
+            const T t = -matrix[0][0] + matrix[1][1] - matrix[2][2] + 1;
+            const T s = 1 / sqrt(t) * 0.5;
+
+            w        = (matrix[0][2] - matrix[2][0]) * s;
+            vector.x = (matrix[1][0] + matrix[0][1]) * s;
+		    vector.y = s * t;
+		    vector.z = (matrix[2][1] + matrix[1][2]) * s;
+        }
+        else
+        {
+            const T t = -matrix[0][0] - matrix[1][1] + matrix[2][2] + 1;
+            const T s = 1 / sqrt(t) * 0.5;
+
+            w        = (matrix[1][0] - matrix[0][1]) * s;
+            vector.x = (matrix[0][2] + matrix[2][0]) * s;
+		    vector.y = (matrix[2][1] + matrix[1][2]) * s;
+		    vector.z = s * t;
+        }
+    }
+
+    template<typename T>
+    inline Quaternion<T>::Quaternion(const Matrix4<T>& matrix)
+    {
+        *this = Quaternion(matrix.getMatrix3(3, 3));
+    }
+
+    template<typename T>
     inline Quaternion<T>::~Quaternion()
     { }
 
@@ -87,10 +138,10 @@ namespace pmath
     }
 
     template<typename T>
-    Matrix3<T> Quaternion<T>::toMatrix3() const
+    inline Matrix3<T> Quaternion<T>::toMatrix3() const
     {
-        const T l = static_cast<T>(length());
-        const T s = equals<T>(l, 0) ? T(0) : 2 / l;
+        const double l = length();
+        const T s = static_cast<T>(equals<double>(l, 0) ? 0 : 2 / l);
 
         const T wx = s * w * vector.x;
         const T wy = s * w * vector.y;
@@ -111,7 +162,7 @@ namespace pmath
     }
 
     template<typename T>
-    Matrix4<T> Quaternion<T>::toMatrix4() const
+    inline Matrix4<T> Quaternion<T>::toMatrix4() const
     {
         return Matrix4<T>(toMatrix3());
     }
