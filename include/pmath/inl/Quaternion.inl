@@ -97,7 +97,8 @@ namespace pmath
     template<typename T>
     inline Quaternion<T> Quaternion<T>::createRotation(const Vector3<T>& axis, const T& angle)
     {
-        return Quaternion<T>(cos<T>(angle/2), (sin<T>(angle/2)) * axis);
+        const T l = static_cast<T>(axis.length());
+        return Quaternion<T>(cos<T>(angle/2), (sin<T>(angle/2) / l) * axis);
     }
 
     template<typename T>

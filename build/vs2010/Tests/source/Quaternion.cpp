@@ -55,8 +55,12 @@ TEST_CASE("Quaternion tests", "[quaternion]")
         CHECK((vec *= Quat::createRotationZ(90)) == Vec3(0, 1, 0));
 
         CHECK((Vec3(0, 1, 0) * Quat::createRotation(Vec3(0, 0, 1), 180)) ==  Vec3(0, -1, 0));
-        const auto q = Quat::createRotation(Vec3(0,0,1), 90);
-        q.isUnitQuaternion();
-        CHECK(q.isUnitQuaternion());
+        const auto q1 = Quat::createRotation(Vec3(1,1,1), 45);
+        const auto q2 = Quat::createRotation(Vec3(1,1,1), 60);
+        const auto q3 = Quat::createRotation(Vec3(1,0,1), 75);
+
+        const auto q4 = q3 * q2 * q1;
+        CHECK(q4.isUnitQuaternion());
+        std::cout << q4 << std::endl;
     }
 }
