@@ -113,7 +113,7 @@ namespace pmath
     template<typename T>
     Matrix4<T> Quaternion<T>::toMatrix4() const
     {
-        return Matrix4(toMatrix3());
+        return Matrix4<T>(toMatrix3());
     }
 
     template<typename T>

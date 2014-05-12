@@ -63,5 +63,9 @@ TEST_CASE("Quaternion tests", "[quaternion]")
         CHECK(q2.toMatrix3() == Mat3(0, -1, 0,
                                      1, 0, 0,
                                      0, 0, 1));
+
+        CHECK(q2.toMatrix4() == Mat4(Mat3(0, -1, 0,
+                                     1, 0, 0,
+                                     0, 0, 1)));
     }
 }
