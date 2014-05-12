@@ -5,6 +5,9 @@
 #include <pmath/Vector3.hpp>
 #include <pmath/Vector4.hpp>
 
+#include <pmath/Matrix3.hpp>
+#include <pmath/Matrix4.hpp>
+
 #include <iostream>
 
 namespace pmath
@@ -34,6 +37,9 @@ namespace pmath
         Quaternion<T>& normalize();
         Quaternion<T> unitQuaternion() const;
         bool isUnitQuaternion() const;
+
+        Matrix3<T> toMatrix3() const;
+        Matrix4<T> toMatrix4() const;
 
         static Quaternion<T> createRotation(const Vector3<T>& axis, const T& angle);
         static Quaternion<T> createRotationX(const T& angle);

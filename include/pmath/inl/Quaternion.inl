@@ -87,6 +87,36 @@ namespace pmath
     }
 
     template<typename T>
+    Matrix3<T> Quaternion<T>::toMatrix3() const
+    {
+        const T l = static_cast<T>(length());
+        const T s = equals<T>(l, 0) ? T(0) : 2 / l;
+
+        const T wx = s * w * vector.x;
+        const T wy = s * w * vector.y;
+        const T wz = s * w * vector.z;
+
+        const T xx = s * vector.x * vector.x;
+        const T xy = s * vector.x * vector.y;
+        const T xz = s * vector.x * vector.z;
+
+        const T yy = s * vector.y * vector.y;
+        const T yz = s * vector.y * vector.z;
+
+        const T zz = s * vector.z * vector.z;
+
+        return Matrix3<T>(1 - (yy + zz),      xy - wz,      xz + wy,
+                               xy + wz,  1 - (xx + zz),     yz - wx,
+                               xz - wy,       yz + wx, 1 - (xx + yy));
+    }
+
+    template<typename T>
+    Matrix4<T> Quaternion<T>::toMatrix4() const
+    {
+        return Matrix4(toMatrix3());
+    }
+
+    template<typename T>
     inline bool Quaternion<T>::isUnitQuaternion() const
     {
         // LengthSquared returns double.
