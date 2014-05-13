@@ -1,4 +1,6 @@
-#include <pmath/Vector4.hpp>
+#include "../Vector4.hpp"
+#include "../Util.hpp"
+
 #include <cassert>
 #include <cmath>
 
@@ -13,7 +15,7 @@ namespace pmath
     { }
 
     template<typename T>
-    inline Vector4<T>::Vector4(T x, T y, T z, T w)
+    inline Vector4<T>::Vector4(const T& x, const T& y, const T& z, const T& w)
         : x(x),
           y(y),
           z(z),
@@ -27,6 +29,24 @@ namespace pmath
           z(value),
           w(value)
     { }
+
+    template<typename T>
+    inline Vector4<T>::Vector4(const Vector2<T>& vector, const T& z, const T& w)
+        : x(vector.x),
+          y(vector.y),
+          z(z),
+          w(w)
+    { }
+
+
+    template<typename T>
+    inline Vector4<T>::Vector4(const Vector3<T>& vector, const T& w)
+        : x(vector.x),
+          y(vector.y),
+          z(vector.z),
+          w(w)
+    { }
+
 
     template<typename T>
     inline Vector4<T>::Vector4(const Vector4<T>& vector4)
@@ -80,7 +100,13 @@ namespace pmath
     }
 
     template<typename T>
-    inline Vector4<T> Vector4<T>::normalize()
+    inline double Vector4<T>::distance(const Vector4<T>& vec1, const Vector4<T>& vec2)
+    {
+        return (vec2 - vec1).length();
+    }
+
+    template<typename T>
+    inline Vector4<T>& Vector4<T>::normalize()
     {
         return *this = unitVector();
     }
@@ -92,9 +118,17 @@ namespace pmath
     }
 
     template<typename T>
-    inline double Vector4<T>::distance(const Vector4<T>& vec1, const Vector4<T>& vec2)
+    inline bool Vector4<T>::isUnitVector() const
     {
-        return (vec2 - vec1).length();
+        // LengthSquared returns double.
+        // Also sqrt(1) == 1 so we don't need to do that
+        return equals<double>(this->lengthSquared(), 1);
+    }
+
+    template<typename T>
+    inline Vector4<T> Vector4<T>::lerp(const Vector4<T>& vec1, const Vector4<T>& vec2, const T& t)
+    {
+        return (1 - t) * vec1 + t * vec2;
     }
 
 
@@ -104,13 +138,14 @@ namespace pmath
     template<typename T>
     inline bool Vector4<T>::operator ==(const Vector4<T>& right) const
     {
-        return x == right.x && y == right.y && z == right.z && w == right.w;
+        return equals<T>(x, right.x) && equals(y, right.y) &&
+            equals(z, right.z) && equals(w, right.w);
     }
 
     template<typename T>
     inline bool Vector4<T>::operator !=(const Vector4<T>& right) const
     {
-        return x != right.x || y != right.y || z != right.z || w != right.w;
+        return !(*this == right);
     }
 
     template<typename T>

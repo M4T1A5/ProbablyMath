@@ -1,4 +1,6 @@
-#include <pmath/Vector2.hpp>
+#include "../Vector2.hpp"
+#include "../Util.hpp"
+
 #include <cassert>
 #include <cmath>
 
@@ -11,7 +13,7 @@ namespace pmath
     { }
 
     template<typename T>
-    inline Vector2<T>::Vector2(T x, T y)
+    inline Vector2<T>::Vector2(const T& x, const T& y)
         : x(x),
           y(y)
     { }
@@ -85,7 +87,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Vector2<T> Vector2<T>::normalize()
+    inline Vector2<T>& Vector2<T>::normalize()
     {
         return *this = unitVector();
     }
@@ -96,6 +98,19 @@ namespace pmath
         return *this / static_cast<T>(length());
     }
 
+    template<typename T>
+    inline bool Vector2<T>::isUnitVector() const
+    {
+        // LengthSquared returns double.
+        // Also sqrt(1) == 1 so we don't need to do that
+        return equals<double>(this->lengthSquared(), 1);
+    }
+
+    template<typename T>
+    inline Vector2<T> Vector2<T>::lerp(const Vector2<T>& vec1, const Vector2<T>& vec2, const T& t)
+    {
+        return (1 - t) * vec1 + t * vec2;
+    }
 
     // Operators
     #pragma region Operators
@@ -103,13 +118,13 @@ namespace pmath
     template<typename T>
     inline bool Vector2<T>::operator ==(const Vector2<T>& right) const
     {
-        return x == right.x && y == right.y;
+        return equals<T>(x, right.x) && equals<T>(y, right.y);
     }
 
     template<typename T>
     inline bool Vector2<T>::operator !=(const Vector2<T>& right) const
     {
-        return x != right.x || y != right.y;
+        return !(*this == right);
     }
 
     template<typename T>

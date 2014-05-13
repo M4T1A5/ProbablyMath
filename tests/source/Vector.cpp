@@ -68,6 +68,8 @@ TEST_CASE("Vector2 tests", "[vector]")
         CHECK(Vec2::cross(b, a) == 10);
 
         CHECK(Vec2::distance(Vec2(1, 2), Vec2(2,1)) == sqrt(2.0));
+
+        CHECK(Vec2::lerp(vec1, vec2, 0.5f) == Vec2(3.5f, 3.5f));
     }
 
     SECTION("Normals")
@@ -75,6 +77,7 @@ TEST_CASE("Vector2 tests", "[vector]")
         Vec2 vec(5, 9);
         CHECK(vec.unitVector() == Vec2(5 / sqrt(106.f), 9 / sqrt(106.f)));
         CHECK(vec.normalize() == Vec2(5 / sqrt(106.f), 9 / sqrt(106.f)));
+        CHECK(vec.isUnitVector());
     }
 }
 
@@ -149,6 +152,8 @@ TEST_CASE("Vector3 tests", "[vector]")
         CHECK(Vec3::cross(vec2, vec1) == Vec3(6, -12, 6));
 
         CHECK(Vec3::distance(Vec3(1, 2, 3), Vec3(3, 2, 1)) == 2*sqrt(2.0));
+
+        CHECK(Vec3::lerp(vec1, vec2, 0.5f) == Vec3(4, 5, 6));
     }
 
     SECTION("Normals")
@@ -156,6 +161,7 @@ TEST_CASE("Vector3 tests", "[vector]")
         Vec3 vec(5, 9, 7);
         CHECK(vec.unitVector() == Vec3(sqrt(5.f / 31.f), 9 / sqrt(155.f), 7 / sqrt(155.f)));
         CHECK(vec.normalize() == Vec3(sqrt(5.f / 31.f), 9 / sqrt(155.f), 7 / sqrt(155.f)));
+        CHECK(vec.isUnitVector());
     }
 }
 
@@ -226,6 +232,8 @@ TEST_CASE("Vector4 tests", "[vector]")
         CHECK(vec1.lengthSquared() == 30);
 
         CHECK(Vec4::distance(Vec4(1, 2, 3, 4), Vec4(4,3,2,1)) == 2*sqrt(5.0));
+
+        CHECK(Vec4::lerp(vec1, vec2, 0.5f) == Vec4(4, 5, 6, 7));
     }
 
     SECTION("Normals")
@@ -236,5 +244,6 @@ TEST_CASE("Vector4 tests", "[vector]")
 
         CHECK(vec.unitVector() == result);
         CHECK(vec.normalize() == result);
+        CHECK(vec.isUnitVector());
     }
 }

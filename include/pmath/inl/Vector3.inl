@@ -1,4 +1,6 @@
-#include <pmath/Vector3.hpp>
+#include "../Vector3.hpp"
+#include "../Util.hpp"
+
 #include <cassert>
 #include <cmath>
 
@@ -12,7 +14,7 @@ namespace pmath
     { }
 
     template<typename T>
-    inline Vector3<T>::Vector3(T x, T y, T z)
+    inline Vector3<T>::Vector3(const T& x, const T& y, const T& z)
         : x(x),
           y(y),
           z(z)
@@ -23,6 +25,13 @@ namespace pmath
         : x(value),
           y(value),
           z(value)
+    { }
+
+    template<typename T>
+    inline Vector3<T>::Vector3(const Vector2<T>& vector, const T& z)
+        : x(vector.x),
+          y(vector.y),
+          z(z)
     { }
 
     template<typename T>
@@ -92,7 +101,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Vector3<T> Vector3<T>::normalize()
+    inline Vector3<T>& Vector3<T>::normalize()
     {
         return *this = unitVector();
     }
@@ -103,6 +112,20 @@ namespace pmath
         return *this / static_cast<T>(length());
     }
 
+    template<typename T>
+    inline bool Vector3<T>::isUnitVector() const
+    {
+        // LengthSquared returns double.
+        // Also sqrt(1) == 1 so we don't need to do that
+        return equals<double>(this->lengthSquared(), 1);
+    }
+
+    template<typename T>
+    inline Vector3<T> Vector3<T>::lerp(const Vector3<T>& vec1, const Vector3<T>& vec2, const T& t)
+    {
+        return (1 - t) * vec1 + t * vec2;
+    }
+
 
     // Operators
     #pragma region Operators
@@ -110,13 +133,13 @@ namespace pmath
     template<typename T>
     inline bool Vector3<T>::operator ==(const Vector3<T>& right) const
     {
-        return x == right.x && y == right.y && z == right.z;
+        return equals<T>(x, right.x) && equals<T>(y, right.y) && equals<T>(z, right.z);
     }
 
     template<typename T>
     inline bool Vector3<T>::operator !=(const Vector3<T>& right) const
     {
-        return x != right.x || y != right.y || z != right.z;
+        return !(*this == right);
     }
 
     template<typename T>
