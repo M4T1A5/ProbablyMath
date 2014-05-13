@@ -2,12 +2,12 @@
 #ifndef MATRIX4_PMATH_H
 #define MATRIX4_PMATH_H
 
-#include <pmath/Vector2.hpp>
-#include <pmath/Vector3.hpp>
-#include <pmath/Vector4.hpp>
+#include "Vector2.hpp"
+#include "Vector3.hpp"
+#include "Vector4.hpp"
 
-#include <pmath/Matrix2.hpp>
-#include <pmath/Matrix3.hpp>
+#include "Matrix2.hpp"
+#include "Matrix3.hpp"
 
 #include <iostream>
 
@@ -25,24 +25,24 @@ namespace pmath
         Matrix4(const Vector4<T>& row1, const Vector4<T>& row2, const Vector4<T>& row3, const Vector4<T>& row4);
         explicit Matrix4(const Matrix2<T>& matrix);
         explicit Matrix4(const Matrix3<T>& matrix);
-        Matrix4(const Matrix4<T>& matrix);
+        Matrix4(const Matrix4& matrix);
         template<typename T2>
         Matrix4(const Matrix4<T2>& matrix);
         ~Matrix4();
 
-        static const Matrix4<T> identity;
+        static const Matrix4 identity;
         bool isIdentity() const;
 
         T determinant() const;
 
-        Matrix4<T> transpose() const;
-        static Matrix4<T> transpose(const Matrix4<T>& matrix);
+        Matrix4 transpose() const;
+        static Matrix4 transpose(const Matrix4& matrix);
 
-        Matrix4<T> cofactor() const;
-        static Matrix4<T> cofactor(const Matrix4<T>& matrix);
+        Matrix4 cofactor() const;
+        static Matrix4 cofactor(const Matrix4& matrix);
 
-        Matrix4<T> inverse() const;
-        static Matrix4<T> inverse(const Matrix4<T>& matrix);
+        Matrix4 inverse() const;
+        static Matrix4 inverse(const Matrix4& matrix);
         
         Matrix3<T> getMatrix3(const unsigned int rowToRemove = 2, const unsigned int columnToRemove = 2) const;
 
@@ -50,27 +50,27 @@ namespace pmath
 
         #pragma region Operators
         // Comparison
-        bool operator ==(const Matrix4<T>& right) const;
-        bool operator !=(const Matrix4<T>& right) const;
+        bool operator ==(const Matrix4& right) const;
+        bool operator !=(const Matrix4& right) const;
 
 
         // Assingment
-        Matrix4<T>& operator =(const Matrix4<T>& right);
-        Matrix4<T>& operator +=(const Matrix4<T>& right);
-        Matrix4<T>& operator -=(const Matrix4<T>& right);
-        Matrix4<T>& operator *=(const T& right);
-        Matrix4<T>& operator /=(const T& right);
+        Matrix4& operator  =(const Matrix4& right);
+        Matrix4& operator +=(const Matrix4& right);
+        Matrix4& operator -=(const Matrix4& right);
+        Matrix4& operator *=(const T& right);
+        Matrix4& operator /=(const T& right);
 
 
         // Arithmetic
-        Matrix4<T> operator +(const Matrix4<T>& right) const;
-        Matrix4<T> operator -(const Matrix4<T>& right) const;
-        Matrix4<T> operator *(const Matrix4<T>& right) const;
-        Matrix4<T> operator *(const T& right) const;
+        Matrix4 operator +(const Matrix4& right) const;
+        Matrix4 operator -(const Matrix4& right) const;
+        Matrix4 operator *(const Matrix4& right) const;
+        Matrix4 operator *(const T& right) const;
         Vector2<T> operator *(const Vector2<T>& right) const;
         Vector3<T> operator *(const Vector3<T>& right) const;
         Vector4<T> operator *(const Vector4<T>& right) const;
-        Matrix4<T> operator /(const T& right) const;
+        Matrix4 operator /(const T& right) const;
 
 
         // Member access
@@ -107,5 +107,5 @@ namespace pmath
     typedef Matrix4<unsigned int>   Mat4u;
 }
 
-#include <pmath/inl/Matrix4.inl>
+#include "inl/Matrix4.inl"
 #endif

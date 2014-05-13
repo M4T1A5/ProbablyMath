@@ -2,10 +2,10 @@
 #ifndef MATRIX3_PMATH_H
 #define MATRIX3_PMATH_H
 
-#include <pmath/Vector2.hpp>
-#include <pmath/Vector3.hpp>
+#include "Vector2.hpp"
+#include "Vector3.hpp"
 
-#include <pmath/Matrix2.hpp>
+#include "Matrix2.hpp"
 
 #include <iostream>
 
@@ -21,24 +21,24 @@ namespace pmath
                 const T& a31, const T& a32, const T& a33);
         Matrix3(const Vector3<T>& row1, const Vector3<T>& row2, const Vector3<T>& row3);
         explicit Matrix3(const Matrix2<T>& matrix);
-        Matrix3(const Matrix3<T>& matrix);
+        Matrix3(const Matrix3& matrix);
         template<typename T2>
         Matrix3(const Matrix3<T2>& matrix);
         ~Matrix3();
 
-        static const Matrix3<T> identity;
+        static const Matrix3 identity;
         bool isIdentity() const;
 
         T determinant() const;
 
-        Matrix3<T> transpose() const;
-        static Matrix3<T> transpose(const Matrix3<T>& matrix);
+        Matrix3 transpose() const;
+        static Matrix3 transpose(const Matrix3& matrix);
 
-        Matrix3<T> cofactor() const;
-        static Matrix3<T> cofactor(const Matrix3<T>& matrix);
+        Matrix3 cofactor() const;
+        static Matrix3 cofactor(const Matrix3& matrix);
 
-        Matrix3<T> inverse() const;
-        static Matrix3<T> inverse(const Matrix3<T>& matrix);
+        Matrix3 inverse() const;
+        static Matrix3 inverse(const Matrix3& matrix);
 
         Matrix2<T> getMatrix2(const unsigned int rowToRemove = 2, const unsigned int columnToRemove = 2) const;
 
@@ -46,26 +46,26 @@ namespace pmath
 
         #pragma region Operators
         // Comparison
-        bool operator ==(const Matrix3<T>& right) const;
-        bool operator !=(const Matrix3<T>& right) const;
+        bool operator ==(const Matrix3& right) const;
+        bool operator !=(const Matrix3& right) const;
 
 
         // Assingment
-        Matrix3<T>& operator =(const Matrix3<T>& right);
-        Matrix3<T>& operator +=(const Matrix3<T>& right);
-        Matrix3<T>& operator -=(const Matrix3<T>& right);
-        Matrix3<T>& operator *=(const T& right);
-        Matrix3<T>& operator /=(const T& right);
+        Matrix3& operator  =(const Matrix3& right);
+        Matrix3& operator +=(const Matrix3& right);
+        Matrix3& operator -=(const Matrix3& right);
+        Matrix3& operator *=(const T& right);
+        Matrix3& operator /=(const T& right);
 
 
         // Arithmetic
-        Matrix3<T> operator +(const Matrix3<T>& right) const;
-        Matrix3<T> operator -(const Matrix3<T>& right) const;
-        Matrix3<T> operator *(const Matrix3<T>& right) const;
-        Matrix3<T> operator *(const T& right) const;
+        Matrix3 operator +(const Matrix3& right) const;
+        Matrix3 operator -(const Matrix3& right) const;
+        Matrix3 operator *(const Matrix3& right) const;
+        Matrix3 operator *(const T& right) const;
         Vector2<T> operator *(const Vector2<T>& right) const;
         Vector3<T> operator *(const Vector3<T>& right) const;
-        Matrix3<T> operator /(const T& right) const;
+        Matrix3 operator /(const T& right) const;
 
 
         // Member access
@@ -98,5 +98,5 @@ namespace pmath
     typedef Matrix3<unsigned int>   Mat3u;
 }
 
-#include <pmath/inl/Matrix3.inl>
+#include "inl/Matrix3.inl"
 #endif

@@ -2,7 +2,7 @@
 #ifndef MATRIX2_PMATH_H
 #define MATRIX2_PMATH_H
 
-#include <pmath/Vector2.hpp>
+#include "Vector2.hpp"
 #include <iostream>
 
 namespace pmath
@@ -15,48 +15,48 @@ namespace pmath
         Matrix2(const T& a11, const T& a12,
                 const T& a21, const T& a22);
         Matrix2(const Vector2<T>& row1, const Vector2<T>& row2);
-        Matrix2(const Matrix2<T>& matrix);
+        Matrix2(const Matrix2& matrix);
         template<typename T2>
         Matrix2(const Matrix2<T2>& matrix);
         ~Matrix2();
 
-        static const Matrix2<T> identity;
+        static const Matrix2 identity;
         bool isIdentity() const;
 
         T determinant() const;
 
-        Matrix2<T> transpose() const;
-        static Matrix2<T> transpose(const Matrix2<T>& matrix);
+        Matrix2 transpose() const;
+        static Matrix2 transpose(const Matrix2& matrix);
 
-        Matrix2<T> cofactor() const;
-        static Matrix2<T> cofactor(const Matrix2<T>& matrix);
+        Matrix2 cofactor() const;
+        static Matrix2 cofactor(const Matrix2& matrix);
 
-        Matrix2<T> inverse() const;
-        static Matrix2<T> inverse(const Matrix2<T>& matrix);
+        Matrix2 inverse() const;
+        static Matrix2 inverse(const Matrix2& matrix);
 
         const T* ptr() const;
 
         #pragma region Operators
         // Comparison
-        bool operator ==(const Matrix2<T>& right) const;
-        bool operator !=(const Matrix2<T>& right) const;
+        bool operator ==(const Matrix2& right) const;
+        bool operator !=(const Matrix2& right) const;
 
 
         // Assingment
-        Matrix2<T>& operator =(const Matrix2<T>& right);
-        Matrix2<T>& operator +=(const Matrix2<T>& right);
-        Matrix2<T>& operator -=(const Matrix2<T>& right);
-        Matrix2<T>& operator *=(const T& right);
-        Matrix2<T>& operator /=(const T& right);
+        Matrix2& operator  =(const Matrix2& right);
+        Matrix2& operator +=(const Matrix2& right);
+        Matrix2& operator -=(const Matrix2& right);
+        Matrix2& operator *=(const T& right);
+        Matrix2& operator /=(const T& right);
 
 
         // Arithmetic
-        Matrix2<T> operator +(const Matrix2<T>& right) const;
-        Matrix2<T> operator -(const Matrix2<T>& right) const;
-        Matrix2<T> operator *(const Matrix2<T>& right) const;
-        Matrix2<T> operator *(const T& right) const;
+        Matrix2 operator +(const Matrix2& right) const;
+        Matrix2 operator -(const Matrix2& right) const;
+        Matrix2 operator *(const Matrix2& right) const;
+        Matrix2 operator *(const T& right) const;
         Vector2<T> operator *(const Vector2<T>& right) const;
-        Matrix2<T> operator /(const T& right) const;
+        Matrix2 operator /(const T& right) const;
 
 
         // Member access
@@ -85,5 +85,5 @@ namespace pmath
     typedef Matrix2<unsigned int>   Mat2u;
 }
 
-#include <pmath/inl/Matrix2.inl>
+#include "inl/Matrix2.inl"
 #endif

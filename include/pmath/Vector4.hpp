@@ -2,8 +2,8 @@
 #ifndef VECTOR4_PMATH_H
 #define VECTOR4_PMATH_H
 
-#include <pmath/Vector2.hpp>
-#include <pmath/Vector3.hpp>
+#include "Vector2.hpp"
+#include "Vector3.hpp"
 
 #include <iostream>
 
@@ -18,49 +18,49 @@ namespace pmath
         explicit Vector4(T value);
         Vector4(const Vector2<T>& vector, const T& z, const T& w);
         Vector4(const Vector3<T>& vector, const T& w);
-        Vector4(const Vector4<T>& vector);
+        Vector4(const Vector4& vector);
         template<typename T2>
         Vector4(const Vector4<T2>& vector);
         ~Vector4();
 
-        T dot(const Vector4<T>& other) const;
-        static T dot(const Vector4<T>& vec1, const Vector4<T>& vec2);
+        T dot(const Vector4& other) const;
+        static T dot(const Vector4& vec1, const Vector4& vec2);
 
         double lengthSquared() const;
         double length() const;
 
-        static double distance(const Vector4<T>& vec1, const Vector4<T>& vec2);
+        static double distance(const Vector4& vec1, const Vector4& vec2);
 
         // Normalizes the vector and returns the normalized vector
-        Vector4<T> normalize();
+        Vector4& normalize();
         // Only returns the normalized vector. Doesn't modify the original
-        Vector4<T> unitVector() const;
+        Vector4 unitVector() const;
         bool isUnitVector() const;
 
-        static Vector4<T> lerp(const Vector4<T>& vec1, const Vector4<T>& vec2, const T& t);
+        static Vector4 lerp(const Vector4& vec1, const Vector4& vec2, const T& t);
 
         #pragma region Operators
         // Comparison
-        bool operator ==(const Vector4<T>& right) const;
-        bool operator !=(const Vector4<T>& right) const;
-        bool operator >(const Vector4<T>& right) const;
-        bool operator <(const Vector4<T>& right) const;
-        bool operator >=(const Vector4<T>& right) const;
-        bool operator <=(const Vector4<T>& right) const;
+        bool operator ==(const Vector4& right) const;
+        bool operator !=(const Vector4& right) const;
+        bool operator  >(const Vector4& right) const;
+        bool operator  <(const Vector4& right) const;
+        bool operator >=(const Vector4& right) const;
+        bool operator <=(const Vector4& right) const;
 
         // Assingment
-        Vector4<T>& operator =(const Vector4<T>& right);
-        Vector4<T>& operator +=(const Vector4<T>& right);
-        Vector4<T>& operator -=(const Vector4<T>& right);
-        Vector4<T>& operator *=(const T& right);
-        Vector4<T>& operator /=(const T& right);
+        Vector4& operator  =(const Vector4& right);
+        Vector4& operator +=(const Vector4& right);
+        Vector4& operator -=(const Vector4& right);
+        Vector4& operator *=(const T& right);
+        Vector4& operator /=(const T& right);
 
         // Arithmetic
-        Vector4<T> operator +(const Vector4<T>& right) const;
-        Vector4<T> operator -() const;
-        Vector4<T> operator -(const Vector4<T>& right) const;
-        Vector4<T> operator *(const T& right) const;
-        Vector4<T> operator /(const T& right) const;
+        Vector4 operator +(const Vector4& right) const;
+        Vector4 operator -() const;
+        Vector4 operator -(const Vector4& right) const;
+        Vector4 operator *(const T& right) const;
+        Vector4 operator /(const T& right) const;
 
         // Member access
         T& operator [](const unsigned int index);
@@ -88,5 +88,5 @@ namespace pmath
     typedef Vector4<unsigned int>   Vec4u;
 }
 
-#include <pmath/inl/Vector4.inl>
+#include "inl/Vector4.inl"
 #endif

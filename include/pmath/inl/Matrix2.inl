@@ -1,4 +1,5 @@
-#include <pmath/Matrix2.hpp>
+#include "../Matrix2.hpp"
+
 #include <cassert>
 
 namespace pmath

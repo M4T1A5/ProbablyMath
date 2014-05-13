@@ -29,5 +29,5 @@ namespace pmath
     T sin(const T& angle);
 }
 
-#include <pmath/inl/Util.inl>
+#include "inl/Util.inl"
 #endif

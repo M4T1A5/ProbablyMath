@@ -1,5 +1,5 @@
-#include <pmath/Vector4.hpp>
-#include <pmath/Util.hpp>
+#include "../Vector4.hpp"
+#include "../Util.hpp"
 
 #include <cassert>
 #include <cmath>
@@ -106,7 +106,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Vector4<T> Vector4<T>::normalize()
+    inline Vector4<T>& Vector4<T>::normalize()
     {
         return *this = unitVector();
     }

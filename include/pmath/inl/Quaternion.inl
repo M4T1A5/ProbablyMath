@@ -1,5 +1,5 @@
-#include <pmath/Quaternion.hpp>
-#include <pmath/Util.hpp>
+#include "../Quaternion.hpp"
+#include "../Util.hpp"
 
 namespace pmath
 {

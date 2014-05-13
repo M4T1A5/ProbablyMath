@@ -2,11 +2,11 @@
 #ifndef QUATERNION_PMATH_H
 #define QUATERNION_PMATH_H
 
-#include <pmath/Vector3.hpp>
-#include <pmath/Vector4.hpp>
+#include "Vector3.hpp"
+#include "Vector4.hpp"
 
-#include <pmath/Matrix3.hpp>
-#include <pmath/Matrix4.hpp>
+#include "Matrix3.hpp"
+#include "Matrix4.hpp"
 
 #include <iostream>
 
@@ -19,39 +19,39 @@ namespace pmath
         Quaternion();
         Quaternion(const T& w, const T& x, const T& y, const T& z);
         Quaternion(const T& w, const Vector3<T>& vector);
-        Quaternion(const Quaternion<T>& quaternion);
+        Quaternion(const Quaternion& quaternion);
         template<typename T2>
         Quaternion(const Quaternion<T2>& quaternion);
         explicit Quaternion(const Matrix3<T>& matrix);
         explicit Quaternion(const Matrix4<T>& matrix);
         ~Quaternion();
 
-        static const Quaternion<T> identity;
+        static const Quaternion identity;
         bool isIdentity() const;
 
-        T dot(const Quaternion<T>& other) const;
-        static T dot(const Quaternion<T>& quat1, const Quaternion<T>& quat2);
+        T dot(const Quaternion& other) const;
+        static T dot(const Quaternion& quat1, const Quaternion& quat2);
 
         double lengthSquared() const;
         double length() const;
 
-        Quaternion<T> conjugate() const;
+        Quaternion conjugate() const;
 
-        Quaternion<T> inverse() const;
+        Quaternion inverse() const;
 
-        Quaternion<T>& normalize();
-        Quaternion<T> unitQuaternion() const;
+        Quaternion& normalize();
+        Quaternion unitQuaternion() const;
         bool isUnitQuaternion() const;
 
         Matrix3<T> toMatrix3() const;
         Matrix4<T> toMatrix4() const;
 
-        static Quaternion<T> createRotation(const Vector3<T>& axis, const T& angle);
-        static Quaternion<T> createRotationX(const T& angle);
-        static Quaternion<T> createRotationY(const T& angle);
-        static Quaternion<T> createRotationZ(const T& angle);
+        static Quaternion createRotation(const Vector3<T>& axis, const T& angle);
+        static Quaternion createRotationX(const T& angle);
+        static Quaternion createRotationY(const T& angle);
+        static Quaternion createRotationZ(const T& angle);
 
-        static Quaternion<T> slerp(const Quaternion<T>& q1, const Quaternion<T>& q2, const T& t);
+        static Quaternion slerp(const Quaternion& q1, const Quaternion& q2, const T& t);
 
         #pragma region Operators
         // Comparison
@@ -59,21 +59,21 @@ namespace pmath
         bool operator !=(const Quaternion<T>& right) const;
 
         // Arithmetic
-        Quaternion<T> operator +(const Quaternion<T>& right) const;
-        Quaternion<T> operator -(const Quaternion<T>& right) const;
-        Quaternion<T> operator -() const;
-        Quaternion<T> operator *(const Quaternion<T>& right) const;
-        Quaternion<T> operator *(const T& right) const;
-        Quaternion<T> operator /(const T& right) const;
+        Quaternion operator +(const Quaternion& right) const;
+        Quaternion operator -(const Quaternion& right) const;
+        Quaternion operator -() const;
+        Quaternion operator *(const Quaternion& right) const;
+        Quaternion operator *(const T& right) const;
+        Quaternion operator /(const T& right) const;
 
 
         // Assingment
-        Quaternion<T>& operator =(const Quaternion<T>& right);
-        Quaternion<T>& operator +=(const Quaternion<T>& right);
-        Quaternion<T>& operator -=(const Quaternion<T>& right);
-        Quaternion<T>& operator *=(const Quaternion<T>& right);
-        Quaternion<T>& operator *=(const T& right);
-        Quaternion<T>& operator /=(const T& right);
+        Quaternion& operator  =(const Quaternion& right);
+        Quaternion& operator +=(const Quaternion& right);
+        Quaternion& operator -=(const Quaternion& right);
+        Quaternion& operator *=(const Quaternion& right);
+        Quaternion& operator *=(const T& right);
+        Quaternion& operator /=(const T& right);
         #pragma endregion
 
         T w;
@@ -107,5 +107,5 @@ namespace pmath
     typedef Quaternion<double>  Quatd;
 }
 
-#include <pmath/inl/Quaternion.inl>
+#include "inl/Quaternion.inl"
 #endif

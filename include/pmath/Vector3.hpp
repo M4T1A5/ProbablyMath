@@ -2,7 +2,7 @@
 #ifndef VECTOR3_PMATH_H
 #define VECTOR3_PMATH_H
 
-#include <pmath/Vector2.hpp>
+#include "Vector2.hpp"
 
 #include <iostream>
 
@@ -16,52 +16,52 @@ namespace pmath
         Vector3(const T& x, const T& y, const T& z);
         explicit Vector3(T value);
         Vector3(const Vector2<T>& vector, const T& z);
-        Vector3(const Vector3<T>& vector);
+        Vector3(const Vector3& vector);
         template<typename T2>
         Vector3(const Vector3<T2>& vector);
         ~Vector3();
 
-        T dot(const Vector3<T>& other) const;
-        static T dot(const Vector3<T>& vec1, const Vector3<T>& vec2);
+        T dot(const Vector3& other) const;
+        static T dot(const Vector3& vec1, const Vector3& vec2);
 
-        Vector3<T> cross(const Vector3<T>& other) const;
-        static Vector3<T> cross(const Vector3<T>& vec1, const Vector3<T>& vec2);
+        Vector3 cross(const Vector3& other) const;
+        static Vector3 cross(const Vector3& vec1, const Vector3& vec2);
 
         double lengthSquared() const;
         double length() const;
 
-        static double distance(const Vector3<T>& vec1, const Vector3<T>& vec2);
+        static double distance(const Vector3& vec1, const Vector3& vec2);
 
         // Normalizes the vector and returns the normalized vector
-        Vector3<T> normalize();
+        Vector3& normalize();
         // Only returns the normalized vector. Doesn't modify the original
-        Vector3<T> unitVector() const;
+        Vector3 unitVector() const;
         bool isUnitVector() const;
 
-        static Vector3<T> lerp(const Vector3<T>& vec1, const Vector3<T>& vec2, const T& t);
+        static Vector3 lerp(const Vector3& vec1, const Vector3& vec2, const T& t);
 
         #pragma region Operators
         // Comparison
-        bool operator ==(const Vector3<T>& right) const;
-        bool operator !=(const Vector3<T>& right) const;
-        bool operator >(const Vector3<T>& right) const;
-        bool operator <(const Vector3<T>& right) const;
-        bool operator >=(const Vector3<T>& right) const;
-        bool operator <=(const Vector3<T>& right) const;
+        bool operator ==(const Vector3& right) const;
+        bool operator !=(const Vector3& right) const;
+        bool operator  >(const Vector3& right) const;
+        bool operator  <(const Vector3& right) const;
+        bool operator >=(const Vector3& right) const;
+        bool operator <=(const Vector3& right) const;
 
         // Assingment
-        Vector3<T>& operator =(const Vector3<T>& right);
-        Vector3<T>& operator +=(const Vector3<T>& right);
-        Vector3<T>& operator -=(const Vector3<T>& right);
-        Vector3<T>& operator *=(const T& right);
-        Vector3<T>& operator /=(const T& right);
+        Vector3& operator  =(const Vector3& right);
+        Vector3& operator +=(const Vector3& right);
+        Vector3& operator -=(const Vector3& right);
+        Vector3& operator *=(const T& right);
+        Vector3& operator /=(const T& right);
 
         // Arithmetic
-        Vector3<T> operator +(const Vector3<T>& right) const;
-        Vector3<T> operator -() const;
-        Vector3<T> operator -(const Vector3<T>& right) const;
-        Vector3<T> operator *(const T& right) const;
-        Vector3<T> operator /(const T& right) const;
+        Vector3 operator +(const Vector3& right) const;
+        Vector3 operator -() const;
+        Vector3 operator -(const Vector3& right) const;
+        Vector3 operator *(const T& right) const;
+        Vector3 operator /(const T& right) const;
 
         // Member access
         T& operator [](const unsigned int index);
@@ -88,5 +88,5 @@ namespace pmath
     typedef Vector3<unsigned int>   Vec3u;
 }
 
-#include <pmath/inl/Vector3.inl>
+#include "inl/Vector3.inl"
 #endif

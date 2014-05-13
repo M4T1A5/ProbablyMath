@@ -1,5 +1,5 @@
-#include <pmath/Vector3.hpp>
-#include <pmath/Util.hpp>
+#include "../Vector3.hpp"
+#include "../Util.hpp"
 
 #include <cassert>
 #include <cmath>
@@ -101,7 +101,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Vector3<T> Vector3<T>::normalize()
+    inline Vector3<T>& Vector3<T>::normalize()
     {
         return *this = unitVector();
     }
