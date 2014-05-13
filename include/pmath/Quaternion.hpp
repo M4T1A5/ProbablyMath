@@ -29,6 +29,9 @@ namespace pmath
         static const Quaternion<T> identity;
         bool isIdentity() const;
 
+        T dot(const Quaternion<T>& other) const;
+        static T dot(const Quaternion<T>& quat1, const Quaternion<T>& quat2);
+
         double lengthSquared() const;
         double length() const;
 

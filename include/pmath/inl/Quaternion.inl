@@ -101,6 +101,18 @@ namespace pmath
     }
 
     template<typename T>
+    inline T Quaternion<T>::dot(const Quaternion<T>& other) const
+    {
+        return w * other.w + vector.dot(other.vector);
+    }
+
+    template<typename T>
+    inline T Quaternion<T>::dot(const Quaternion<T>& quat1, const Quaternion<T>& quat2)
+    {
+        return quat1.dot(quat2);
+    }
+
+    template<typename T>
     inline double Quaternion<T>::lengthSquared() const
     {
         return w*w + vector.lengthSquared();

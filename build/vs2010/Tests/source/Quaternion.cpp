@@ -36,6 +36,9 @@ TEST_CASE("Quaternion tests", "[quaternion]")
 
         CHECK(q.conjugate() == Quat(1, -2, -3, -4));
         CHECK(q.inverse() == Quat(1.f/30.f, -1.f/15.f, -1.f/10.f, -2.f/15.f));
+
+        Quat q2(4, 3, 2, 1);
+        CHECK(q.dot(q2) == 20);
     }
 
     SECTION("Normal and length")
