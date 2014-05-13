@@ -8,5 +8,5 @@ namespace pmath
     T pi();
 }
 
-#include <pmath/inl/Constants.inl>
+#include "inl/Constants.inl"
 #endif

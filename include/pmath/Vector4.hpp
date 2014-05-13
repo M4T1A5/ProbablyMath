@@ -2,8 +2,8 @@
 #ifndef VECTOR4_PMATH_H
 #define VECTOR4_PMATH_H
 
-#include <pmath/Vector2.hpp>
-#include <pmath/Vector3.hpp>
+#include "Vector2.hpp"
+#include "Vector3.hpp"
 
 #include <iostream>
 
@@ -88,5 +88,5 @@ namespace pmath
     typedef Vector4<unsigned int>   Vec4u;
 }
 
-#include <pmath/inl/Vector4.inl>
+#include "inl/Vector4.inl"
 #endif

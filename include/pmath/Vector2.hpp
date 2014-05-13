@@ -86,5 +86,5 @@ namespace pmath
     typedef Vector2<unsigned int>   Vec2u;
 }
 
-#include <pmath/inl/Vector2.inl>
+#include "inl/Vector2.inl"
 #endif

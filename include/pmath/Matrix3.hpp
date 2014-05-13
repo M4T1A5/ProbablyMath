@@ -2,10 +2,10 @@
 #ifndef MATRIX3_PMATH_H
 #define MATRIX3_PMATH_H
 
-#include <pmath/Vector2.hpp>
-#include <pmath/Vector3.hpp>
+#include "Vector2.hpp"
+#include "Vector3.hpp"
 
-#include <pmath/Matrix2.hpp>
+#include "Matrix2.hpp"
 
 #include <iostream>
 
@@ -98,5 +98,5 @@ namespace pmath
     typedef Matrix3<unsigned int>   Mat3u;
 }
 
-#include <pmath/inl/Matrix3.inl>
+#include "inl/Matrix3.inl"
 #endif

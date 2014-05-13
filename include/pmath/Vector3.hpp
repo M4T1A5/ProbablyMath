@@ -2,7 +2,7 @@
 #ifndef VECTOR3_PMATH_H
 #define VECTOR3_PMATH_H
 
-#include <pmath/Vector2.hpp>
+#include "Vector2.hpp"
 
 #include <iostream>
 
@@ -88,5 +88,5 @@ namespace pmath
     typedef Vector3<unsigned int>   Vec3u;
 }
 
-#include <pmath/inl/Vector3.inl>
+#include "inl/Vector3.inl"
 #endif

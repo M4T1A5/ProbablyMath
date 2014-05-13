@@ -1,5 +1,5 @@
-#include <pmath/Vector2.hpp>
-#include <pmath/Util.hpp>
+#include "../Vector2.hpp"
+#include "../Util.hpp"
 
 #include <cassert>
 #include <cmath>

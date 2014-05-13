@@ -2,12 +2,12 @@
 #ifndef MATRIX4_PMATH_H
 #define MATRIX4_PMATH_H
 
-#include <pmath/Vector2.hpp>
-#include <pmath/Vector3.hpp>
-#include <pmath/Vector4.hpp>
+#include "Vector2.hpp"
+#include "Vector3.hpp"
+#include "Vector4.hpp"
 
-#include <pmath/Matrix2.hpp>
-#include <pmath/Matrix3.hpp>
+#include "Matrix2.hpp"
+#include "Matrix3.hpp"
 
 #include <iostream>
 
@@ -107,5 +107,5 @@ namespace pmath
     typedef Matrix4<unsigned int>   Mat4u;
 }
 
-#include <pmath/inl/Matrix4.inl>
+#include "inl/Matrix4.inl"
 #endif

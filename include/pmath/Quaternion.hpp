@@ -2,11 +2,11 @@
 #ifndef QUATERNION_PMATH_H
 #define QUATERNION_PMATH_H
 
-#include <pmath/Vector3.hpp>
-#include <pmath/Vector4.hpp>
+#include "Vector3.hpp"
+#include "Vector4.hpp"
 
-#include <pmath/Matrix3.hpp>
-#include <pmath/Matrix4.hpp>
+#include "Matrix3.hpp"
+#include "Matrix4.hpp"
 
 #include <iostream>
 
@@ -107,5 +107,5 @@ namespace pmath
     typedef Quaternion<double>  Quatd;
 }
 
-#include <pmath/inl/Quaternion.inl>
+#include "inl/Quaternion.inl"
 #endif

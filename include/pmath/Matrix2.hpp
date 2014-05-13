@@ -2,7 +2,7 @@
 #ifndef MATRIX2_PMATH_H
 #define MATRIX2_PMATH_H
 
-#include <pmath/Vector2.hpp>
+#include "Vector2.hpp"
 #include <iostream>
 
 namespace pmath
@@ -85,5 +85,5 @@ namespace pmath
     typedef Matrix2<unsigned int>   Mat2u;
 }
 
-#include <pmath/inl/Matrix2.inl>
+#include "inl/Matrix2.inl"
 #endif
