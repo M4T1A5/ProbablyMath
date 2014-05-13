@@ -79,6 +79,9 @@ namespace pmath
     };
 
     template<typename T>
+    Quaternion<T> operator *(const T& left, const Quaternion<T>& right);
+
+    template<typename T>
     Vector3<T> operator *(const Vector3<T>& left, const Quaternion<T>& right);
     template<typename T>
     Vector3<T> operator *(const Quaternion<T>& left, const Vector3<T>& right);

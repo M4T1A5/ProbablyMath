@@ -251,7 +251,7 @@ namespace pmath
     inline Quaternion<T> Quaternion<T>::operator *(const Quaternion<T>& right) const
     {
         return Quaternion<T>(w * right.w - vector.dot(right.vector),
-            w*right.vector + right.w*vector + vector.cross(right.vector));
+            w * right.vector + right.w*vector + vector.cross(right.vector));
     }
 
     template<typename T>
@@ -314,6 +314,12 @@ namespace pmath
         *this = *this / right;
 
         return *this;
+    }
+
+    template<typename T>
+    inline Quaternion<T> operator *(const T& left, const Quaternion<T>& right)
+    {
+        return right * left;
     }
 
     template<typename T>
