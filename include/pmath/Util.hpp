@@ -16,14 +16,6 @@ namespace pmath
     bool equals(const T a, const T b, const T tolerance = T(0.001));
 #endif
 
-    // Specialization for float
-    //template<>
-    //bool equals<float>(const float a, const float b, const float tolerance);
-
-    // Specialization for double
-    //template<>
-    //bool equals<double>(const double a, const double b, const double tolerance);
-
     template<typename T>
     T degreesToRadians(const T& degrees);
 

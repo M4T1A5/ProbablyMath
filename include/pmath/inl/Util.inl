@@ -13,22 +13,8 @@ namespace pmath
     inline bool equals(const T a, const T b, const T tolerance)
 #endif
     {
-
-        //return a == b;
         return std::abs(a - b) <= tolerance;
     }
-
-    //template<>
-    //inline bool equals<float>(const float a, const float b, const float tolerance)
-    //{
-    //    return abs(a - b) <= tolerance;
-    //}
-    //
-    //template<>
-    //inline bool equals<double>(const double a, const double b, const double tolerance)
-    //{
-    //    return abs(a - b) <= tolerance;
-    //}
 
     template<typename T>
     inline T degreesToRadians(const T& degrees)
