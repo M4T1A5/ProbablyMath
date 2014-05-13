@@ -15,16 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\main.cpp">
+    <ClInclude Include="..\..\..\tests\include\catch.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\tests\source\Matrix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Vector.cpp">
+    <ClCompile Include="..\..\..\tests\source\Quaternion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Matrix.cpp">
+    <ClCompile Include="..\..\..\tests\source\Vector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Quaternion.cpp">
+    <ClCompile Include="..\..\..\tests\source\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
