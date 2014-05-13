@@ -11,7 +11,7 @@ namespace pmath
     {
     public:
         Vector2();
-        Vector2(T x, T y);
+        Vector2(const T& x, const T& y);
         explicit Vector2(T value);
         Vector2(const Vector2<T>& vector);
         template<typename T2>
@@ -80,6 +80,7 @@ namespace pmath
     std::ostream& operator<<(std::ostream& out, const Vector2<T>& right);
 
     typedef Vector2<float>          Vec2;
+    typedef Vector2<float>          Vec2f;
     typedef Vector2<double>         Vec2d;
     typedef Vector2<int>            Vec2i;
     typedef Vector2<unsigned int>   Vec2u;

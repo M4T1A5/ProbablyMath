@@ -2,6 +2,8 @@
 #ifndef VECTOR3_PMATH_H
 #define VECTOR3_PMATH_H
 
+#include <pmath/Vector2.hpp>
+
 #include <iostream>
 
 namespace pmath
@@ -11,8 +13,9 @@ namespace pmath
     {
     public:
         Vector3();
-        Vector3(T x, T y, T z);
+        Vector3(const T& x, const T& y, const T& z);
         explicit Vector3(T value);
+        Vector3(const Vector2<T>& vector, const T& z);
         Vector3(const Vector3<T>& vector);
         template<typename T2>
         Vector3(const Vector3<T2>& vector);
@@ -79,6 +82,7 @@ namespace pmath
     std::ostream& operator<<(std::ostream& out, const Vector3<T>& right);
 
     typedef Vector3<float>          Vec3;
+    typedef Vector3<float>          Vec3f;
     typedef Vector3<double>         Vec3d;
     typedef Vector3<int>            Vec3i;
     typedef Vector3<unsigned int>   Vec3u;

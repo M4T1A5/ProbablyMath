@@ -2,6 +2,9 @@
 #ifndef VECTOR4_PMATH_H
 #define VECTOR4_PMATH_H
 
+#include <pmath/Vector2.hpp>
+#include <pmath/Vector3.hpp>
+
 #include <iostream>
 
 namespace pmath
@@ -11,8 +14,10 @@ namespace pmath
     {
     public:
         Vector4();
-        Vector4(T x, T y, T z, T w);
+        Vector4(const T& x, const T& y, const T& z, const T& w);
         explicit Vector4(T value);
+        Vector4(const Vector2<T>& vector, const T& z, const T& w);
+        Vector4(const Vector3<T>& vector, const T& w);
         Vector4(const Vector4<T>& vector);
         template<typename T2>
         Vector4(const Vector4<T2>& vector);
@@ -77,6 +82,7 @@ namespace pmath
     std::ostream& operator<<(std::ostream& out, const Vector4<T>& right);
 
     typedef Vector4<float>          Vec4;
+    typedef Vector4<float>          Vec4f;
     typedef Vector4<double>         Vec4d;
     typedef Vector4<int>            Vec4i;
     typedef Vector4<unsigned int>   Vec4u;

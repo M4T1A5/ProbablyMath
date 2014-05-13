@@ -52,6 +52,9 @@
     <ClInclude Include="..\..\..\include\pmath\Matrix4.hpp">
       <Filter>Header Files\Matrix</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\include\pmath\Quaternion.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\include\pmath\Matrix.hpp">
       <Filter>Header Files\Matrix</Filter>
     </ClInclude>
@@ -59,6 +62,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\pmath\Util.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pmath\Constants.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -81,7 +87,13 @@
     <None Include="..\..\..\include\pmath\inl\Matrix4.inl">
       <Filter>Inline Files\Matrix</Filter>
     </None>
+    <None Include="..\..\..\include\pmath\inl\Quaternion.inl">
+      <Filter>Inline Files</Filter>
+    </None>
     <None Include="..\..\..\include\pmath\inl\Util.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="..\..\..\include\pmath\inl\Constants.inl">
       <Filter>Inline Files</Filter>
     </None>
   </ItemGroup>

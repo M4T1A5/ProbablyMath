@@ -15,7 +15,7 @@ namespace pmath
     { }
 
     template<typename T>
-    inline Vector4<T>::Vector4(T x, T y, T z, T w)
+    inline Vector4<T>::Vector4(const T& x, const T& y, const T& z, const T& w)
         : x(x),
           y(y),
           z(z),
@@ -29,6 +29,24 @@ namespace pmath
           z(value),
           w(value)
     { }
+
+    template<typename T>
+    inline Vector4<T>::Vector4(const Vector2<T>& vector, const T& z, const T& w)
+        : x(vector.x),
+          y(vector.y),
+          z(z),
+          w(w)
+    { }
+
+
+    template<typename T>
+    inline Vector4<T>::Vector4(const Vector3<T>& vector, const T& w)
+        : x(vector.x),
+          y(vector.y),
+          z(vector.z),
+          w(w)
+    { }
+
 
     template<typename T>
     inline Vector4<T>::Vector4(const Vector4<T>& vector4)
