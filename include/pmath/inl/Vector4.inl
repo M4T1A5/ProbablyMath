@@ -107,6 +107,12 @@ namespace pmath
         return equals<double>(this->lengthSquared(), 1);
     }
 
+    template<typename T>
+    inline Vector4<T> Vector4<T>::lerp(const Vector4<T>& vec1, const Vector4<T>& vec2, const T& t)
+    {
+        return (1 - t) * vec1 + t * vec2;
+    }
+
 
     // Operators
     #pragma region Operators

@@ -35,6 +35,7 @@ namespace pmath
         Vector3<T> unitVector() const;
         bool isUnitVector() const;
 
+        static Vector3<T> lerp(const Vector3<T>& vec1, const Vector3<T>& vec2, const T& t);
 
         #pragma region Operators
         // Comparison
