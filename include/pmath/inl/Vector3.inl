@@ -101,7 +101,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Vector3<T> Vector3<T>::normalize()
+    inline Vector3<T>& Vector3<T>::normalize()
     {
         return *this = unitVector();
     }
