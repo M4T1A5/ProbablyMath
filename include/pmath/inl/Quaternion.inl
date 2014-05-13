@@ -42,7 +42,7 @@ namespace pmath
         if(matrix[0][0] + matrix[1][1] + matrix[2][2] > 0)
         {
             const T t = matrix[0][0] + matrix[1][1] + matrix[2][2] + 1;
-            const T s = 1 / sqrt(t) * 0.5;
+            const T s = 1 / sqrt(t) * T(0.5);
 
             w        = s * t;
             vector.x = (matrix[2][1] - matrix[1][2]) * s;
@@ -52,7 +52,7 @@ namespace pmath
         else if( matrix[0][0] > matrix[1][1] && matrix[0][0] > matrix[2][2])
         {
             const T t = matrix[0][0] - matrix[1][1] - matrix[2][2] + 1;
-            const T s = 1 / sqrt(t) * 0.5;
+            const T s = 1 / sqrt(t) * T(0.5);
 
             w        = (matrix[2][1] - matrix[1][2]) * s;
             vector.x = s * t;
@@ -62,7 +62,7 @@ namespace pmath
         else if(matrix[1][1] > matrix[2][2])
         {
             const T t = -matrix[0][0] + matrix[1][1] - matrix[2][2] + 1;
-            const T s = 1 / sqrt(t) * 0.5;
+            const T s = 1 / sqrt(t) * T(0.5);
 
             w        = (matrix[0][2] - matrix[2][0]) * s;
             vector.x = (matrix[1][0] + matrix[0][1]) * s;
@@ -72,7 +72,7 @@ namespace pmath
         else
         {
             const T t = -matrix[0][0] - matrix[1][1] + matrix[2][2] + 1;
-            const T s = 1 / sqrt(t) * 0.5;
+            const T s = 1 / sqrt(t) * T(0.5);
 
             w        = (matrix[1][0] - matrix[0][1]) * s;
             vector.x = (matrix[0][2] + matrix[2][0]) * s;
