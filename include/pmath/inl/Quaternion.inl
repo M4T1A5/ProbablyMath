@@ -212,6 +212,15 @@ namespace pmath
         return createRotation(Vector3<T>(0, 0, 1), angle);
     }
 
+    template<typename T>
+    inline Quaternion<T> Quaternion<T>::slerp(const Quaternion<T>& q1, const Quaternion<T>& q2, const T& t)
+    {
+        assert(q1.isUnitQuaternion() && q2.isUnitQuaternion());
+
+        const T angle = std::acos(q1.dot(q2));
+
+        return (std::sin((1 - t) * angle) / std::sin(angle)) * q1 + (std::sin(t*angle)/std::sin(angle)) * q2;
+    }
 
     // Operators
     #pragma region Operators

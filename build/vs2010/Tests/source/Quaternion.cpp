@@ -58,11 +58,11 @@ TEST_CASE("Quaternion tests", "[quaternion]")
         CHECK((vec *= Quat::createRotationZ(90)) == Vec3(0, 1, 0));
 
         CHECK((Vec3(0, 1, 0) * Quat::createRotation(Vec3(0, 0, 1), 180)) ==  Vec3(0, -1, 0));
-        const auto q1 = Quat::createRotation(Vec3(1,1,1), 45);
+        auto q1 = Quat::createRotation(Vec3(1,1,1), 45);
 
         CHECK(q1.isUnitQuaternion());
 
-        const auto q2 = Quat::createRotationZ(90);
+        auto q2 = Quat::createRotationZ(90);
         CHECK(q2.toMatrix3() == Mat3(0, -1, 0,
                                      1, 0, 0,
                                      0, 0, 1));
@@ -78,5 +78,9 @@ TEST_CASE("Quaternion tests", "[quaternion]")
         CHECK(Quat(rotationZ90) == Quat::createRotationZ(90));
         CHECK(Quat(rz90) == Quat::createRotationZ(90));
         CHECK(Quat(q2.toMatrix3()) == Quat::createRotationZ(90));
+
+        q1 = Quat::createRotationZ(0);
+        q2 = Quat::createRotationZ(90);
+        CHECK(Quat::slerp(q1, q2, 0.5f) == Quat::createRotationZ(45));
     }
 }

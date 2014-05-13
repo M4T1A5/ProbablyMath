@@ -51,6 +51,8 @@ namespace pmath
         static Quaternion<T> createRotationY(const T& angle);
         static Quaternion<T> createRotationZ(const T& angle);
 
+        static Quaternion<T> slerp(const Quaternion<T>& q1, const Quaternion<T>& q2, const T& t);
+
         #pragma region Operators
         // Comparison
         bool operator ==(const Quaternion<T>& right) const;
