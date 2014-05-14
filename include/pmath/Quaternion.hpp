@@ -55,8 +55,8 @@ namespace pmath
 
         #pragma region Operators
         // Comparison
-        bool operator ==(const Quaternion<T>& right) const;
-        bool operator !=(const Quaternion<T>& right) const;
+        bool operator ==(const Quaternion& right) const;
+        bool operator !=(const Quaternion& right) const;
 
         // Arithmetic
         Quaternion operator +(const Quaternion& right) const;
