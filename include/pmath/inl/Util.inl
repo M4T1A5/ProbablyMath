@@ -66,6 +66,24 @@ namespace pmath
 
 
     template<typename T>
+    inline T maximum(const T& a, const T& b)
+    {
+        if (a > b)
+            return a;
+
+        return b;
+    }
+
+    template<typename T>
+    inline T minimum(const T& a, const T& b)
+    {
+        if (a < b)
+            return a;
+
+        return b;
+    }
+
+    template<typename T>
     inline T clamp(const T& value, const T& min, const T& max)
     {
         if (value > max)
