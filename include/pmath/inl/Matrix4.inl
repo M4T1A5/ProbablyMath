@@ -247,7 +247,7 @@ namespace pmath
     template<typename T>
     inline const T* Matrix4<T>::ptr() const
     {
-        return (*this)[0][0];
+        return &(*this)[0][0];
     }
 
 
