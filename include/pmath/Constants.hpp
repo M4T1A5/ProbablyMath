@@ -6,6 +6,9 @@ namespace pmath
 {
     template<typename T>
     T pi();
+
+    template<typename T>
+    T e();
 }
 
 #include "inl/Constants.inl"
