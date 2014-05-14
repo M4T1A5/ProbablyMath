@@ -44,6 +44,22 @@ namespace pmath
 
         const T* ptr() const;
 
+        static Matrix3 createRotationX(const T& angle);
+        static Matrix3 createRotationY(const T& angle);
+        // May also be used as homogeneous rotation for a 2 dimensional vector
+        static Matrix3 createRotationZ(const T& angle);
+
+        // Create scaling for a 3 dimensional vector
+        static Matrix3 createScaling(const T& x, const T& y, const T& z);
+        static Matrix3 createScaling(const Vector3<T>& scale);
+        // Create homogeneous scaling for a 2 dimensional vector
+        static Matrix3 createScaling(const T& x, const T& y);
+        static Matrix3 createScaling(const Vector2<T>& scale);
+
+        static Matrix3 createTranslation(const T& x, const T& y);
+        static Matrix3 createTranslation(const Vector2<T>& translation);
+
+
         #pragma region Operators
         // Comparison
         bool operator ==(const Matrix3& right) const;

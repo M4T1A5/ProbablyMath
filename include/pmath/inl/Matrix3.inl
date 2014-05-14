@@ -164,6 +164,70 @@ namespace pmath
         return &(*this)[0][0];
     }
 
+    template<typename T>
+    inline Matrix3<T> Matrix3<T>::createRotationX(const T& angle)
+    {
+        return Matrix3<T>(1, 0,             0,
+                          0, cos<T>(angle), -sin<T>(angle),
+                          0, sin<T>(angle), cos<T>(angle));
+    }
+
+    template<typename T>
+    inline Matrix3<T> Matrix3<T>::createRotationY(const T& angle)
+    {
+        return Matrix3<T>(cos<T>(angle),  0, sin<T>(angle),
+                          0,              1, 0,
+                          -sin<T>(angle), 0, cos<T>(angle));
+    }
+
+    template<typename T>
+    inline Matrix3<T> Matrix3<T>::createRotationZ(const T& angle)
+    {
+        return Matrix3<T>(cos<T>(angle), -sin<T>(angle), 0,
+                          sin<T>(angle), cos<T>(angle),  0,
+                          0,             0,              1);
+    }
+
+    template<typename T>
+    inline Matrix3<T> Matrix3<T>::createScaling(const T& x, const T& y, const T& z)
+    {
+        return Matrix3<T>(x, 0, 0,
+                          0, y, 0,
+                          0, 0, z);
+    }
+
+    template<typename T>
+    inline Matrix3<T> Matrix3<T>::createScaling(const Vector3<T>& scale)
+    {
+        return createScaling(scale.x, scale.y, scale.z);
+    }
+
+    template<typename T>
+    inline Matrix3<T> Matrix3<T>::createScaling(const T& x, const T& y)
+    {
+        return createScaling(x, y, 1);
+    }
+
+    template<typename T>
+    inline Matrix3<T> Matrix3<T>::createScaling(const Vector2<T>& scale)
+    {
+        return createScaling(scale.x, scale.y);
+    }
+
+    template<typename T>
+    inline Matrix3<T> Matrix3<T>::createTranslation(const T& x, const T& y)
+    {
+        return Matrix3<T>(1, 0, x,
+                          0, 1, y,
+                          0, 0, 1);
+    }
+
+    template<typename T>
+    inline Matrix3<T> Matrix3<T>::createTranslation(const Vector2<T>& translation)
+    {
+        return createTranslation(translation.x, translation.y);
+    }
+
 
     // Operators
     #pragma region Operators
