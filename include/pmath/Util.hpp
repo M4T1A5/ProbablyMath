@@ -6,14 +6,15 @@ namespace pmath
 {
     // Test the equality of 2 variables
     // Mostly needed for floating point values
-#if _MSC_VER <= 1600
-    // Tolerance has a default value of 0.001,
-    // but it cannot be defined here because of a bug in VC++ 16
-    template<typename T>
-    bool equals(const T a, const T b, const T tolerance);
-#elif _MSC_VER > 1600
+
+#if _MSC_VER > 1600
     template<typename T>
     bool equals(const T a, const T b, const T tolerance = T(0.001));
+#elif _MSC_VER <= 1600
+    // Tolerance has a default value of 0.001,
+    // but it cannot be defined here because of a bug in VS2010
+    template<typename T>
+    bool equals(const T a, const T b, const T tolerance);
 #endif
 
     template<typename T>
@@ -45,10 +46,10 @@ namespace pmath
 
 
     template<typename T>
-    T maximum(const T& a, const T& b);
+    T max(const T& a, const T& b);
 
     template<typename T>
-    T minimum(const T& a, const T& b);
+    T min(const T& a, const T& b);
 
     template<typename T>
     T clamp(const T& value, const T& min, const T& max);

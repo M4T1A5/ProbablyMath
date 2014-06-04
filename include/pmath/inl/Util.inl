@@ -5,12 +5,11 @@
 
 namespace pmath
 {
-#if _MSC_VER <= 1600
     template<typename T>
-    inline bool equals(const T a, const T b, const T tolerance = T(0.001))
-#elif _MSC_VER > 1600
-    template<typename T>
+#if _MSC_VER > 1600
     inline bool equals(const T a, const T b, const T tolerance)
+#elif _MSC_VER <= 1600
+    inline bool equals(const T a, const T b, const T tolerance = T(0.001))
 #endif
     {
         return std::abs(a - b) <= tolerance;
@@ -66,7 +65,7 @@ namespace pmath
 
 
     template<typename T>
-    inline T maximum(const T& a, const T& b)
+    inline T max(const T& a, const T& b)
     {
         if (a > b)
             return a;
@@ -75,7 +74,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline T minimum(const T& a, const T& b)
+    inline T min(const T& a, const T& b)
     {
         if (a < b)
             return a;
