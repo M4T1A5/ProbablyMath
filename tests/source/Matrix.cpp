@@ -1,6 +1,6 @@
 #include <catch.hpp>
 
-#include  <Windows.h>
+#include <Windows.h>
 
 #include <pmath/Matrix.hpp>
 
@@ -30,8 +30,6 @@ TEST_CASE("Matrix2 tests", "[matrix]")
     {
         Mat2 mat1(1, 2, 3, 4), mat2(4, 3, 2, 1);
 
-        std::cout << mat1 << std::endl;
-        
         CHECK((mat1 - mat1) == Mat2(0, 0, 0, 0));
         CHECK((mat1 - mat2) == Mat2(-3, -1, 1, 3));
 
@@ -93,8 +91,6 @@ TEST_CASE("Matrix3 tests", "[matrix]")
     {
         Mat3 mat1(1, 2, 3, 4, 5, 6, 7, 8, 9), mat2(9, 8, 7, 6, 5, 4, 3, 2, 1);
 
-        std::cout << mat1 << std::endl;
-        
         CHECK((mat1 - mat1) == Mat3(0, 0, 0, 0, 0, 0, 0, 0, 0));
         CHECK((mat1 - mat2) == Mat3(-8, -6, -4, -2, 0, 2, 4, 6, 8));
 
@@ -211,8 +207,6 @@ TEST_CASE("Matrix4 tests", "[matrix]")
                   3, 7, 9, 2,
                   4, 9, 2, 4,
                   9, 5, 8, 2);
-
-        std::cout << mat1 << std::endl;
 
         CHECK((mat1 - mat1) == Mat4(Vec4(0), Vec4(0), Vec4(0), Vec4(0)));
         CHECK((mat1 - mat2) == Mat4(-4, 0, -4, -2,
