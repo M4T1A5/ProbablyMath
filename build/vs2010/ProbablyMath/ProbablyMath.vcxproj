@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -19,12 +19,14 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -69,6 +71,7 @@
     <ClInclude Include="..\..\..\include\pmath\Matrix4.hpp" />
     <ClInclude Include="..\..\..\include\pmath\Quaternion.hpp" />
     <ClInclude Include="..\..\..\include\pmath\PMath.hpp" />
+    <ClInclude Include="..\..\..\include\pmath\Rectangle.hpp" />
     <ClInclude Include="..\..\..\include\pmath\Util.hpp" />
     <ClInclude Include="..\..\..\include\pmath\Vector.hpp" />
     <ClInclude Include="..\..\..\include\PMath\Vector2.hpp" />
@@ -81,6 +84,7 @@
     <None Include="..\..\..\include\pmath\inl\Matrix3.inl" />
     <None Include="..\..\..\include\pmath\inl\Matrix4.inl" />
     <None Include="..\..\..\include\pmath\inl\Quaternion.inl" />
+    <None Include="..\..\..\include\pmath\inl\Rectangle.inl" />
     <None Include="..\..\..\include\pmath\inl\Util.inl" />
     <None Include="..\..\..\include\PMath\inl\Vector2.inl" />
     <None Include="..\..\..\include\pmath\inl\Vector3.inl" />
