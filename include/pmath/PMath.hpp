@@ -22,3 +22,7 @@
 
 #include "Vector.hpp"
 #include "Matrix.hpp"
+#include "Quaternion.hpp"
+
+#include "Constants.hpp"
+#include "Util.hpp"

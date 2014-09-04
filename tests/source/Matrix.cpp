@@ -1,6 +1,6 @@
 #include <catch.hpp>
 
-#include  <Windows.h>
+#include <Windows.h>
 
 #include <pmath/Matrix.hpp>
 
@@ -30,8 +30,6 @@ TEST_CASE("Matrix2 tests", "[matrix]")
     {
         Mat2 mat1(1, 2, 3, 4), mat2(4, 3, 2, 1);
 
-        std::cout << mat1 << std::endl;
-        
         CHECK((mat1 - mat1) == Mat2(0, 0, 0, 0));
         CHECK((mat1 - mat2) == Mat2(-3, -1, 1, 3));
 
@@ -58,6 +56,13 @@ TEST_CASE("Matrix2 tests", "[matrix]")
         CHECK(mat.inverse() == (0.5f*Mat2(-4, 2, 3, -1)));
 
         CHECK(mat.transpose() == Mat2(1, 3, 2, 4));
+    }
+
+    SECTION("Create functions")
+    {
+        CHECK(Mat2::createRotation(90) == Mat2(0, -1, 1, 0));
+        CHECK(Mat2::createScaling(2, 2) == Mat2(2, 0, 0, 2));
+        CHECK(Mat2::createScaling(Vec2(2)) == Mat2(2, 0, 0, 2));
     }
 }
 
@@ -86,8 +91,6 @@ TEST_CASE("Matrix3 tests", "[matrix]")
     {
         Mat3 mat1(1, 2, 3, 4, 5, 6, 7, 8, 9), mat2(9, 8, 7, 6, 5, 4, 3, 2, 1);
 
-        std::cout << mat1 << std::endl;
-        
         CHECK((mat1 - mat1) == Mat3(0, 0, 0, 0, 0, 0, 0, 0, 0));
         CHECK((mat1 - mat2) == Mat3(-8, -6, -4, -2, 0, 2, 4, 6, 8));
 
@@ -122,6 +125,45 @@ TEST_CASE("Matrix3 tests", "[matrix]")
         CHECK(mat.transpose() == Mat3(2, 4, 7, 2, 5, 8, 3, 6, 9));
 
         CHECK(mat.getMatrix2(2, 2) == Mat2(2,2, 4,5));
+    }
+
+    SECTION("Create functions")
+    {
+        CHECK(Mat3::createRotationX(90) == Mat3(1, 0, 0,
+                                                0, 0, -1,
+                                                0, 1, 0));
+
+        CHECK(Mat3::createRotationY(90) == Mat3(0, 0, 1,
+                                                0, 1, 0,
+                                                -1, 0, 0));
+
+        CHECK(Mat3::createRotationZ(90) == Mat3(0, -1, 0,
+                                               1, 0, 0,
+                                               0, 0, 1));
+
+        CHECK(Mat3::createScaling(2, 2) == Mat3(2, 0, 0,
+                                                0, 2, 0,
+                                                0, 0, 1));
+
+        CHECK(Mat3::createScaling(Vec2(2)) == Mat3(2, 0, 0,
+                                                   0, 2, 0,
+                                                   0, 0, 1));
+
+        CHECK(Mat3::createScaling(2, 2, 2) == Mat3(2, 0, 0,
+                                                0, 2, 0,
+                                                0, 0, 2));
+        CHECK(Mat3::createScaling(Vec3(2)) == Mat3(2, 0, 0,
+                                                   0, 2, 0,
+                                                   0, 0, 2));
+
+        CHECK(Mat3::createTranslation(2, 2) == Mat3(1, 0, 2,
+                                                    0, 1, 2,
+                                                    0, 0, 1));
+
+        CHECK(Mat3::createTranslation(Vec2(2)) == Mat3(1, 0, 2,
+                                                    0, 1, 2,
+                                                    0, 0, 1));
+
     }
 }
 
@@ -165,8 +207,6 @@ TEST_CASE("Matrix4 tests", "[matrix]")
                   3, 7, 9, 2,
                   4, 9, 2, 4,
                   9, 5, 8, 2);
-
-        std::cout << mat1 << std::endl;
 
         CHECK((mat1 - mat1) == Mat4(Vec4(0), Vec4(0), Vec4(0), Vec4(0)));
         CHECK((mat1 - mat2) == Mat4(-4, 0, -4, -2,
@@ -238,6 +278,46 @@ TEST_CASE("Matrix4 tests", "[matrix]")
         CHECK(mat.getMatrix3(2,2) == Mat3(5,2,6,
                                           3,7,2,
                                           9,5,2));
+    }
+
+    SECTION("Create functions")
+    {
+        CHECK(Mat4::createRotationX(90) == Mat4(1, 0, 0, 0,
+                                                0, 0, -1, 0,
+                                                0, 1, 0, 0,
+                                                0, 0, 0, 1));
+
+        CHECK(Mat4::createRotationY(90) == Mat4(0, 0, 1, 0,
+                                                0, 1, 0, 0,
+                                                -1, 0, 0, 0,
+                                                0, 0, 0, 1));
+
+        CHECK(Mat4::createRotationZ(90) == Mat4(0, -1, 0, 0,
+                                                1, 0, 0, 0,
+                                                0, 0, 1, 0,
+                                                0, 0, 0, 1));
+
+
+        CHECK(Mat4::createScaling(2, 2, 2) == Mat4(2, 0, 0, 0,
+                                                   0, 2, 0, 0,
+                                                   0, 0, 2, 0,
+                                                   0, 0, 0, 1));
+
+        CHECK(Mat4::createScaling(Vec3(2)) == Mat4(2, 0, 0, 0,
+                                                   0, 2, 0, 0,
+                                                   0, 0, 2, 0,
+                                                   0, 0, 0, 1));
+
+
+        CHECK(Mat4::createTranslation(2, 2, 2) == Mat4(1, 0, 0, 2,
+                                                       0, 1, 0, 2,
+                                                       0, 0, 1, 2,
+                                                       0, 0, 0, 1));
+
+        CHECK(Mat4::createTranslation(Vec3(2)) == Mat4(1, 0, 0, 2,
+                                                       0, 1, 0, 2,
+                                                       0, 0, 1, 2,
+                                                       0, 0, 0, 1));
     }
 
     SECTION("Speed tests")

@@ -48,6 +48,23 @@ namespace pmath
 
         const T* ptr() const;
 
+        // Create homogeneous rotation for a 3 dimensional or
+        // a 4 dimensional homogeneous vector
+        static Matrix4 createRotationX(const T& angle);
+        static Matrix4 createRotationY(const T& angle);
+        static Matrix4 createRotationZ(const T& angle);
+
+        // Create homogeneous scaling for a 3 dimensional or
+        // a 4 dimensional homogeneous vector
+        static Matrix4 createScaling(const T& x, const T& y, const T& z);
+        static Matrix4 createScaling(const Vector3<T>& scale);
+
+        // Create homogeneous translation for a 3 dimensional or
+        // a 4 dimensional homogeneous vector
+        static Matrix4 createTranslation(const T& x, const T& y, const T& z);
+        static Matrix4 createTranslation(const Vector3<T>& translation);
+
+
         #pragma region Operators
         // Comparison
         bool operator ==(const Matrix4& right) const;

@@ -67,6 +67,9 @@
     <ClInclude Include="..\..\..\include\pmath\Constants.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\include\pmath\Rectangle.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\include\PMath\inl\Vector2.inl">
@@ -94,6 +97,9 @@
       <Filter>Inline Files</Filter>
     </None>
     <None Include="..\..\..\include\pmath\inl\Constants.inl">
+      <Filter>Inline Files</Filter>
+    </None>
+    <None Include="..\..\..\include\pmath\inl\Rectangle.inl">
       <Filter>Inline Files</Filter>
     </None>
   </ItemGroup>

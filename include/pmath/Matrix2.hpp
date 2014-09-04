@@ -36,6 +36,12 @@ namespace pmath
 
         const T* ptr() const;
 
+        static Matrix2 createRotation(const T& angle);
+
+        static Matrix2 createScaling(const T& x, const T& y);
+        static Matrix2 createScaling(const Vector2<T>& scale);
+
+
         #pragma region Operators
         // Comparison
         bool operator ==(const Matrix2& right) const;

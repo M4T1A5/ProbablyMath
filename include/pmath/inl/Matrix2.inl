@@ -101,6 +101,26 @@ namespace pmath
         return &(*this)[0][0];
     }
 
+    template<typename T>
+    inline Matrix2<T> Matrix2<T>::createRotation(const T& angle)
+    {
+        return Matrix2<T>(cos<T>(angle), -sin<T>(angle),
+                          sin<T>(angle), cos<T>(angle));
+    }
+
+    template<typename T>
+    inline Matrix2<T> Matrix2<T>::createScaling(const T& x, const T& y)
+    {
+        return Matrix2<T>(x, 0,
+                          0, y);
+    }
+
+    template<typename T>
+    inline Matrix2<T> Matrix2<T>::createScaling(const Vector2<T>& scale)
+    {
+        return createScaling(scale.x, scale.y);
+    }
+
 
     // Operators
     #pragma region Operators

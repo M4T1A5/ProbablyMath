@@ -67,7 +67,7 @@ namespace pmath
         Quaternion operator /(const T& right) const;
 
 
-        // Assingment
+        // Assignment
         Quaternion& operator  =(const Quaternion& right);
         Quaternion& operator +=(const Quaternion& right);
         Quaternion& operator -=(const Quaternion& right);
