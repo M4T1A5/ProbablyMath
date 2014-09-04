@@ -18,13 +18,13 @@ namespace pmath
     template<typename T>
     inline T degreesToRadians(const T& degrees)
     {
-        return (degrees / 180) * pi<T>();
+        return T(degrees / 180 * pi);
     }
 
     template<typename T>
     inline T radiansToDegrees(const T& radians)
     {
-        return (radians * 180) / pi<T>();
+        return T(radians * 180/ pi);
     }
 
     template<typename T>

@@ -93,8 +93,5 @@
     <None Include="..\..\..\include\pmath\inl\Util.inl">
       <Filter>Inline Files</Filter>
     </None>
-    <None Include="..\..\..\include\pmath\inl\Constants.inl">
-      <Filter>Inline Files</Filter>
-    </None>
   </ItemGroup>
 </Project>
