@@ -6,9 +6,9 @@
 namespace pmath
 {
     template<typename T>
-#if _MSC_VER > 1600
+#if _MSC_VER > 1600 || !defined(_MSC_VER)
     inline bool equals(const T a, const T b, const T tolerance)
-#elif _MSC_VER <= 1600
+#elif defined(_MSC_VER) && _MSC_VER <= 1600
     inline bool equals(const T a, const T b, const T tolerance = T(0.001))
 #endif
     {
