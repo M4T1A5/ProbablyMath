@@ -79,7 +79,6 @@
     <ClInclude Include="..\..\..\include\pmath\Vector4.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\include\pmath\inl\Constants.inl" />
     <None Include="..\..\..\include\pmath\inl\Matrix2.inl" />
     <None Include="..\..\..\include\pmath\inl\Matrix3.inl" />
     <None Include="..\..\..\include\pmath\inl\Matrix4.inl" />
