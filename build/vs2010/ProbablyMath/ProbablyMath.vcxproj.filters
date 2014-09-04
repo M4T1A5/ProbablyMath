@@ -1,97 +1,93 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Inline Files">
-      <UniqueIdentifier>{59551aa0-bcc2-4314-a98d-a382bb561022}</UniqueIdentifier>
-      <Extensions>inl</Extensions>
-    </Filter>
-    <Filter Include="Header Files\Vector">
-      <UniqueIdentifier>{f2bf4ad6-02a7-4b0c-9415-dc3dd28fc28c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Matrix">
-      <UniqueIdentifier>{6f6ce112-9f2f-44bf-b0cc-138f81367a4c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Inline Files\Vector">
-      <UniqueIdentifier>{11f677e9-7071-4ea8-b1c0-68c9bdc40b11}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Inline Files\Matrix">
-      <UniqueIdentifier>{9642a081-c589-4290-8d48-8a38bf6e43e7}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\include\pmath\Vector.hpp">
-      <Filter>Header Files\Vector</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\PMath\Vector2.hpp">
-      <Filter>Header Files\Vector</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\pmath\Vector3.hpp">
-      <Filter>Header Files\Vector</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\pmath\Vector4.hpp">
-      <Filter>Header Files\Vector</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\pmath\Matrix2.hpp">
-      <Filter>Header Files\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\pmath\Matrix3.hpp">
-      <Filter>Header Files\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\pmath\Matrix4.hpp">
-      <Filter>Header Files\Matrix</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\pmath\Quaternion.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\pmath\Matrix.hpp">
-      <Filter>Header Files\Matrix</Filter>
+    <ClInclude Include="..\..\..\include\pmath\Constants.hpp">
+      <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\pmath\PMath.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pmath\Quaternion.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pmath\Rectangle.hpp">
+      <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\pmath\Util.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\pmath\Constants.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\include\pmath\Matrix.hpp">
+      <Filter>Headers\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pmath\Matrix2.hpp">
+      <Filter>Headers\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pmath\Matrix3.hpp">
+      <Filter>Headers\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pmath\Matrix4.hpp">
+      <Filter>Headers\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pmath\Vector.hpp">
+      <Filter>Headers\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\PMath\Vector2.hpp">
+      <Filter>Headers\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pmath\Vector3.hpp">
+      <Filter>Headers\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pmath\Vector4.hpp">
+      <Filter>Headers\Vector</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\include\PMath\inl\Vector2.inl">
-      <Filter>Inline Files\Vector</Filter>
-    </None>
-    <None Include="..\..\..\include\pmath\inl\Vector3.inl">
-      <Filter>Inline Files\Vector</Filter>
-    </None>
-    <None Include="..\..\..\include\pmath\inl\Vector4.inl">
-      <Filter>Inline Files\Vector</Filter>
-    </None>
-    <None Include="..\..\..\include\pmath\inl\Matrix2.inl">
-      <Filter>Inline Files\Matrix</Filter>
-    </None>
-    <None Include="..\..\..\include\pmath\inl\Matrix3.inl">
-      <Filter>Inline Files\Matrix</Filter>
-    </None>
-    <None Include="..\..\..\include\pmath\inl\Matrix4.inl">
-      <Filter>Inline Files\Matrix</Filter>
-    </None>
     <None Include="..\..\..\include\pmath\inl\Quaternion.inl">
-      <Filter>Inline Files</Filter>
+      <Filter>Inline</Filter>
+    </None>
+    <None Include="..\..\..\include\pmath\inl\Rectangle.inl">
+      <Filter>Inline</Filter>
     </None>
     <None Include="..\..\..\include\pmath\inl\Util.inl">
-      <Filter>Inline Files</Filter>
+      <Filter>Inline</Filter>
     </None>
+    <None Include="..\..\..\include\pmath\inl\Matrix2.inl">
+      <Filter>Inline\Matrix</Filter>
+    </None>
+    <None Include="..\..\..\include\pmath\inl\Matrix3.inl">
+      <Filter>Inline\Matrix</Filter>
+    </None>
+    <None Include="..\..\..\include\pmath\inl\Matrix4.inl">
+      <Filter>Inline\Matrix</Filter>
+    </None>
+    <None Include="..\..\..\include\PMath\inl\Vector2.inl">
+      <Filter>Inline\Vector</Filter>
+    </None>
+    <None Include="..\..\..\include\pmath\inl\Vector3.inl">
+      <Filter>Inline\Vector</Filter>
+    </None>
+    <None Include="..\..\..\include\pmath\inl\Vector4.inl">
+      <Filter>Inline\Vector</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{9bec7221-4776-463a-a436-cfcda94556ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inline">
+      <UniqueIdentifier>{9cacee19-ccf5-4588-a16d-44f23cbb3d1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Matrix">
+      <UniqueIdentifier>{7b35c8cb-fa6b-495a-8357-678a9462e472}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inline\Matrix">
+      <UniqueIdentifier>{893fc4e5-c8cd-45e7-9057-95e0c2e212df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inline\Vector">
+      <UniqueIdentifier>{b094aa51-242b-415c-adba-f63ea30339b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Vector">
+      <UniqueIdentifier>{218a5b15-a18e-4eb0-b32e-2d1bc793262c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
