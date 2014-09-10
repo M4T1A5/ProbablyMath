@@ -18,6 +18,13 @@ namespace pmath
         Vector2(const Vector2<T2>& vector);
         ~Vector2();
 
+        // Scales(multiplies) respective component with scaleVector component
+        Vector2& scale(const Vector2& scaleVector);
+        // Scales(multiplies) respective component with given component
+        Vector2& scale(const T& x, const T& y);
+        // Scales the whole vector with the number
+        Vector2& scale(const T& scale);
+
         T dot(const Vector2& other) const;
         static T dot(const Vector2& vec1, const Vector2& vec2);
 
@@ -48,7 +55,7 @@ namespace pmath
         bool operator >=(const Vector2& right) const;
         bool operator <=(const Vector2& right) const;
 
-        // Assingment
+        // Assignment
         Vector2& operator  =(const Vector2& right);
         Vector2& operator +=(const Vector2& right);
         Vector2& operator -=(const Vector2& right);

@@ -23,6 +23,14 @@ namespace pmath
         Vector4(const Vector4<T2>& vector);
         ~Vector4();
 
+        // Scales(multiplies) respective component with scaleVector component
+        Vector4& scale(const Vector4& scaleVector);
+        // Scales(multiplies) respective component with given component
+        Vector4& scale(const T& x, const T& y, const T& z, const T& w);
+        // Scales the whole vector with the number
+        Vector4& scale(const T& scale);
+
+
         T dot(const Vector4& other) const;
         static T dot(const Vector4& vec1, const Vector4& vec2);
 

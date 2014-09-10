@@ -21,6 +21,13 @@ namespace pmath
         Vector3(const Vector3<T2>& vector);
         ~Vector3();
 
+        // Scales(multiplies) respective component with scaleVector component
+        Vector3& scale(const Vector3& scaleVector);
+        // Scales(multiplies) respective component with given component
+        Vector3& scale(const T& x, const T& y, const T& z);
+        // Scales the whole vector with the number
+        Vector3& scale(const T& scale);
+
         T dot(const Vector3& other) const;
         static T dot(const Vector3& vec1, const Vector3& vec2);
 

@@ -72,6 +72,30 @@ namespace pmath
 
     // Public
     template<typename T>
+    inline Vector4<T>& Vector4<T>::scale(const Vector4<T>& scaleVector)
+    {
+        return scale(scaleVector.x, scaleVector.y, scaleVector.z, scaleVector.w);
+    }
+
+
+    template<typename T>
+    inline Vector4<T>& Vector4<T>::scale(const T& x, const T& y, const T& z, const T& w)
+    {
+        this->x *= x;
+        this->y *= y;
+        this->z *= z;
+        this->w *= w;
+
+        return *this;
+    }
+
+    template<typename T>
+    inline Vector4<T>& Vector4<T>::scale(const T& s)
+    {
+        return scale(s, s, s, s);
+    }
+
+    template<typename T>
     inline T Vector4<T>::dot(const Vector4<T>& other) const
     {
         return x * other.x + y * other.y + z * other.z + w * other.w;
