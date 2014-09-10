@@ -21,7 +21,7 @@ namespace pmath
     { }
 
     template<typename T>
-    inline Vector3<T>::Vector3(T value)
+    inline Vector3<T>::Vector3(const T& value)
         : x(value),
           y(value),
           z(value)

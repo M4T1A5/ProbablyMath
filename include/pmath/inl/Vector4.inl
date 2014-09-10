@@ -23,7 +23,7 @@ namespace pmath
     { }
 
     template<typename T>
-    inline Vector4<T>::Vector4(T value)
+    inline Vector4<T>::Vector4(const T& value)
         : x(value),
           y(value),
           z(value),

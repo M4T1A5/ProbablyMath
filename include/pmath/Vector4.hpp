@@ -15,7 +15,7 @@ namespace pmath
     public:
         Vector4();
         Vector4(const T& x, const T& y, const T& z, const T& w);
-        explicit Vector4(T value);
+        explicit Vector4(const T& value);
         Vector4(const Vector2<T>& vector, const T& z, const T& w);
         Vector4(const Vector3<T>& vector, const T& w);
         Vector4(const Vector4& vector);
@@ -48,7 +48,7 @@ namespace pmath
         bool operator >=(const Vector4& right) const;
         bool operator <=(const Vector4& right) const;
 
-        // Assingment
+        // Assignment
         Vector4& operator  =(const Vector4& right);
         Vector4& operator +=(const Vector4& right);
         Vector4& operator -=(const Vector4& right);
