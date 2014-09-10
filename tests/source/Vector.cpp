@@ -70,6 +70,10 @@ TEST_CASE("Vector2 tests", "[vector]")
         CHECK(Vec2::distance(Vec2(1, 2), Vec2(2,1)) == sqrt(2.0));
 
         CHECK(Vec2::lerp(vec1, vec2, 0.5f) == Vec2(3.5f, 3.5f));
+
+        CHECK(Vec2(1, 1).scale(2) == Vec2(2, 2));
+        CHECK(Vec2(1, 1).scale(2, 2) == Vec2(2, 2));
+        CHECK(Vec2(1, 1).scale(Vec2(2, 2)) == Vec2(2, 2));
     }
 
     SECTION("Normals")
@@ -154,6 +158,10 @@ TEST_CASE("Vector3 tests", "[vector]")
         CHECK(Vec3::distance(Vec3(1, 2, 3), Vec3(3, 2, 1)) == 2*sqrt(2.0));
 
         CHECK(Vec3::lerp(vec1, vec2, 0.5f) == Vec3(4, 5, 6));
+
+        CHECK(Vec3(1, 1, 1).scale(2) == Vec3(2, 2, 2));
+        CHECK(Vec3(1, 1, 1).scale(2, 2, 2) == Vec3(2, 2, 2));
+        CHECK(Vec3(1, 1, 1).scale(Vec3(2, 2, 2)) == Vec3(2, 2, 2));
     }
 
     SECTION("Normals")
@@ -234,6 +242,10 @@ TEST_CASE("Vector4 tests", "[vector]")
         CHECK(Vec4::distance(Vec4(1, 2, 3, 4), Vec4(4,3,2,1)) == 2*sqrt(5.0));
 
         CHECK(Vec4::lerp(vec1, vec2, 0.5f) == Vec4(4, 5, 6, 7));
+
+        CHECK(Vec4(1, 1, 1, 1).scale(2) == Vec4(2, 2, 2, 2));
+        CHECK(Vec4(1, 1, 1, 1).scale(2, 2, 2, 2) == Vec4(2, 2, 2, 2));
+        CHECK(Vec4(1, 1, 1, 1).scale(Vec4(2, 2, 2, 2)) == Vec4(2, 2, 2, 2));
     }
 
     SECTION("Normals")

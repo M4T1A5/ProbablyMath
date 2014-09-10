@@ -327,6 +327,8 @@ TEST_CASE("Matrix4 tests", "[matrix]")
             4, 9, 2, 4,
             9, 5, 8, 2);
 
+        Mat4 matResult;
+
         LARGE_INTEGER start, end;
         LARGE_INTEGER f;
         QueryPerformanceFrequency(&f);
@@ -335,7 +337,7 @@ TEST_CASE("Matrix4 tests", "[matrix]")
             QueryPerformanceCounter(&start);
             for (size_t i = 0; i < 10000; ++i)
             {
-                mat * mat;
+                matResult = mat * mat;
             }
             QueryPerformanceCounter(&end);
             std::cout << "Elapsed time: " << double(end.QuadPart - start.QuadPart)/f.QuadPart << std::endl;

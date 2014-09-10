@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProbablyMath", "ProbablyMath\ProbablyMath.vcxproj", "{3F32D765-194F-4949-90FD-EAD1BDB670E5}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tests", "Tests\Tests.vcxproj", "{845FDA16-AD1F-4D0B-AE00-01E57D3DA89B}"
