@@ -40,6 +40,9 @@
     <ClInclude Include="..\..\..\include\pmath\Vector4.hpp">
       <Filter>Headers\Vector</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\include\pmath\Trigonometry.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\include\pmath\inl\Quaternion.inl">
@@ -68,6 +71,9 @@
     </None>
     <None Include="..\..\..\include\pmath\inl\Vector4.inl">
       <Filter>Inline\Vector</Filter>
+    </None>
+    <None Include="..\..\..\include\pmath\inl\Trigonometry.inl">
+      <Filter>Inline</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

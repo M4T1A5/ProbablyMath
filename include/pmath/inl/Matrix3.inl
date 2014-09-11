@@ -1,4 +1,5 @@
 #include "../Matrix3.hpp"
+#include "../Trigonometry.hpp"
 
 #include <cassert>
 
