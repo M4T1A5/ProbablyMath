@@ -42,4 +42,9 @@ namespace pmath
 
         return value;
     }
+
+    inline double lerp(const double a, const double b, const double t)
+    {
+        return (1 - t) * a + t * b;
+    }
 }
