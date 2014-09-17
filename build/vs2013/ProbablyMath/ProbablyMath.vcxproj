@@ -72,6 +72,7 @@
     <ClInclude Include="..\..\..\include\pmath\Quaternion.hpp" />
     <ClInclude Include="..\..\..\include\pmath\PMath.hpp" />
     <ClInclude Include="..\..\..\include\pmath\Rectangle.hpp" />
+    <ClInclude Include="..\..\..\include\pmath\Trigonometry.hpp" />
     <ClInclude Include="..\..\..\include\pmath\Util.hpp" />
     <ClInclude Include="..\..\..\include\pmath\Vector.hpp" />
     <ClInclude Include="..\..\..\include\PMath\Vector2.hpp" />
@@ -84,6 +85,7 @@
     <None Include="..\..\..\include\pmath\inl\Matrix4.inl" />
     <None Include="..\..\..\include\pmath\inl\Quaternion.inl" />
     <None Include="..\..\..\include\pmath\inl\Rectangle.inl" />
+    <None Include="..\..\..\include\pmath\inl\Trigonometry.inl" />
     <None Include="..\..\..\include\pmath\inl\Util.inl" />
     <None Include="..\..\..\include\PMath\inl\Vector2.inl" />
     <None Include="..\..\..\include\pmath\inl\Vector3.inl" />
