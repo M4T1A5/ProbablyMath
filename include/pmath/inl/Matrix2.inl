@@ -172,6 +172,9 @@ namespace pmath
     {
         r1 *= right;
         r2 *= right;
+
+        return *this;
+    }
     }
 
     template<typename T>

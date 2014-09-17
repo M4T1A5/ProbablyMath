@@ -377,6 +377,9 @@ namespace pmath
         r2 *= right;
         r3 *= right;
         r4 *= right;
+
+        return *this;
+    }
     }
 
     template<typename T>
