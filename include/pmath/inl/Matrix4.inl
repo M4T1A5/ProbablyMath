@@ -380,6 +380,13 @@ namespace pmath
 
         return *this;
     }
+
+    template<typename T>
+    inline Matrix4<T>& Matrix4<T>::operator *=(const Matrix4& right)
+    {
+        *this = *this * right;
+
+        return *this;
     }
 
     template<typename T>

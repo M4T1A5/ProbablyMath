@@ -51,6 +51,7 @@ TEST_CASE("Matrix2 tests", "[matrix]")
 
         CHECK((mat1 *= 2) == Mat2(2, 4, 6, 8));
         CHECK((mat1 /= 2) == Mat2(1, 2, 3, 4));
+        CHECK((mat1 *= mat2) == Mat2(8, 5, 20, 13));
     }
 
     SECTION("Inverse, transpose")
@@ -118,6 +119,7 @@ TEST_CASE("Matrix3 tests", "[matrix]")
 
         CHECK((mat1 *= 2) == Mat3(2, 4, 6, 8, 10, 12, 14, 16, 18));
         CHECK((mat1 /= 2) == Mat3(1, 2, 3, 4, 5, 6, 7, 8, 9));
+        CHECK((mat1 *= mat2) == (3.f*Mat3(10, 8, 6, 28, 23, 18, 46, 38, 30)));
     }
 
     SECTION("Inverse, transpose, etc...")
@@ -260,6 +262,11 @@ TEST_CASE("Matrix4 tests", "[matrix]")
             5, 6, 7, 8,
             9, 10, 11, 12,
             13, 14, 15, 16));
+
+        CHECK((mat1 *= mat2) == Mat4(59, 63, 63, 30,
+        143, 155, 167, 86,
+        227, 247, 271, 142,
+        311, 339, 375, 198));
     }
 
     SECTION("Inverse, transpose, etc..")
