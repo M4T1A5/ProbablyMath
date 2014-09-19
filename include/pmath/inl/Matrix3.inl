@@ -2,6 +2,7 @@
 #include "../Trigonometry.hpp"
 
 #include <cassert>
+#include <sstream>
 
 namespace pmath
 {
@@ -232,21 +233,10 @@ namespace pmath
     template<typename T>
     inline std::string pmath::Matrix3<T>::toString() const
     {
-        std::string out;
+        std::ostringstream stream;
+        stream << *this;
 
-        for (size_t i = 0; i < Matrix3<T>::ROWS; ++i)
-        {
-            out += "|";
-            for (size_t j = 0; j < Matrix3<T>::COLUMNS; ++j)
-            {
-                out += std::to_string((*this)[i][j]);
-                if (j < Matrix3<T>::COLUMNS - 1)
-                    out += ", ";
-            }
-            out += "|\n";
-        }
-
-        return out;
+        return stream.str();
     }
 
     // Operators
@@ -469,7 +459,17 @@ namespace pmath
     template<typename T>
     inline std::ostream& operator<<(std::ostream& out, const Matrix3<T>& right)
     {
-        out << right.toString();
+        for (size_t i = 0; i < Matrix3<T>::ROWS; ++i)
+        {
+            out << "|";
+            for (size_t j = 0; j < Matrix3<T>::COLUMNS; ++j)
+            {
+                out << right[i][j];
+                if (j < Matrix3<T>::COLUMNS - 1)
+                    out << ", ";
+            }
+            out << "|" << std::endl;
+        }
 
         return out;
     }

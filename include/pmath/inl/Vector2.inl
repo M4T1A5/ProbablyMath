@@ -3,6 +3,7 @@
 
 #include <cassert>
 #include <cmath>
+#include <sstream>
 
 namespace pmath
 {
@@ -138,7 +139,10 @@ namespace pmath
     template<typename T>
     inline std::string pmath::Vector2<T>::toString() const
     {
-        return "(" + std::to_string(x) + ", " + std::to_string(y) + ")";
+        std::ostringstream stream;
+        stream << *this;
+
+        return stream.str();
     }
 
 
@@ -268,7 +272,7 @@ namespace pmath
     template<typename T>
     inline std::ostream& operator <<(std::ostream& out, const Vector2<T>& right)
     {
-        out << right.toString();
+        out << "(" << right.x << ", " << right.y << ")";
 
         return out;
     }

@@ -3,6 +3,7 @@
 
 #include <cassert>
 #include <cmath>
+#include <sstream>
 
 namespace pmath
 {
@@ -158,8 +159,10 @@ namespace pmath
     template<typename T>
     inline std::string pmath::Vector4<T>::toString() const
     {
-        return "(" + std::to_string(x) + ", " + std::to_string(y) +
-            ", " + std::to_string(z) + ", " + std::to_string(w) + ")";
+        std::ostringstream stream;
+        stream << *this;
+
+        return stream.str();
     }
 
     // Operators
@@ -300,7 +303,7 @@ namespace pmath
     template<typename T>
     inline std::ostream& operator <<(std::ostream& out, const Vector4<T>& right)
     {
-        out << right.toString();
+        out << "(" << right.x << ", " << right.y << ", " << right.z << ", " << right.w << ")";
 
         return out;
     }

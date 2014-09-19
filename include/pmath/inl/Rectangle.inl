@@ -1,4 +1,5 @@
 #include "../Rectangle.hpp"
+#include <sstream>
 
 namespace pmath
 {
@@ -89,10 +90,10 @@ namespace pmath
     template<typename T>
     inline std::string Rectangle<T>::toString() const
     {
-        return "Rect(x: " + std::to_string(position.x) + ", y: " +
-            std::to_string(position.y) + ", width: " + 
-            std::to_string(size.x) + ", height: " + 
-            std::to_string(size.y) + ")";
+        std::ostringstream stream;
+        stream << *this;
+
+        return stream.str();
     }
 
     // Operators
@@ -123,7 +124,8 @@ namespace pmath
     template<typename T>
     inline std::ostream& operator<<(std::ostream& out, const Rectangle<T>& right)
     {
-        out << right.toString();
+        out << "Rect(" << "x: " << right.position.x << ", y: " << right.position.y
+            << ", width: " << right.size.x << ", height: " << right.size.y << ")";
 
         return out;
     }
