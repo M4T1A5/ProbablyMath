@@ -1,6 +1,7 @@
 #include "../Quaternion.hpp"
 #include "../Util.hpp"
 #include "../Trigonometry.hpp"
+#include <sstream>
 
 namespace pmath
 {
@@ -227,7 +228,10 @@ namespace pmath
     template<typename T>
     std::string pmath::Quaternion<T>::toString() const
     {
-        return "Quat(" + std::to_string(w) + ", " + vector.toString() + ")";
+        std::ostringstream stream;
+        stream << *this;
+
+        return stream.str();
     }
 
     // Operators
@@ -388,7 +392,7 @@ namespace pmath
     template<typename T>
     inline std::ostream& operator<<(std::ostream& out, const Quaternion<T>& right)
     {
-        out << right.toString();
+        out << "Quat(" << right.w << ", " << right.vector << ")";
 
         return out;
     }
