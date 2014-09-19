@@ -134,6 +134,14 @@ namespace pmath
         return (1 - t) * vec1 + t * vec2;
     }
 
+
+    template<typename T>
+    inline std::string pmath::Vector2<T>::toString() const
+    {
+        return "(" + std::to_string(x) + ", " + std::to_string(y) + ")";
+    }
+
+
     // Operators
     #pragma region Operators
     // Comparison operators
@@ -260,7 +268,7 @@ namespace pmath
     template<typename T>
     inline std::ostream& operator <<(std::ostream& out, const Vector2<T>& right)
     {
-        out << "(" << right.x << ", " << right.y << ")";
+        out << right.toString();
 
         return out;
     }

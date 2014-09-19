@@ -155,10 +155,16 @@ namespace pmath
         return (1 - t) * vec1 + t * vec2;
     }
 
+    template<typename T>
+    inline std::string pmath::Vector4<T>::toString() const
+    {
+        return "(" + std::to_string(x) + ", " + std::to_string(y) +
+            ", " + std::to_string(z) + ", " + std::to_string(w) + ")";
+    }
 
     // Operators
     #pragma region Operators
-    // Compariston operators
+    // Comparison operators
     template<typename T>
     inline bool Vector4<T>::operator ==(const Vector4<T>& right) const
     {
@@ -197,7 +203,7 @@ namespace pmath
     }
 
 
-    // Assingment operators
+    // Assignment operators
     template<typename T>
     inline Vector4<T>& Vector4<T>::operator =(const Vector4<T>& right)
     {
@@ -294,7 +300,7 @@ namespace pmath
     template<typename T>
     inline std::ostream& operator <<(std::ostream& out, const Vector4<T>& right)
     {
-        out << "(" << right.x << ", " << right.y << ", " << right.z << ", " << right.w << ")";
+        out << right.toString();
 
         return out;
     }

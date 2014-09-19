@@ -86,6 +86,15 @@ namespace pmath
             getBottom() < point.y);
     }
 
+    template<typename T>
+    inline std::string Rectangle<T>::toString() const
+    {
+        return "Rect(x: " + std::to_string(position.x) + ", y: " +
+            std::to_string(position.y) + ", width: " + 
+            std::to_string(size.x) + ", height: " + 
+            std::to_string(size.y) + ")";
+    }
+
     // Operators
     #pragma region Operators
     // Comparison
@@ -114,8 +123,7 @@ namespace pmath
     template<typename T>
     inline std::ostream& operator<<(std::ostream& out, const Rectangle<T>& right)
     {
-        out << "Rect(" << "x: " << right.position.x << ", y: " << right.position.y
-            << ", width: " << right.size.x << ", height: " << right.size.y << ")";
+        out << right.toString();
 
         return out;
     }

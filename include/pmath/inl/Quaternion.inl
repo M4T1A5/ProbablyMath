@@ -223,6 +223,13 @@ namespace pmath
         return (std::sin((1 - t) * angle) / std::sin(angle)) * q1 + (std::sin(t*angle)/std::sin(angle)) * q2;
     }
 
+
+    template<typename T>
+    std::string pmath::Quaternion<T>::toString() const
+    {
+        return "Quat(" + std::to_string(w) + ", " + vector.toString() + ")";
+    }
+
     // Operators
     #pragma region Operators
     // Comparison
@@ -276,7 +283,7 @@ namespace pmath
         return Quaternion<T>(w / right, vector / right);
     }
 
-    // Assingment
+    // Assignment
     template<typename T>
     inline Quaternion<T>& Quaternion<T>::operator =(const Quaternion<T>& right)
     {
@@ -381,7 +388,7 @@ namespace pmath
     template<typename T>
     inline std::ostream& operator<<(std::ostream& out, const Quaternion<T>& right)
     {
-        out << "Quat(" << right.w << ", " << right.vector << ")";
+        out << right.toString();
 
         return out;
     }

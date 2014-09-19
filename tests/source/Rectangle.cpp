@@ -20,8 +20,6 @@ TEST_CASE("Rectangle tests", "[rectangle]")
         Rect rect;
         rect = Rect(0, 0, 10, 10);
         CHECK(rect == Rect(0, 0, 10, 10));
-
-        std::cout << Rect(0, 0, 100, 100) << std::endl;
     }
 
     SECTION("Less important functions")
