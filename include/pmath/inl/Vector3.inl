@@ -149,6 +149,12 @@ namespace pmath
         return (1 - t) * vec1 + t * vec2;
     }
 
+    template<typename T>
+    inline std::string pmath::Vector3<T>::toString() const
+    {
+        return "(" + std::to_string(x) + ", " + std::to_string(y) +
+            ", " + std::to_string(z) + ")";
+    }
 
     // Operators
     #pragma region Operators
@@ -282,7 +288,7 @@ namespace pmath
     template<typename T>
     inline std::ostream& operator <<(std::ostream& out, const Vector3<T>& right)
     {
-        out << "(" << right.x << ", " << right.y << ", " << right.z << ")";
+        out << right.toString();
 
         return out;
     }

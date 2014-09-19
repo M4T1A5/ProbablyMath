@@ -229,6 +229,25 @@ namespace pmath
         return createTranslation(translation.x, translation.y);
     }
 
+    template<typename T>
+    inline std::string pmath::Matrix3<T>::toString() const
+    {
+        std::string out;
+
+        for (size_t i = 0; i < Matrix3<T>::ROWS; ++i)
+        {
+            out += "|";
+            for (size_t j = 0; j < Matrix3<T>::COLUMNS; ++j)
+            {
+                out += std::to_string((*this)[i][j]);
+                if (j < Matrix3<T>::COLUMNS - 1)
+                    out += ", ";
+            }
+            out += "|\n";
+        }
+
+        return out;
+    }
 
     // Operators
     #pragma region Operators
@@ -246,7 +265,7 @@ namespace pmath
     }
 
 
-    // Assingment
+    // Assignment
     template<typename T>
     inline Matrix3<T>& Matrix3<T>::operator =(const Matrix3<T>& right)
     {
@@ -450,17 +469,7 @@ namespace pmath
     template<typename T>
     inline std::ostream& operator<<(std::ostream& out, const Matrix3<T>& right)
     {
-        for (size_t i = 0; i < Matrix3<T>::ROWS; ++i)
-        {
-            out << "|";
-            for (size_t j = 0; j < Matrix3<T>::COLUMNS; ++j)
-            {
-                out << right[i][j];
-                if (j < Matrix3<T>::COLUMNS - 1)
-                    out << ", ";
-            }
-            out << "|" << std::endl;
-        }
+        out << right.toString();
 
         return out;
     }
