@@ -31,11 +31,14 @@ TEST_CASE("Rectangle tests", "[rectangle]")
         CHECK(rect.getTop() == 200);
         CHECK(rect.getBottom() == 300);
         CHECK(rect.area() == 10000);
+        CHECK(rect.center() == pmath::Vec2(150, 250));
+        CHECK(rect.center<double>() == pmath::Vec2d(150, 250));
     }
 
     SECTION("Intersect and contains")
     {
         CHECK(Rect(0, 0, 100, 100).intersects(Rect(0, 0, 50, 50)));
+        CHECK(Rect(0, 0, 100, 100).intersects(Rect(0, 0, 100, 100)));
         CHECK_FALSE(Rect(0, 0, 100, 100).intersects(Rect(101, 101, 50, 50)));
         CHECK_FALSE(Rect(0, 0, 100, 100).intersects(Rect(101, 0, 50, 50)));
         CHECK_FALSE(Rect(0, 0, 100, 100).intersects(Rect(0, 101, 50, 50)));
@@ -45,5 +48,15 @@ TEST_CASE("Rectangle tests", "[rectangle]")
 
         CHECK(Rect(0, 0, 100, 100).contains(Vec2(50, 50)));
         CHECK_FALSE(Rect(0, 0, 100, 100).contains(Vec2(101, 101)));
+
+        CHECK(Rect(0, 0, 100, 100).contains(Rect(25, 25, 25, 25)));
+        CHECK(Rect(0, 0, 100, 100).contains(Rect(0, 0, 100, 100)));
+        CHECK_FALSE(Rect(0, 0, 100, 100).contains(Rect(101, 101, 100, 100)));
+
+        Rect intersection;
+        Rect(0, 0, 100, 100).intersects(Rect(75, 75, 100, 100), intersection);
+        CHECK(intersection == Rect(75, 75, 25, 25));
+        Rect(0, 0, 100, 100).intersects(Rect(-25, -25, 50, 50), intersection);
+        CHECK(intersection == Rect(0, 0, 25, 25));
     }
 }
