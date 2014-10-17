@@ -79,9 +79,9 @@ TEST_CASE("Vector2 tests", "[vector]")
     SECTION("Normals")
     {
         Vec2 vec(5, 9);
-        CHECK(vec.unitVector() == Vec2(5 / sqrt(106.f), 9 / sqrt(106.f)));
+        CHECK(vec.normalized() == Vec2(5 / sqrt(106.f), 9 / sqrt(106.f)));
         CHECK(vec.normalize() == Vec2(5 / sqrt(106.f), 9 / sqrt(106.f)));
-        CHECK(vec.isUnitVector());
+        CHECK(vec.isNormalized());
     }
 }
 
@@ -167,9 +167,9 @@ TEST_CASE("Vector3 tests", "[vector]")
     SECTION("Normals")
     {
         Vec3 vec(5, 9, 7);
-        CHECK(vec.unitVector() == Vec3(sqrt(5.f / 31.f), 9 / sqrt(155.f), 7 / sqrt(155.f)));
+        CHECK(vec.normalized() == Vec3(sqrt(5.f / 31.f), 9 / sqrt(155.f), 7 / sqrt(155.f)));
         CHECK(vec.normalize() == Vec3(sqrt(5.f / 31.f), 9 / sqrt(155.f), 7 / sqrt(155.f)));
-        CHECK(vec.isUnitVector());
+        CHECK(vec.isNormalized());
     }
 }
 
@@ -254,8 +254,8 @@ TEST_CASE("Vector4 tests", "[vector]")
         Vec4 result(5 / (2 * sqrt(29.f)), 9 / (2 * sqrt(29.f)),
             3 / (2 * sqrt(29.f)), 1 / (2 * sqrt(29.f)));
 
-        CHECK(vec.unitVector() == result);
+        CHECK(vec.normalized() == result);
         CHECK(vec.normalize() == result);
-        CHECK(vec.isUnitVector());
+        CHECK(vec.isNormalized());
     }
 }
