@@ -71,6 +71,8 @@ TEST_CASE("Vector2 tests", "[vector]")
 
         CHECK(Vec2::lerp(vec1, vec2, 0.5f) == Vec2(3.5f, 3.5f));
 
+        CHECK(lerp(vec1, vec2, 0.5f) == Vec2(3.5f, 3.5f));
+
         CHECK(Vec2(1, 1).scale(2) == Vec2(2, 2));
         CHECK(Vec2(1, 1).scale(2, 2) == Vec2(2, 2));
         CHECK(Vec2(1, 1).scale(Vec2(2, 2)) == Vec2(2, 2));
