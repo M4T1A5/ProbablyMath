@@ -80,12 +80,12 @@ namespace pmath
 
 
     template<typename T>
-    inline Vector4<T>& Vector4<T>::scale(const T& x, const T& y, const T& z, const T& w)
+    inline Vector4<T>& Vector4<T>::scale(const T& xScale, const T& yScale, const T& zScale, const T& wScale)
     {
-        this->x *= x;
-        this->y *= y;
-        this->z *= z;
-        this->w *= w;
+        x *= xScale;
+        y *= yScale;
+        z *= zScale;
+        w *= wScale;
 
         return *this;
     }

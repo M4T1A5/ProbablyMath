@@ -22,7 +22,7 @@ namespace pmath
         // Scales(multiplies) respective component with scaleVector component
         Vector2& scale(const Vector2& scaleVector);
         // Scales(multiplies) respective component with given component
-        Vector2& scale(const T& x, const T& y);
+        Vector2& scale(const T& xScale, const T& yScale);
         // Scales the whole vector with the number
         Vector2& scale(const T& scale);
 

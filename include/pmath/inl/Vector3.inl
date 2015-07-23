@@ -64,11 +64,11 @@ namespace pmath
 
 
     template<typename T>
-    inline Vector3<T>& Vector3<T>::scale(const T& x, const T& y, const T& z)
+    inline Vector3<T>& Vector3<T>::scale(const T& xScale, const T& yScale, const T& zScale)
     {
-        this->x *= x;
-        this->y *= y;
-        this->z *= z;
+        this->x *= xScale;
+        this->y *= yScale;
+        this->z *= zScale;
 
         return *this;
     }
