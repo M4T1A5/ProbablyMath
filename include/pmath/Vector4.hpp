@@ -6,7 +6,6 @@
 #include "Vector3.hpp"
 
 #include <iostream>
-#include <string>
 
 namespace pmath
 {
@@ -35,10 +34,10 @@ namespace pmath
         T dot(const Vector4& other) const;
         static T dot(const Vector4& vec1, const Vector4& vec2);
 
-        double lengthSquared() const;
-        double length() const;
+        T lengthSquared() const;
+        T length() const;
 
-        static double distance(const Vector4& vec1, const Vector4& vec2);
+        static T distance(const Vector4& vec1, const Vector4& vec2);
 
         // Normalizes the vector and returns the normalized vector
         Vector4& normalize();

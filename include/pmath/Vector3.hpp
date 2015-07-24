@@ -5,7 +5,6 @@
 #include "Vector2.hpp"
 
 #include <iostream>
-#include <string>
 
 namespace pmath
 {
@@ -35,10 +34,10 @@ namespace pmath
         Vector3 cross(const Vector3& other) const;
         static Vector3 cross(const Vector3& vec1, const Vector3& vec2);
 
-        double lengthSquared() const;
-        double length() const;
+        T lengthSquared() const;
+        T length() const;
 
-        static double distance(const Vector3& vec1, const Vector3& vec2);
+        static T distance(const Vector3& vec1, const Vector3& vec2);
 
         // Normalizes the vector and returns the normalized vector
         Vector3& normalize();

@@ -1,4 +1,3 @@
-#include "../Vector4.hpp"
 #include "../Util.hpp"
 
 #include <cassert>
@@ -109,23 +108,21 @@ namespace pmath
     }
 
     template<typename T>
-    inline double Vector4<T>::lengthSquared() const
+    inline T Vector4<T>::lengthSquared() const
     {
-        const double xd = static_cast<double>(x);
-        const double yd = static_cast<double>(y);
-        const double zd = static_cast<double>(z);
-        const double wd = static_cast<double>(w);
-        return xd*xd + yd*yd + zd*zd + wd*wd;
+        static_assert(std::is_floating_point<T>::value, "Can't get length from a non-floating point type");
+
+        return x*x + y*y + z*z + w*w;
     }
 
     template<typename T>
-    inline double Vector4<T>::length() const
+    inline T Vector4<T>::length() const
     {
         return std::sqrt(lengthSquared());
     }
 
     template<typename T>
-    inline double Vector4<T>::distance(const Vector4<T>& vec1, const Vector4<T>& vec2)
+    inline T Vector4<T>::distance(const Vector4<T>& vec1, const Vector4<T>& vec2)
     {
         return (vec2 - vec1).length();
     }

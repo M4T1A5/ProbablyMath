@@ -3,7 +3,6 @@
 #define VECTOR2_PMATH_H
 
 #include <iostream>
-#include <string>
 
 namespace pmath
 {
@@ -37,10 +36,10 @@ namespace pmath
         T cross(const Vector2& other) const;
         static T cross(const Vector2& vec1, const Vector2& vec2);
 
-        double lengthSquared() const;
-        double length() const;
+        T lengthSquared() const;
+        T length() const;
 
-        static double distance(const Vector2& vec1, const Vector2& vec2);
+        static T distance(const Vector2& vec1, const Vector2& vec2);
 
         // Normalizes the vector and returns the normalized vector
         Vector2& normalize();

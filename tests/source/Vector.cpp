@@ -60,14 +60,14 @@ TEST_CASE("Vector2 tests", "[vector]")
         CHECK(vec1.dot(vec2) == 20);
         CHECK(Vec2::dot(vec1, vec2) == 20);
 
-        CHECK(vec1.length() == sqrt(8.0));
+        CHECK(vec1.length() == sqrt(8.0f));
         CHECK(vec2.lengthSquared() == 50);
 
         Vec2 a(1,2), b(9,8);
         CHECK(a.cross(b) == -10);
         CHECK(Vec2::cross(b, a) == 10);
 
-        CHECK(Vec2::distance(Vec2(1, 2), Vec2(2,1)) == sqrt(2.0));
+        CHECK(Vec2::distance(Vec2(1, 2), Vec2(2,1)) == sqrt(2.0f));
 
         CHECK(Vec2::lerp(vec1, vec2, 0.5f) == Vec2(3.5f, 3.5f));
 
@@ -151,13 +151,13 @@ TEST_CASE("Vector3 tests", "[vector]")
         CHECK(vec1.dot(vec2) == 50);
         CHECK(Vec3::dot(vec2, vec1) == 50);
 
-        CHECK(vec1.length() == sqrt(14.0));
+        CHECK(vec1.length() == sqrt(14.0f));
         CHECK(vec2.lengthSquared() == 194);
 
         CHECK(vec1.cross(vec2) == Vec3(-6, 12, -6));
         CHECK(Vec3::cross(vec2, vec1) == Vec3(6, -12, 6));
 
-        CHECK(Vec3::distance(Vec3(1, 2, 3), Vec3(3, 2, 1)) == 2*sqrt(2.0));
+        CHECK(Vec3::distance(Vec3(1, 2, 3), Vec3(3, 2, 1)) == 2*sqrt(2.0f));
 
         CHECK(Vec3::lerp(vec1, vec2, 0.5f) == Vec3(4, 5, 6));
 
@@ -238,10 +238,10 @@ TEST_CASE("Vector4 tests", "[vector]")
         CHECK(vec1.dot(vec2) == 90);
         CHECK(Vec4::dot(vec2, vec1) == 90);
 
-        CHECK(vec2.length() == sqrt(294.0));
+        CHECK(vec2.length() == sqrt(294.0f));
         CHECK(vec1.lengthSquared() == 30);
 
-        CHECK(Vec4::distance(Vec4(1, 2, 3, 4), Vec4(4,3,2,1)) == 2*sqrt(5.0));
+        CHECK(Vec4::distance(Vec4(1, 2, 3, 4), Vec4(4,3,2,1)) == 2*sqrt(5.0f));
 
         CHECK(Vec4::lerp(vec1, vec2, 0.5f) == Vec4(4, 5, 6, 7));
 
