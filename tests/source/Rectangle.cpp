@@ -1,7 +1,6 @@
 #include <catch.hpp>
 
 #include <pmath/Rectangle.hpp>
-#include <iostream>
 
 using namespace pmath;
 

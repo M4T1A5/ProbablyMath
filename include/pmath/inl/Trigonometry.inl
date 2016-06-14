@@ -1,4 +1,3 @@
-#include "../Trigonometry.hpp"
 #include "../Constants.hpp"
 
 namespace pmath

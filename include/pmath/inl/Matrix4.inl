@@ -1,4 +1,3 @@
-#include "../Matrix4.hpp"
 #include "../Trigonometry.hpp"
 
 #include <cassert>
@@ -155,6 +154,12 @@ namespace pmath
                 (*this)[0][2], (*this)[1][2], (*this)[2][2], (*this)[3][2],
                 (*this)[0][3], (*this)[1][3], (*this)[2][3], (*this)[3][3]
             );
+    }
+
+    template <typename T>
+    Matrix4<T> Matrix4<T>::transpose(const Matrix4& matrix)
+    {
+        return matrix.transpose();
     }
 
     template<typename T>

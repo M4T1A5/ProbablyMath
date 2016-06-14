@@ -9,7 +9,6 @@
 #include "Matrix4.hpp"
 
 #include <iostream>
-#include <string>
 
 namespace pmath
 {

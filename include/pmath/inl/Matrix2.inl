@@ -1,4 +1,3 @@
-#include "../Matrix2.hpp"
 #include "../Trigonometry.hpp"
 
 #include <cassert>
@@ -64,6 +63,12 @@ namespace pmath
     inline Matrix2<T> Matrix2<T>::transpose() const
     {
         return Matrix2<T>((*this)[0][0], (*this)[1][0], (*this)[0][1], (*this)[1][1]);
+    }
+
+    template <typename T>
+    Matrix2<T> Matrix2<T>::transpose(const Matrix2& matrix)
+    {
+        return matrix.transpose();
     }
 
     template<typename T>

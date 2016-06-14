@@ -5,7 +5,6 @@
 #include "Vector2.hpp"
 
 #include <iostream>
-#include <string>
 
 namespace pmath
 {

@@ -10,7 +10,6 @@
 #include "Matrix3.hpp"
 
 #include <iostream>
-#include <string>
 
 namespace pmath
 {
