@@ -5,9 +5,6 @@
 #include "Vector2.hpp"
 #include "Vector3.hpp"
 
-#include <iostream>
-#include <string>
-
 namespace pmath
 {
     template<typename T>
@@ -27,7 +24,7 @@ namespace pmath
         // Scales(multiplies) respective component with scaleVector component
         Vector4& scale(const Vector4& scaleVector);
         // Scales(multiplies) respective component with given component
-        Vector4& scale(const T& x, const T& y, const T& z, const T& w);
+        Vector4& scale(const T& xScale, const T& yScale, const T& zScale, const T& wScale);
         // Scales the whole vector with the number
         Vector4& scale(const T& scale);
 
@@ -35,10 +32,10 @@ namespace pmath
         T dot(const Vector4& other) const;
         static T dot(const Vector4& vec1, const Vector4& vec2);
 
-        double lengthSquared() const;
-        double length() const;
+        T lengthSquared() const;
+        T length() const;
 
-        static double distance(const Vector4& vec1, const Vector4& vec2);
+        static T distance(const Vector4& vec1, const Vector4& vec2);
 
         // Normalizes the vector and returns the normalized vector
         Vector4& normalize();

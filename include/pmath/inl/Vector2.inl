@@ -1,4 +1,3 @@
-#include "../Vector2.hpp"
 #include "../Util.hpp"
 #include "../Trigonometry.hpp"
 
@@ -53,10 +52,10 @@ namespace pmath
 
 
     template<typename T>
-    inline Vector2<T>& Vector2<T>::scale(const T& x, const T& y)
+    inline Vector2<T>& Vector2<T>::scale(const T& xScale, const T& yScale)
     {
-        this->x *= x;
-        this->y *= y;
+        this->x *= xScale;
+        this->y *= yScale;
 
         return *this;
     }
@@ -98,21 +97,21 @@ namespace pmath
     }
 
     template<typename T>
-    inline double Vector2<T>::lengthSquared() const
+    inline T Vector2<T>::lengthSquared() const
     {
-        const double xd = static_cast<double>(x);
-        const double yd = static_cast<double>(y);
-        return xd*xd + yd*yd;
+        static_assert(std::is_floating_point<T>::value, "Can't get length from a non-floating point type");
+
+        return x*x + y*y;
     }
 
     template<typename T>
-    inline double Vector2<T>::length() const
+    inline T Vector2<T>::length() const
     {
         return std::sqrt(lengthSquared());
     }
 
     template<typename T>
-    inline double Vector2<T>::distance(const Vector2<T>& vec1, const Vector2<T>& vec2)
+    inline T Vector2<T>::distance(const Vector2<T>& vec1, const Vector2<T>& vec2)
     {
         return (vec2 - vec1).length();
     }

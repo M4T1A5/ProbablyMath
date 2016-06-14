@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -11,22 +11,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3F32D765-194F-4949-90FD-EAD1BDB670E5}</ProjectGuid>
-    <RootNamespace>ProbablyMath</RootNamespace>
+    <ProjectGuid>{845FDA16-AD1F-4D0B-AE00-01E57D3DA89B}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Tests</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -38,58 +39,53 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NOMINMAX;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\tests\include;$(SolutionDir)..\..\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NOMINMAX;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\tests\include;$(SolutionDir)..\..\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\include\pmath\Constants.hpp" />
-    <ClInclude Include="..\..\..\include\pmath\Matrix.hpp" />
-    <ClInclude Include="..\..\..\include\pmath\Matrix2.hpp" />
-    <ClInclude Include="..\..\..\include\pmath\Matrix3.hpp" />
-    <ClInclude Include="..\..\..\include\pmath\Matrix4.hpp" />
-    <ClInclude Include="..\..\..\include\pmath\Quaternion.hpp" />
-    <ClInclude Include="..\..\..\include\pmath\PMath.hpp" />
-    <ClInclude Include="..\..\..\include\pmath\Rectangle.hpp" />
-    <ClInclude Include="..\..\..\include\pmath\Trigonometry.hpp" />
-    <ClInclude Include="..\..\..\include\pmath\Util.hpp" />
-    <ClInclude Include="..\..\..\include\pmath\Vector.hpp" />
-    <ClInclude Include="..\..\..\include\PMath\Vector2.hpp" />
-    <ClInclude Include="..\..\..\include\pmath\Vector3.hpp" />
-    <ClInclude Include="..\..\..\include\pmath\Vector4.hpp" />
+    <ClInclude Include="..\..\..\tests\include\catch.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\include\pmath\inl\Matrix2.inl" />
-    <None Include="..\..\..\include\pmath\inl\Matrix3.inl" />
-    <None Include="..\..\..\include\pmath\inl\Matrix4.inl" />
-    <None Include="..\..\..\include\pmath\inl\Quaternion.inl" />
-    <None Include="..\..\..\include\pmath\inl\Rectangle.inl" />
-    <None Include="..\..\..\include\pmath\inl\Trigonometry.inl" />
-    <None Include="..\..\..\include\pmath\inl\Util.inl" />
-    <None Include="..\..\..\include\PMath\inl\Vector2.inl" />
-    <None Include="..\..\..\include\pmath\inl\Vector3.inl" />
-    <None Include="..\..\..\include\pmath\inl\Vector4.inl" />
+    <ClCompile Include="..\..\..\tests\source\main.cpp" />
+    <ClCompile Include="..\..\..\tests\source\Matrix.cpp" />
+    <ClCompile Include="..\..\..\tests\source\Quaternion.cpp" />
+    <ClCompile Include="..\..\..\tests\source\Rectangle.cpp" />
+    <ClCompile Include="..\..\..\tests\source\Vector.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

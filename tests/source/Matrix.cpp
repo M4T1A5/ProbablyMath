@@ -358,7 +358,7 @@ TEST_CASE("Matrix4 tests", "[matrix]")
         for (size_t i = 0; i < 5; ++i)
         {
             QueryPerformanceCounter(&start);
-            for (size_t i = 0; i < 10000; ++i)
+            for (size_t j = 0; j < 10000; ++j)
             {
                 matResult = mat * mat;
             }

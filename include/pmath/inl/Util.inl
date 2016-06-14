@@ -1,5 +1,3 @@
-#include "../Util.hpp"
-
 #include <cmath>
 
 namespace pmath

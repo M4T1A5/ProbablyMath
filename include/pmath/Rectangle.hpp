@@ -4,9 +4,6 @@
 
 #include "Vector2.hpp"
 
-#include <iostream>
-#include <string>
-
 namespace pmath
 {
     // Basic implementation of an AABB with origin(i.e. position) in the top left

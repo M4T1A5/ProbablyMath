@@ -2,9 +2,6 @@
 #ifndef VECTOR2_PMATH_H
 #define VECTOR2_PMATH_H
 
-#include <iostream>
-#include <string>
-
 namespace pmath
 {
     template<typename T>
@@ -22,7 +19,7 @@ namespace pmath
         // Scales(multiplies) respective component with scaleVector component
         Vector2& scale(const Vector2& scaleVector);
         // Scales(multiplies) respective component with given component
-        Vector2& scale(const T& x, const T& y);
+        Vector2& scale(const T& xScale, const T& yScale);
         // Scales the whole vector with the number
         Vector2& scale(const T& scale);
 
@@ -37,10 +34,10 @@ namespace pmath
         T cross(const Vector2& other) const;
         static T cross(const Vector2& vec1, const Vector2& vec2);
 
-        double lengthSquared() const;
-        double length() const;
+        T lengthSquared() const;
+        T length() const;
 
-        static double distance(const Vector2& vec1, const Vector2& vec2);
+        static T distance(const Vector2& vec1, const Vector2& vec2);
 
         // Normalizes the vector and returns the normalized vector
         Vector2& normalize();

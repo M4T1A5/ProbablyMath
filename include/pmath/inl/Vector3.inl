@@ -1,4 +1,3 @@
-#include "../Vector3.hpp"
 #include "../Util.hpp"
 
 #include <cassert>
@@ -64,11 +63,11 @@ namespace pmath
 
 
     template<typename T>
-    inline Vector3<T>& Vector3<T>::scale(const T& x, const T& y, const T& z)
+    inline Vector3<T>& Vector3<T>::scale(const T& xScale, const T& yScale, const T& zScale)
     {
-        this->x *= x;
-        this->y *= y;
-        this->z *= z;
+        this->x *= xScale;
+        this->y *= yScale;
+        this->z *= zScale;
 
         return *this;
     }
@@ -104,22 +103,21 @@ namespace pmath
     }
 
     template<typename T>
-    inline double Vector3<T>::lengthSquared() const
+    inline T Vector3<T>::lengthSquared() const
     {
-        const double xd = static_cast<double>(x);
-        const double yd = static_cast<double>(y);
-        const double zd = static_cast<double>(z);
-        return xd*xd + yd*yd + zd*zd;
+        static_assert(std::is_floating_point<T>::value, "Can't get length from a non-floating point type");
+
+        return x*x + y*y + z*z;
     }
 
     template<typename T>
-    inline double Vector3<T>::length() const
+    inline T Vector3<T>::length() const
     {
         return std::sqrt(lengthSquared());
     }
 
     template<typename T>
-    inline double Vector3<T>::distance(const Vector3<T>& vec1, const Vector3<T>& vec2)
+    inline T Vector3<T>::distance(const Vector3<T>& vec1, const Vector3<T>& vec2)
     {
         return (vec2 - vec1).length();
     }
