@@ -1,4 +1,3 @@
-#include "../Rectangle.hpp"
 #include <sstream>
 
 namespace pmath

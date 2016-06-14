@@ -2,8 +2,6 @@
 #ifndef VECTOR2_PMATH_H
 #define VECTOR2_PMATH_H
 
-#include <iostream>
-
 namespace pmath
 {
     template<typename T>

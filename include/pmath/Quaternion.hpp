@@ -8,8 +8,6 @@
 #include "Matrix3.hpp"
 #include "Matrix4.hpp"
 
-#include <iostream>
-
 namespace pmath
 {
     template<typename T>

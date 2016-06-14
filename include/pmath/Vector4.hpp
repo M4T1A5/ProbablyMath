@@ -5,8 +5,6 @@
 #include "Vector2.hpp"
 #include "Vector3.hpp"
 
-#include <iostream>
-
 namespace pmath
 {
     template<typename T>

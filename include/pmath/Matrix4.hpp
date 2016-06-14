@@ -9,8 +9,6 @@
 #include "Matrix2.hpp"
 #include "Matrix3.hpp"
 
-#include <iostream>
-
 namespace pmath
 {
     template<typename T>

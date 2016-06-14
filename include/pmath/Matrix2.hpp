@@ -4,8 +4,6 @@
 
 #include "Vector2.hpp"
 
-#include <iostream>
-
 namespace pmath
 {
     template<typename T>
