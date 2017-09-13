@@ -1,3 +1,4 @@
+#pragma once
 #include "../Util.hpp"
 #include "../Trigonometry.hpp"
 
@@ -8,51 +9,51 @@
 namespace pmath
 {
     template<typename T>
-    inline Vector2<T>::Vector2()
+    Vector2<T>::Vector2()
         : x(T()),
           y(T())
     { }
 
     template<typename T>
-    inline Vector2<T>::Vector2(const T& x, const T& y)
+    Vector2<T>::Vector2(const T& x, const T& y)
         : x(x),
           y(y)
     { }
 
     template<typename T>
-    inline Vector2<T>::Vector2(const T& value)
+    Vector2<T>::Vector2(const T& value)
         : x(value),
           y(value)
     { }
 
     template<typename T>
-    inline Vector2<T>::Vector2(const Vector2<T>& vector2)
+    Vector2<T>::Vector2(const Vector2<T>& vector2)
         : x(vector2.x),
           y(vector2.y)
     { }
 
     template<typename T>
     template<typename T2>
-    inline Vector2<T>::Vector2(const Vector2<T2>& vector2)
+    Vector2<T>::Vector2(const Vector2<T2>& vector2)
         : x(static_cast<T>(vector2.x)),
           y(static_cast<T>(vector2.y))
     { }
 
     template<typename T>
-    inline Vector2<T>::~Vector2()
+    Vector2<T>::~Vector2()
     { }
 
 
     // Public
     template<typename T>
-    inline Vector2<T>& Vector2<T>::scale(const Vector2<T>& scaleVector)
+    Vector2<T>& Vector2<T>::scale(const Vector2<T>& scaleVector)
     {
         return scale(scaleVector.x, scaleVector.y);
     }
 
 
     template<typename T>
-    inline Vector2<T>& Vector2<T>::scale(const T& xScale, const T& yScale)
+    Vector2<T>& Vector2<T>::scale(const T& xScale, const T& yScale)
     {
         this->x *= xScale;
         this->y *= yScale;
@@ -61,43 +62,43 @@ namespace pmath
     }
 
     template<typename T>
-    inline Vector2<T>& Vector2<T>::scale(const T& s)
+    Vector2<T>& Vector2<T>::scale(const T& s)
     {
         return scale(s, s);
     }
 
 
     template<typename T>
-    inline T Vector2<T>::angle() const
+    T Vector2<T>::angle() const
     {
         return atan2(y, x);
     }
 
     template<typename T>
-    inline T Vector2<T>::dot(const Vector2<T>& other) const
+    T Vector2<T>::dot(const Vector2<T>& other) const
     {
         return x * other.x + y * other.y;
     }
     template<typename T>
-    inline T Vector2<T>::dot(const Vector2<T>& vec1, const Vector2<T>& vec2)
+    T Vector2<T>::dot(const Vector2<T>& vec1, const Vector2<T>& vec2)
     {
         return vec1.dot(vec2);
     }
 
     template<typename T>
-    inline T Vector2<T>::cross(const Vector2<T>& other) const
+    T Vector2<T>::cross(const Vector2<T>& other) const
     {
         return (x * other.y) - (y * other.x);
     }
 
     template<typename T>
-    inline T Vector2<T>::cross(const Vector2<T>& vec1, const Vector2<T>& vec2)
+    T Vector2<T>::cross(const Vector2<T>& vec1, const Vector2<T>& vec2)
     {
         return vec1.cross(vec2);
     }
 
     template<typename T>
-    inline T Vector2<T>::lengthSquared() const
+    T Vector2<T>::lengthSquared() const
     {
         static_assert(std::is_floating_point<T>::value, "Can't get length from a non-floating point type");
 
@@ -105,39 +106,39 @@ namespace pmath
     }
 
     template<typename T>
-    inline T Vector2<T>::length() const
+    T Vector2<T>::length() const
     {
         return std::sqrt(lengthSquared());
     }
 
     template<typename T>
-    inline T Vector2<T>::distance(const Vector2<T>& vec1, const Vector2<T>& vec2)
+    T Vector2<T>::distance(const Vector2<T>& vec1, const Vector2<T>& vec2)
     {
         return (vec2 - vec1).length();
     }
 
     template<typename T>
-    inline Vector2<T>& Vector2<T>::normalize()
+    Vector2<T>& Vector2<T>::normalize()
     {
         return *this = normalized();
     }
 
 
     template<typename T>
-    inline Vector2<T> Vector2<T>::normalized() const
+    Vector2<T> Vector2<T>::normalized() const
     {
         return *this / static_cast<T>(length());
     }
 
 
     template<typename T>
-    inline Vector2<T> Vector2<T>::unitVector() const
+    Vector2<T> Vector2<T>::unitVector() const
     {
         return normalized();
     }
 
     template<typename T>
-    inline bool Vector2<T>::isNormalized() const
+    bool Vector2<T>::isNormalized() const
     {
         // LengthSquared returns double.
         // Also sqrt(1) == 1 so we don't need to do that
@@ -145,20 +146,20 @@ namespace pmath
     }
 
     template<typename T>
-    inline bool Vector2<T>::isUnitVector() const
+    bool Vector2<T>::isUnitVector() const
     {
         return isNormalized();
     }
 
     template<typename T>
-    inline Vector2<T> Vector2<T>::lerp(const Vector2<T>& vec1, const Vector2<T>& vec2, const T& t)
+    Vector2<T> Vector2<T>::lerp(const Vector2<T>& vec1, const Vector2<T>& vec2, const T& t)
     {
         return (1 - t) * vec1 + t * vec2;
     }
 
 
     template<typename T>
-    inline std::string pmath::Vector2<T>::toString() const
+    std::string pmath::Vector2<T>::toString() const
     {
         std::ostringstream stream;
         stream << *this;
@@ -171,44 +172,44 @@ namespace pmath
     #pragma region Operators
     // Comparison operators
     template<typename T>
-    inline bool Vector2<T>::operator ==(const Vector2<T>& right) const
+    bool Vector2<T>::operator ==(const Vector2<T>& right) const
     {
         return equals<T>(x, right.x) && equals<T>(y, right.y);
     }
 
     template<typename T>
-    inline bool Vector2<T>::operator !=(const Vector2<T>& right) const
+    bool Vector2<T>::operator !=(const Vector2<T>& right) const
     {
         return !(*this == right);
     }
 
     template<typename T>
-    inline bool Vector2<T>::operator >(const Vector2<T>& right) const
+    bool Vector2<T>::operator >(const Vector2<T>& right) const
     {
         return lengthSquared() > right.lengthSquared();
     }
 
     template<typename T>
-    inline bool Vector2<T>::operator <(const Vector2<T>& right) const
+    bool Vector2<T>::operator <(const Vector2<T>& right) const
     {
         return lengthSquared() < right.lengthSquared();
     }
 
     template<typename T>
-    inline bool Vector2<T>::operator >=(const Vector2<T>& right) const
+    bool Vector2<T>::operator >=(const Vector2<T>& right) const
     {
         return lengthSquared() >= right.lengthSquared();
     }
 
     template<typename T>
-    inline bool Vector2<T>::operator <=(const Vector2<T>& right) const
+    bool Vector2<T>::operator <=(const Vector2<T>& right) const
     {
         return lengthSquared() <= right.lengthSquared();
     }
 
     // Assingment operators
     template<typename T>
-    inline Vector2<T>& Vector2<T>::operator =(const Vector2<T>& right)
+    Vector2<T>& Vector2<T>::operator =(const Vector2<T>& right)
     {
         x = right.x;
         y = right.y;
@@ -217,7 +218,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Vector2<T>& Vector2<T>::operator +=(const Vector2<T>& right)
+    Vector2<T>& Vector2<T>::operator +=(const Vector2<T>& right)
     {
         x += right.x;
         y += right.y;
@@ -226,7 +227,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Vector2<T>& Vector2<T>::operator -=(const Vector2<T>& right)
+    Vector2<T>& Vector2<T>::operator -=(const Vector2<T>& right)
     {
         x -= right.x;
         y -= right.y;
@@ -235,7 +236,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Vector2<T>& Vector2<T>::operator *=(const T& right)
+    Vector2<T>& Vector2<T>::operator *=(const T& right)
     {
         x *= right;
         y *= right;
@@ -244,7 +245,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Vector2<T>& Vector2<T>::operator /=(const T& right)
+    Vector2<T>& Vector2<T>::operator /=(const T& right)
     {
         x /= right;
         y /= right;
@@ -255,43 +256,43 @@ namespace pmath
 
     // Arithmetic operators
     template<typename T>
-    inline Vector2<T> Vector2<T>::operator +(const Vector2<T>& right) const
+    Vector2<T> Vector2<T>::operator +(const Vector2<T>& right) const
     {
         return Vector2<T>(x + right.x, y + right.y);
     }
 
     template<typename T>
-    inline Vector2<T> Vector2<T>::operator -() const
+    Vector2<T> Vector2<T>::operator -() const
     {
         return Vector2<T>(-x, -y);
     }
 
     template<typename T>
-    inline Vector2<T> Vector2<T>::operator -(const Vector2<T>& right) const
+    Vector2<T> Vector2<T>::operator -(const Vector2<T>& right) const
     {
         return Vector2<T>(x - right.x, y - right.y);
     }   
 
     template<typename T>
-    inline Vector2<T> Vector2<T>::operator *(const T& right) const
+    Vector2<T> Vector2<T>::operator *(const T& right) const
     {
         return Vector2<T>(x * right, y * right);
     }
 
     template<typename T>
-    inline Vector2<T> Vector2<T>::operator /(const T& right) const
+    Vector2<T> Vector2<T>::operator /(const T& right) const
     {
         return Vector2<T>(x / right, y / right);
     }
 
     template<typename T>
-    inline Vector2<T> operator *(const T& left, const Vector2<T>& right)
+    Vector2<T> operator *(const T& left, const Vector2<T>& right)
     {
         return right * left;
     }
     
     template<typename T>
-    inline std::ostream& operator <<(std::ostream& out, const Vector2<T>& right)
+    std::ostream& operator <<(std::ostream& out, const Vector2<T>& right)
     {
         out << "(" << right.x << ", " << right.y << ")";
 
@@ -300,14 +301,14 @@ namespace pmath
 
     // Member access operators
     template<typename T>
-    inline T& Vector2<T>::operator [](const unsigned int index)
+    T& Vector2<T>::operator [](const unsigned int index)
     {
         assert(index < COMPONENTS);
         return (&x)[index];
     }
 
     template<typename T>
-    inline const T& Vector2<T>::operator [](const unsigned int index) const
+    const T& Vector2<T>::operator [](const unsigned int index) const
     {
         assert(index < COMPONENTS);
         return (&x)[index];

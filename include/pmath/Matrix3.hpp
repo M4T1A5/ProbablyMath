@@ -85,8 +85,8 @@ namespace pmath
 
 
         // Member access
-        Vector3<T>& operator [](const unsigned int index);
-        const Vector3<T>& operator [](const unsigned int index) const;
+        Vector3<T>& operator [](size_t index);
+        const Vector3<T>& operator [](size_t index) const;
         #pragma endregion
 
         static const unsigned int COLUMNS = 3;

@@ -1,3 +1,4 @@
+#pragma once
 #include "../Trigonometry.hpp"
 
 #include <cassert>
@@ -9,58 +10,58 @@ namespace pmath
     const Matrix2<T> Matrix2<T>::identity = Matrix2<T>();
 
     template<typename T>
-    inline Matrix2<T>::Matrix2()
+    Matrix2<T>::Matrix2()
         : r1(T(1), T(0)),
           r2(T(0), T(1))
     { }
 
     template<typename T>
-    inline Matrix2<T>::Matrix2(const T& a11, const T& a12,
+    Matrix2<T>::Matrix2(const T& a11, const T& a12,
                                const T& a21, const T& a22)
         : r1(a11, a12),
           r2(a21, a22)
     { }
 
     template<typename T>
-    inline Matrix2<T>::Matrix2(const Vector2<T>& row1, const Vector2<T>& row2)
+    Matrix2<T>::Matrix2(const Vector2<T>& row1, const Vector2<T>& row2)
         : r1(row1),
           r2(row2)
     { }
 
     template<typename T>
-    inline Matrix2<T>::Matrix2(const Matrix2<T>& matrix)
+    Matrix2<T>::Matrix2(const Matrix2<T>& matrix)
         : r1(matrix.r1),
           r2(matrix.r2)
     { }
 
     template<typename T>
     template<typename T2>
-    inline Matrix2<T>::Matrix2(const Matrix2<T2>& matrix)
+    Matrix2<T>::Matrix2(const Matrix2<T2>& matrix)
         : r1(matrix[0]),
           r2(matrix[1])
     { }
 
     template<typename T>
-    inline Matrix2<T>::~Matrix2()
+    Matrix2<T>::~Matrix2()
     { }
 
 
     // Public
 
     template<typename T>
-    inline bool Matrix2<T>::isIdentity() const
+    bool Matrix2<T>::isIdentity() const
     {
         return (*this) == identity;
     }
 
     template<typename T>
-    inline T Matrix2<T>::determinant() const
+    T Matrix2<T>::determinant() const
     {
         return (*this)[0][0] * (*this)[1][1] - (*this)[1][0] * (*this)[0][1];
     }
 
     template<typename T>
-    inline Matrix2<T> Matrix2<T>::transpose() const
+    Matrix2<T> Matrix2<T>::transpose() const
     {
         return Matrix2<T>((*this)[0][0], (*this)[1][0], (*this)[0][1], (*this)[1][1]);
     }
@@ -72,64 +73,64 @@ namespace pmath
     }
 
     template<typename T>
-    inline Matrix2<T> transpose(const Matrix2<T>& matrix)
+    Matrix2<T> transpose(const Matrix2<T>& matrix)
     {
         return matrix.transpose();
     }
 
     template<typename T>
-    inline Matrix2<T> Matrix2<T>::cofactor() const
+    Matrix2<T> Matrix2<T>::cofactor() const
     {
         return Matrix2<T>((*this)[1][1], -(*this)[1][0], -(*this)[0][1], (*this)[0][0]);
     }
 
     template<typename T>
-    inline Matrix2<T> Matrix2<T>::cofactor(const Matrix2<T>& matrix)
+    Matrix2<T> Matrix2<T>::cofactor(const Matrix2<T>& matrix)
     {
         return matrix.cofactor();
     }
 
     template<typename T>
-    inline Matrix2<T> Matrix2<T>::inverse() const
+    Matrix2<T> Matrix2<T>::inverse() const
     {
         assert(determinant() != 0);
         return (1 / determinant()) * cofactor().transpose();
     }
 
     template<typename T>
-    inline Matrix2<T> Matrix2<T>::inverse(const Matrix2<T>& matrix)
+    Matrix2<T> Matrix2<T>::inverse(const Matrix2<T>& matrix)
     {
         return matrix.inverse();
     }
 
     template<typename T>
-    inline const T* Matrix2<T>::ptr() const
+    const T* Matrix2<T>::ptr() const
     {
         return &(*this)[0][0];
     }
 
     template<typename T>
-    inline Matrix2<T> Matrix2<T>::createRotation(const T& angle)
+    Matrix2<T> Matrix2<T>::createRotation(const T& angle)
     {
         return Matrix2<T>(cos<T>(angle), -sin<T>(angle),
                           sin<T>(angle), cos<T>(angle));
     }
 
     template<typename T>
-    inline Matrix2<T> Matrix2<T>::createScaling(const T& x, const T& y)
+    Matrix2<T> Matrix2<T>::createScaling(const T& x, const T& y)
     {
         return Matrix2<T>(x, 0,
                           0, y);
     }
 
     template<typename T>
-    inline Matrix2<T> Matrix2<T>::createScaling(const Vector2<T>& scale)
+    Matrix2<T> Matrix2<T>::createScaling(const Vector2<T>& scale)
     {
         return createScaling(scale.x, scale.y);
     }
 
     template<typename T>
-    inline std::string pmath::Matrix2<T>::toString() const
+    std::string pmath::Matrix2<T>::toString() const
     {
         std::ostringstream stream;
         stream << *this;
@@ -141,13 +142,13 @@ namespace pmath
     #pragma region Operators
     // Comparison
     template<typename T>
-    inline bool Matrix2<T>::operator ==(const Matrix2<T>& right) const
+    bool Matrix2<T>::operator ==(const Matrix2<T>& right) const
     {
         return r1 == right.r1 && r2 == right.r2;
     }
 
     template<typename T>
-    inline bool Matrix2<T>::operator !=(const Matrix2<T>& right) const
+    bool Matrix2<T>::operator !=(const Matrix2<T>& right) const
     {
         return !(*this == right);
     }
@@ -155,7 +156,7 @@ namespace pmath
 
     // Assignment
     template<typename T>
-    inline Matrix2<T>& Matrix2<T>::operator =(const Matrix2<T>& right)
+    Matrix2<T>& Matrix2<T>::operator =(const Matrix2<T>& right)
     {
         r1 = right.r1;
         r2 = right.r2;
@@ -164,7 +165,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Matrix2<T>& Matrix2<T>::operator +=(const Matrix2<T>& right)
+    Matrix2<T>& Matrix2<T>::operator +=(const Matrix2<T>& right)
     {
         r1 += right.r1;
         r2 += right.r2;
@@ -173,7 +174,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Matrix2<T>& Matrix2<T>::operator -=(const Matrix2<T>& right)
+    Matrix2<T>& Matrix2<T>::operator -=(const Matrix2<T>& right)
     {
         r1 -= right.r1;
         r2 -= right.r2;
@@ -182,7 +183,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Matrix2<T>& Matrix2<T>::operator *=(const T& right)
+    Matrix2<T>& Matrix2<T>::operator *=(const T& right)
     {
         r1 *= right;
         r2 *= right;
@@ -191,7 +192,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Matrix2<T>& Matrix2<T>::operator *=(const Matrix2& right)
+    Matrix2<T>& Matrix2<T>::operator *=(const Matrix2& right)
     {
         *this = *this * right;
 
@@ -199,7 +200,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Matrix2<T>& Matrix2<T>::operator /=(const T& right)
+    Matrix2<T>& Matrix2<T>::operator /=(const T& right)
     {
         r1 /= right;
         r2 /= right;
@@ -210,19 +211,19 @@ namespace pmath
 
     // Arithmetic
     template<typename T>
-    inline Matrix2<T> Matrix2<T>::operator +(const Matrix2<T>& right) const
+    Matrix2<T> Matrix2<T>::operator +(const Matrix2<T>& right) const
     {
         return Matrix2<T>(r1 + right.r1, r2 + right.r2);
     }
 
     template<typename T>
-    inline Matrix2<T> Matrix2<T>::operator -(const Matrix2<T>& right) const
+    Matrix2<T> Matrix2<T>::operator -(const Matrix2<T>& right) const
     {
         return Matrix2<T>(r1 - right.r1, r2 - right.r2);
     }
 
     template<typename T>
-    inline Matrix2<T> Matrix2<T>::operator *(const Matrix2<T>& right) const
+    Matrix2<T> Matrix2<T>::operator *(const Matrix2<T>& right) const
     {
         const T L[ROWS][COLUMNS] =
         {
@@ -259,13 +260,13 @@ namespace pmath
     }
 
     template<typename T>
-    inline Matrix2<T> Matrix2<T>::operator *(const T& right) const
+    Matrix2<T> Matrix2<T>::operator *(const T& right) const
     {
         return Matrix2<T>(r1 * right, r2 * right);
     }
 
     template<typename T>
-    inline Vector2<T> Matrix2<T>::operator *(const Vector2<T>& right) const
+    Vector2<T> Matrix2<T>::operator *(const Vector2<T>& right) const
     {
         return Vector2<T>
             (
@@ -275,7 +276,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Matrix2<T> Matrix2<T>::operator /(const T& right) const
+    Matrix2<T> Matrix2<T>::operator /(const T& right) const
     {
         return Matrix2<T>(r1 / right, r2 / right);
     }
@@ -283,14 +284,14 @@ namespace pmath
 
     // Member access
     template<typename T>
-    inline Vector2<T>& Matrix2<T>::operator [](const unsigned int index)
+    Vector2<T>& Matrix2<T>::operator [](size_t index)
     {
         assert(index < ROWS);
         return (&r1)[index];
     }
 
     template<typename T>
-    inline const Vector2<T>& Matrix2<T>::operator [](const unsigned int index) const
+    const Vector2<T>& Matrix2<T>::operator [](size_t index) const
     {
         assert(index < ROWS);
         return (&r1)[index];
@@ -299,13 +300,13 @@ namespace pmath
 
     // Friends
     template<typename T>
-    inline Matrix2<T> operator *(const T& left, const Matrix2<T>& right)
+    Matrix2<T> operator *(const T& left, const Matrix2<T>& right)
     {
         return right * left;
     }
 
     template<typename T>
-    inline Vector2<T>& operator *=(Vector2<T>& left, const Matrix2<T>& right)
+    Vector2<T>& operator *=(Vector2<T>& left, const Matrix2<T>& right)
     {
         left = right * left;
 
@@ -313,7 +314,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline std::ostream& operator<<(std::ostream& out, const Matrix2<T>& right)
+    std::ostream& operator<<(std::ostream& out, const Matrix2<T>& right)
     {
         for (size_t i = 0; i < Matrix2<T>::ROWS; ++i)
         {

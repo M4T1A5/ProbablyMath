@@ -1,3 +1,4 @@
+#pragma once
 #include "../Util.hpp"
 #include "../Trigonometry.hpp"
 #include <sstream>
@@ -8,37 +9,37 @@ namespace pmath
     const Quaternion<T> Quaternion<T>::identity = Quaternion<T>();
 
     template<typename T>
-    inline Quaternion<T>::Quaternion()
+    Quaternion<T>::Quaternion()
         : w(T(1))
     { }
 
     template<typename T>
-    inline Quaternion<T>::Quaternion(const T& w, const T& x, const T& y, const T& z)
+    Quaternion<T>::Quaternion(const T& w, const T& x, const T& y, const T& z)
         : w(w),
           vector(x, y, z)
     { }
 
     template<typename T>
-    inline Quaternion<T>::Quaternion(const T& w, const Vector3<T>& vector)
+    Quaternion<T>::Quaternion(const T& w, const Vector3<T>& vector)
         : w(w),
           vector(vector)
     { }
 
     template<typename T>
-    inline Quaternion<T>::Quaternion(const Quaternion<T>& quaternion)
+    Quaternion<T>::Quaternion(const Quaternion<T>& quaternion)
         : w(quaternion.w),
           vector(quaternion.vector)
     { }
 
     template<typename T>
     template<typename T2>
-    inline Quaternion<T>::Quaternion(const Quaternion<T2>& quaternion)
+    Quaternion<T>::Quaternion(const Quaternion<T2>& quaternion)
         : w(static_cast<T>(quaternion.w)),
           vector(quaternion.vector)
     { }
 
     template<typename T>
-    inline Quaternion<T>::Quaternion(const Matrix3<T>& matrix)
+    Quaternion<T>::Quaternion(const Matrix3<T>& matrix)
     {
         if(matrix[0][0] + matrix[1][1] + matrix[2][2] > 0)
         {
@@ -83,75 +84,75 @@ namespace pmath
     }
 
     template<typename T>
-    inline Quaternion<T>::Quaternion(const Matrix4<T>& matrix)
+    Quaternion<T>::Quaternion(const Matrix4<T>& matrix)
     {
         *this = Quaternion(matrix.getMatrix3(3, 3));
     }
 
     template<typename T>
-    inline Quaternion<T>::~Quaternion()
+    Quaternion<T>::~Quaternion()
     { }
 
 
     // Public
 
     template<typename T>
-    inline bool Quaternion<T>::isIdentity() const
+    bool Quaternion<T>::isIdentity() const
     {
         return *this == identity;
     }
 
     template<typename T>
-    inline T Quaternion<T>::dot(const Quaternion<T>& other) const
+    T Quaternion<T>::dot(const Quaternion<T>& other) const
     {
         return w * other.w + vector.dot(other.vector);
     }
 
     template<typename T>
-    inline T Quaternion<T>::dot(const Quaternion<T>& quat1, const Quaternion<T>& quat2)
+    T Quaternion<T>::dot(const Quaternion<T>& quat1, const Quaternion<T>& quat2)
     {
         return quat1.dot(quat2);
     }
 
     template<typename T>
-    inline double Quaternion<T>::lengthSquared() const
+    double Quaternion<T>::lengthSquared() const
     {
         return w*w + vector.lengthSquared();
     }
 
     template<typename T>
-    inline double Quaternion<T>::length() const
+    double Quaternion<T>::length() const
     {
         return sqrt(lengthSquared());
     }
 
     template<typename T>
-    inline Quaternion<T> Quaternion<T>::conjugate() const
+    Quaternion<T> Quaternion<T>::conjugate() const
     {
         return Quaternion<T>(w, -vector);
     }
 
     template<typename T>
-    inline Quaternion<T> Quaternion<T>::inverse() const
+    Quaternion<T> Quaternion<T>::inverse() const
     {
         // Quaternion inverse is conjugate / |q|^2
         return conjugate() / static_cast<T>(lengthSquared());
     }
 
     template<typename T>
-    inline Quaternion<T>& Quaternion<T>::normalize()
+    Quaternion<T>& Quaternion<T>::normalize()
     {
         return *this = unitQuaternion();
     }
 
     template<typename T>
-    inline Quaternion<T> Quaternion<T>::unitQuaternion() const
+    Quaternion<T> Quaternion<T>::unitQuaternion() const
     {
         return *this / static_cast<T>(length());
     }
 
     template<typename T>
-    inline Matrix3<T> Quaternion<T>::toMatrix3() const
+    Matrix3<T> Quaternion<T>::toMatrix3() const
     {
         const double l = length();
         const T s = static_cast<T>(equals<double>(l, 0) ? 0 : 2 / l);
@@ -175,13 +176,13 @@ namespace pmath
     }
 
     template<typename T>
-    inline Matrix4<T> Quaternion<T>::toMatrix4() const
+    Matrix4<T> Quaternion<T>::toMatrix4() const
     {
         return Matrix4<T>(toMatrix3());
     }
 
     template<typename T>
-    inline bool Quaternion<T>::isUnitQuaternion() const
+    bool Quaternion<T>::isUnitQuaternion() const
     {
         // LengthSquared returns double.
         // Also sqrt(1) == 1 so we don't need to do that
@@ -189,32 +190,32 @@ namespace pmath
     }
 
     template<typename T>
-    inline Quaternion<T> Quaternion<T>::createRotation(const Vector3<T>& axis, const T& angle)
+    Quaternion<T> Quaternion<T>::createRotation(const Vector3<T>& axis, const T& angle)
     {
         const T l = static_cast<T>(axis.length());
         return Quaternion<T>(cos<T>(angle/2), (sin<T>(angle/2) / l) * axis);
     }
 
     template<typename T>
-    inline Quaternion<T> Quaternion<T>::createRotationX(const T& angle)
+    Quaternion<T> Quaternion<T>::createRotationX(const T& angle)
     {
         return createRotation(Vector3<T>(1, 0, 0), angle);
     }
 
     template<typename T>
-    inline Quaternion<T> Quaternion<T>::createRotationY(const T& angle)
+    Quaternion<T> Quaternion<T>::createRotationY(const T& angle)
     {
         return createRotation(Vector3<T>(0, 1, 0), angle);
     }
 
     template<typename T>
-    inline Quaternion<T> Quaternion<T>::createRotationZ(const T& angle)
+    Quaternion<T> Quaternion<T>::createRotationZ(const T& angle)
     {
         return createRotation(Vector3<T>(0, 0, 1), angle);
     }
 
     template<typename T>
-    inline Quaternion<T> Quaternion<T>::slerp(const Quaternion<T>& q1, const Quaternion<T>& q2, const T& t)
+    Quaternion<T> Quaternion<T>::slerp(const Quaternion<T>& q1, const Quaternion<T>& q2, const T& t)
     {
         assert(q1.isUnitQuaternion() && q2.isUnitQuaternion());
 
@@ -237,58 +238,58 @@ namespace pmath
     #pragma region Operators
     // Comparison
     template<typename T>
-    inline bool Quaternion<T>::operator ==(const Quaternion<T>& right) const
+    bool Quaternion<T>::operator ==(const Quaternion<T>& right) const
     {
         return equals<T>(w, right.w) && vector == right.vector;
     }
 
     template<typename T>
-    inline bool Quaternion<T>::operator !=(const Quaternion<T>& right) const
+    bool Quaternion<T>::operator !=(const Quaternion<T>& right) const
     {
         return !(*this == right);
     }
 
     // Arithmetic
     template<typename T>
-    inline Quaternion<T> Quaternion<T>::operator +(const Quaternion<T>& right) const
+    Quaternion<T> Quaternion<T>::operator +(const Quaternion<T>& right) const
     {
         return Quaternion<T>(w + right.w, vector + right.vector);
     }
 
     template<typename T>
-    inline Quaternion<T> Quaternion<T>::operator -(const Quaternion<T>& right) const
+    Quaternion<T> Quaternion<T>::operator -(const Quaternion<T>& right) const
     {
         return Quaternion<T>(w - right.w, vector - right.vector);
     }
 
     template<typename T>
-    inline Quaternion<T> Quaternion<T>::operator -() const
+    Quaternion<T> Quaternion<T>::operator -() const
     {
         return Quaternion<T>(-w , -vector);
     }
 
     template<typename T>
-    inline Quaternion<T> Quaternion<T>::operator *(const Quaternion<T>& right) const
+    Quaternion<T> Quaternion<T>::operator *(const Quaternion<T>& right) const
     {
         return Quaternion<T>(w * right.w - vector.dot(right.vector),
             w * right.vector + right.w*vector + vector.cross(right.vector));
     }
 
     template<typename T>
-    inline Quaternion<T> Quaternion<T>::operator *(const T& right) const
+    Quaternion<T> Quaternion<T>::operator *(const T& right) const
     {
         return Quaternion<T>(w * right, vector * right);
     }
 
     template<typename T>
-    inline Quaternion<T> Quaternion<T>::operator /(const T& right) const
+    Quaternion<T> Quaternion<T>::operator /(const T& right) const
     {
         return Quaternion<T>(w / right, vector / right);
     }
 
     // Assignment
     template<typename T>
-    inline Quaternion<T>& Quaternion<T>::operator =(const Quaternion<T>& right)
+    Quaternion<T>& Quaternion<T>::operator =(const Quaternion<T>& right)
     {
         w = right.w;
         vector = right.vector;
@@ -297,7 +298,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Quaternion<T>& Quaternion<T>::operator +=(const Quaternion<T>& right)
+    Quaternion<T>& Quaternion<T>::operator +=(const Quaternion<T>& right)
     {
         *this = *this + right;
 
@@ -305,7 +306,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Quaternion<T>& Quaternion<T>::operator -=(const Quaternion<T>& right)
+    Quaternion<T>& Quaternion<T>::operator -=(const Quaternion<T>& right)
     {
         *this = *this - right;
 
@@ -313,7 +314,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Quaternion<T>& Quaternion<T>::operator *=(const Quaternion<T>& right)
+    Quaternion<T>& Quaternion<T>::operator *=(const Quaternion<T>& right)
     {
         *this = *this * right;
 
@@ -321,7 +322,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Quaternion<T>& Quaternion<T>::operator *=(const T& right)
+    Quaternion<T>& Quaternion<T>::operator *=(const T& right)
     {
         *this = *this * right;
 
@@ -329,7 +330,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Quaternion<T>& Quaternion<T>::operator /=(const T& right)
+    Quaternion<T>& Quaternion<T>::operator /=(const T& right)
     {
         *this = *this / right;
 
@@ -337,13 +338,13 @@ namespace pmath
     }
 
     template<typename T>
-    inline Quaternion<T> operator *(const T& left, const Quaternion<T>& right)
+    Quaternion<T> operator *(const T& left, const Quaternion<T>& right)
     {
         return right * left;
     }
 
     template<typename T>
-    inline Vector3<T> operator *(const Vector3<T>& left, const Quaternion<T>& right)
+    Vector3<T> operator *(const Vector3<T>& left, const Quaternion<T>& right)
     {
         const Vector3<T> rightleftCross = right.vector.cross(left);
 
@@ -351,14 +352,14 @@ namespace pmath
     }
 
     template<typename T>
-    inline Vector3<T> operator *(const Quaternion<T>& left, const Vector3<T>& right)
+    Vector3<T> operator *(const Quaternion<T>& left, const Vector3<T>& right)
     {
         return right * left;
     }
 
     // Multiply a homogeneous vector e.g. (x,y,z,1)
     template<typename T>
-    inline Vector4<T> operator *(const Vector4<T>& left, const Quaternion<T>& right)
+    Vector4<T> operator *(const Vector4<T>& left, const Quaternion<T>& right)
     {
         // Extract x, y and z
         const Vector3<T> vec3(left.x, left.y, left.z);
@@ -367,13 +368,13 @@ namespace pmath
     }
 
     template<typename T>
-    inline Vector4<T> operator *(const Quaternion<T>& left, const Vector4<T>& right)
+    Vector4<T> operator *(const Quaternion<T>& left, const Vector4<T>& right)
     {
         return right * left;
     }
     
     template<typename T>
-    inline Vector3<T>& operator *=(Vector3<T>& left, const Quaternion<T>& right)
+    Vector3<T>& operator *=(Vector3<T>& left, const Quaternion<T>& right)
     {
         left = left * right;
 
@@ -381,7 +382,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline Vector4<T>& operator *=(Vector4<T>& left, const Quaternion<T>& right)
+    Vector4<T>& operator *=(Vector4<T>& left, const Quaternion<T>& right)
     {
         left = left * right;
 
@@ -389,7 +390,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline std::ostream& operator<<(std::ostream& out, const Quaternion<T>& right)
+    std::ostream& operator<<(std::ostream& out, const Quaternion<T>& right)
     {
         out << "Quat(" << right.w << ", " << right.vector << ")";
 

@@ -91,8 +91,8 @@ namespace pmath
 
 
         // Member access
-        Vector4<T>& operator [](const unsigned int index);
-        const Vector4<T>& operator [](const unsigned int index) const;
+        Vector4<T>& operator [](size_t index);
+        const Vector4<T>& operator [](size_t index) const;
         #pragma endregion
 
         static const unsigned int COLUMNS = 4;
