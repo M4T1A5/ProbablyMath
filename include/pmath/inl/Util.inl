@@ -1,25 +1,22 @@
+#pragma once
 #include <cmath>
 
 namespace pmath
 {
     template<typename T>
-#if _MSC_VER > 1600 || !defined(_MSC_VER)
-    inline bool equals(const T a, const T b, const T tolerance)
-#elif MSC_VER <= 1600
-    inline bool equals(const T a, const T b, const T tolerance = T(0.001))
-#endif
+    bool equals(const T a, const T b, const T tolerance)
     {
         return abs(a - b) <= tolerance;
     }
 
     template<typename T>
-    inline T abs(const T& value)
+    T abs(const T& value)
     {
         return std::abs(value);
     }
 
     template<typename T>
-    inline T max(const T& a, const T& b)
+    T max(const T& a, const T& b)
     {
         if (a > b)
             return a;
@@ -28,7 +25,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline T min(const T& a, const T& b)
+    T min(const T& a, const T& b)
     {
         if (a < b)
             return a;
@@ -37,7 +34,7 @@ namespace pmath
     }
 
     template<typename T>
-    inline T clamp(const T& value, const T& min, const T& max)
+    T clamp(const T& value, const T& min, const T& max)
     {
         if (value > max)
             return max;
@@ -48,7 +45,7 @@ namespace pmath
     }
 
     template<typename T, typename T2>
-    inline T lerp(const T& a, const T& b, const T2& t)
+    T lerp(const T& a, const T& b, const T2& t)
     {
         return (1 - t) * a + t * b;
     }
